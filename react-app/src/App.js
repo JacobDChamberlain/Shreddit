@@ -41,7 +41,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>Shreddit, brah</h1>
+          <h1>Heroku, why you gotta do me like this</h1>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
