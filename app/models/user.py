@@ -1,4 +1,5 @@
 from .db import db
+from .follow import Follow
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -14,6 +15,7 @@ class User(db.Model, UserMixin):
 
     communities = db.relationship('Community', back_populates='user')
     posts = db.relationship('Post', back_populates='user')
+    member_of = db.relationship('Follow', foreign_keys=[Follow.community_id], back_populates='member')
 
     @property
     def password(self):

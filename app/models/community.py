@@ -1,4 +1,5 @@
 from .db import db
+from .follow import Follow
 
 class Community(db.Model):
     __tablename__ = 'communities'
@@ -14,6 +15,7 @@ class Community(db.Model):
 
     user = db.relationship('User', back_populates='communities')
     posts = db.relationship('Post', back_populates='community', cascade='delete, all')
+    members = db.relationship('Follow', foreign_keys=[Follow.user_id], back_populates='community')
 
     def to_dict(self):
         return {
