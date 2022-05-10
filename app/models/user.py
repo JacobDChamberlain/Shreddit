@@ -12,6 +12,9 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     profile_pic = db.Column(db.String(5000))
 
+    communities = db.relationship('Community', back_populates='user')
+    posts = db.relationship('Post', back_populates='user')
+
     @property
     def password(self):
         return self.hashed_password

@@ -13,6 +13,7 @@ class Community(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now(), server_onupdate=db.func.now())
 
     user = db.relationship('User', back_populates='communities')
+    posts = db.relationship('Post', back_populates='community', cascade='delete, all')
 
     def to_dict(self):
         return {
