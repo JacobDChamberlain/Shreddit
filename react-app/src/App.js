@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import LoadAllCommunities from './components/Communities/Community';
+import Home from './components/Home/Home';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar className='navigation-bar' />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -44,7 +45,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>Shreddit, brah</h1>
+          <Home />
         </ProtectedRoute>
         <ProtectedRoute path='/communities' exact={true}>
           <LoadAllCommunities />

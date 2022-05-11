@@ -1,1 +1,17 @@
 /* TODO Add site wide styles */
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #DAE0E6;
+}
+
+.navlinks-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: content-box;
+    padding: 0 20px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #EDEFF1;
+    height: 40px;
+}
