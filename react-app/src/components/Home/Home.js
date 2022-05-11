@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { getAllCommunities } from "../../store/communities";
 import LoadAllCommunities from "../Communities/Community";
+import CreateCommunityFormModal from "../CreateCommunityModal";
 import './Home.css'
 
 const Home = () => {
@@ -12,6 +13,8 @@ const Home = () => {
 
     const currentUser = useSelector(state => state.session.user)
     const communities = Object.values(useSelector(state => state.communities))
+
+    const [showModal, setShowModal] = useState(false);
 
 
     useEffect(() => {
@@ -26,6 +29,12 @@ const Home = () => {
     const handleTryNow = (e) => {
         e.preventDefault();
         window.location.href ="https://cash.app/$traightlegmusic"
+    }
+
+    const createCommunity = (e) => {
+        e.preventDefault();
+        setShowModal(true);
+        history.push('/communities/new');
     }
 
     return (
@@ -75,7 +84,7 @@ const Home = () => {
                         <h4>Home</h4>
                         <p>Your personal Shreddit frontpage. Come<br/>here to check in with your favorite<br/>communities.</p>
                         <button className="create-post-home-button">Create Post</button>
-                        <button className="create-community-home-button">Create Community</button>
+                        <CreateCommunityFormModal />
                     </div>
                 </div>
             </div>

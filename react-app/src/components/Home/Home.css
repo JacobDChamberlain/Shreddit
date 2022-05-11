@@ -149,3 +149,79 @@
     box-sizing: border-box;
     border: 1px solid #0079D3;
 }
+
+.create-community-form {
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    width: 511px;
+    height: 529px;
+    font-size: 14px;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 17px;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: space-evenly;
+    margin-top: 12px;
+    padding: 4px 16px;
+    min-height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #0079D3;
+}
+
+.create-community-form-header {
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.community-form-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.cancel-create-community-button {
+    border-radius: 9999px;
+    color: #0079D3;
+    color: rgb(0, 121, 211);
+    background-color: #FFFFFF;
+    width: 78px;
+    font-size: 14px;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 17px;
+    margin-top: 12px;
+    padding: 4px 16px;
+    min-height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #0079D3;
+}
+
+.create-community-form-button {
+    border-radius: 9999px;
+    color: #FFFFFF;
+    background-color: #0079D3;
+    width: 163px;
+    font-size: 14px;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 17px;
+    margin-top: 12px;
+    padding: 4px 16px;
+    min-height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+}
+
+.error-text {
+    color: red;
+}
