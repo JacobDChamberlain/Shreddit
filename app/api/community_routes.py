@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, Community
-from app.forms import CommunityForm
+from app.forms.community_form import CommunityForm
 
 community_routes = Blueprint('communities', __name__)
 
@@ -33,3 +33,24 @@ def create_community():
         db.session.add(community)
         db.session.commit()
         return community.to_dict()
+
+@community_routes.route('/<int:id>', methods=['PUT'])
+def update_community(id):
+    community_to_update = Community.query.get(id)
+
+    form = CommunityForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        form.populate_obj(community_to_update)
+
+        db.session.add(community_to_update)
+        db.session.commit()
+        return community_to_update.to_dict()
+
+@community_routes.route('/<int:id>', methods=['DELETE'])
+def delete_community(id):
+    community_to_delete = Community.query.get(id)
+    db.session.delete(community_to_delete)
+    db.session.commit()
+    return community_to_delete.to_dict()
