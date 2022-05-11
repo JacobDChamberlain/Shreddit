@@ -13,6 +13,8 @@ const Home = () => {
     const currentUser = useSelector(state => state.session.user)
     const communities = Object.values(useSelector(state => state.communities))
 
+    const [showModal, setShowModal] = useState(false);
+
 
     useEffect(() => {
         dispatch(getAllCommunities())
@@ -26,6 +28,11 @@ const Home = () => {
     const handleTryNow = (e) => {
         e.preventDefault();
         window.location.href ="https://cash.app/$traightlegmusic"
+    }
+
+    const createCommunity = (e) => {
+        e.preventDefault();
+        setShowModal(true);
     }
 
     return (
@@ -75,7 +82,7 @@ const Home = () => {
                         <h4>Home</h4>
                         <p>Your personal Shreddit frontpage. Come<br/>here to check in with your favorite<br/>communities.</p>
                         <button className="create-post-home-button">Create Post</button>
-                        <button className="create-community-home-button">Create Community</button>
+                        <button onClick={createCommunity} className="create-community-home-button">Create Community</button>
                     </div>
                 </div>
             </div>
