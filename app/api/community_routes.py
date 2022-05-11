@@ -5,6 +5,7 @@ from app.forms.community_form import CommunityForm
 
 community_routes = Blueprint('communities', __name__)
 
+
 @community_routes.route('/')
 def get_all_communities():
     communities = Community.query.all()
@@ -12,10 +13,12 @@ def get_all_communities():
     # communities = Community.query.order_by(Community.id.desc()).all()
     return jsonify([community.to_dict() for community in communities])
 
+
 @community_routes.route('/<int:id>')
 def get_one_community(id):
     community = Community.query.get(id)
     return community.to_dict()
+
 
 @community_routes.route('/', methods=['POST'])
 def create_community():
@@ -34,6 +37,7 @@ def create_community():
         db.session.commit()
         return community.to_dict()
 
+
 @community_routes.route('/<int:id>', methods=['PUT'])
 def update_community(id):
     community_to_update = Community.query.get(id)
@@ -47,6 +51,7 @@ def update_community(id):
         db.session.add(community_to_update)
         db.session.commit()
         return community_to_update.to_dict()
+
 
 @community_routes.route('/<int:id>', methods=['DELETE'])
 def delete_community(id):
