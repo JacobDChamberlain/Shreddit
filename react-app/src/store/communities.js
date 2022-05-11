@@ -37,6 +37,8 @@ export const getAllCommunities = () => async (dispatch) => {
 
     const res = await fetch('/api/communities')
 
+    console.log("res---->", res)
+
     if (res.ok) {
         const communities = await res.json()
 
