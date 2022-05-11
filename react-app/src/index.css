@@ -15,3 +15,14 @@ body {
     border-bottom: 1px solid #EDEFF1;
     height: 40px;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    padding: 0 20px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #EDEFF1;
+}
