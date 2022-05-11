@@ -21,6 +21,7 @@ const LoadAllCommunities = () => {
                 <div key={community.id}>
                     {community.name}
                     <ul>
+                        <li>Created By: {community.username}</li>
                         <li>Category: {community.category}</li>
                         <li>Description: {community.description}</li>
                         <img src={community.community_pic}></img>

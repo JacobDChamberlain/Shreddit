@@ -10,6 +10,8 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import LoadAllCommunities from './components/Communities/Community';
 import Home from './components/Home/Home';
+import CreateCommunityForm from './components/CreateCommunityModal/CreateCommunityForm';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,6 +51,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/communities' exact={true}>
           <LoadAllCommunities />
+        </ProtectedRoute>
+        <ProtectedRoute path='/communities/new' exact={true}>
+          <CreateCommunityForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

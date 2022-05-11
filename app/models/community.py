@@ -25,6 +25,7 @@ class Community(db.Model):
             'community_pic': self.community_pic,
             'category': self.category,
             'user_id': self.user_id,
+            'username': self.user.username,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }

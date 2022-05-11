@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(10px);
+    border-radius: 40px;
 }
 
 #modal-background {
@@ -23,7 +24,6 @@
     display: flex;
     position: relative;
     border-radius: 10px;
-    background-color: rgb(249, 240, 214);
     text-align: center;
     justify-content: center;
     align-content: center;
