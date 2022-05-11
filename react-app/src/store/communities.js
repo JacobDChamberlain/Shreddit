@@ -35,9 +35,7 @@ const deleteOne = (community) =>({
 
 export const getAllCommunities = () => async (dispatch) => {
 
-    const res = await fetch('/api/communities')
-
-    console.log("res---->", res)
+    const res = await fetch('/api/communities/')
 
     if (res.ok) {
         const communities = await res.json()
@@ -63,7 +61,7 @@ export const getOneCommunity = (community_id) => async (dispatch) => {
 
 export const createCommunity = (community) => async (dispatch) => {
 
-    const res = await fetch('/api/communities', {
+    const res = await fetch('/api/communities/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(community)
