@@ -42,7 +42,7 @@ export const getAllCommunities = () => async (dispatch) => {
 
         dispatch(getAll(communities))
 
-        return communities;
+        return communities
     }
 }
 
@@ -55,7 +55,7 @@ export const getOneCommunity = (community_id) => async (dispatch) => {
 
         dispatch(getOne(community))
 
-        return community;
+        return community
     }
 }
 
@@ -72,7 +72,7 @@ export const createCommunity = (community) => async (dispatch) => {
 
         dispatch(createOne(newCommunity))
 
-        return newCommunity;
+        return newCommunity
     }
 }
 
@@ -89,7 +89,7 @@ export const updateCommunity = (community) => async (dispatch) => {
 
         dispatch(updateOne(updatedCommunity))
 
-        return updatedCommunity;
+        return updatedCommunity
     }
 }
 
@@ -102,7 +102,7 @@ export const deleteCommunity = (community_id) => async (dispatch) => {
 
         dispatch(deleteOne(deletedCommunity))
 
-        return deletedCommunity;
+        return deletedCommunity
     }
 }
 
