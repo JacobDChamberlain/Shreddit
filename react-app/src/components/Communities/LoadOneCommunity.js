@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getAllCommunities, getOneCommunity, updateCommunity } from "../../store/communities";
+import { useHistory, useParams } from "react-router-dom";
+import { deleteCommunity, getAllCommunities, getOneCommunity, updateCommunity } from "../../store/communities";
 import './Communities.css'
 
 
 const LoadOneCommunity = () => {
     const {name} = useParams();
 
-    const communities = Object.values(useSelector(state => state.communities))
+    const communities = useSelector(state => Object.values(state.communities))
     const currentUser = useSelector(state => state.session.user)
 
     let community;
@@ -22,19 +22,19 @@ const LoadOneCommunity = () => {
     // console.log("community------->", community)
 
     const [showEditForm, setShowEditForm] = useState(false)
+    const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
     const [description, setDescription] = useState("")
     const [showErrors, setShowErrors] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
-    useEffect(() => {
-        dispatch(getAllCommunities())
-    }, [dispatch])
 
     useEffect(() => {
         dispatch(getOneCommunity(community?.id))
+        dispatch(getAllCommunities())
     }, [dispatch])
 
     useEffect(() => {
@@ -47,6 +47,17 @@ const LoadOneCommunity = () => {
 
     const handleEdit = () => {
         setShowEditForm(!showEditForm)
+    }
+
+    const handleDeleteConfirmation = () => {
+        setShowDeleteConfirmation(!showDeleteConfirmation)
+    }
+
+    const handleDelete = () => {
+        const communityId = community?.id
+        dispatch(deleteCommunity(communityId))
+        console.log(community.id)
+        history.push("/")
     }
 
     const handleSubmitEdit = async (e) => {
@@ -112,34 +123,46 @@ const LoadOneCommunity = () => {
                     <div className="about-community-container">
                         <div className="about-community-header">
                             <h4>About Community</h4>
-                            <button hidden={currentUser.username === community?.username ? false : true} className="edit-community-button" onClick={handleEdit}>{showEditForm ? "Cancel" : "Edit"}</button>
+                            <button hidden={currentUser.username === community?.username ? false : true} className="edit-community-button" onClick={handleEdit}>{showEditForm ? "Cancel" : "Update"}</button>
+                            <button hidden={currentUser.username === community?.username ? false : true} className="delete-community-button" onClick={handleDeleteConfirmation}>{showDeleteConfirmation ? "Cancel" : "Delete"}</button>
                         </div>
                         <div>{showEditForm &&
-                            <form>
+                            <form className="edit-community-form">
                                 {showErrors && <div>
                                     {validationErrors.map((error, idx) => (
                                         <div className="error-text" key={idx}>{error}</div>
                                     ))}
                                 </div>}
                                 <label>
-                                    Description: {' '}
-                                    <input
-                                        type='text'
+                                    New description: {' '}
+                                    <textarea
+
                                         name='description'
                                         onChange={e => setDescription(e.target.value)}
                                         defaultValue={community?.description}
                                     />
                                 </label>
-                                <button onClick={handleSubmitEdit}>Submit</button>
+                                <div className="edit-community-form-buttons">
+                                    <button>Cancel</button>
+                                    <button onClick={handleSubmitEdit}>Save</button>
+                                </div>
                             </form>}
                         </div>
-                        <ul>
+                        {!showDeleteConfirmation ? <ul>
                             <li>Description: {community?.description}</li>
                             <li>Created: {community?.created_at}</li>
                             <li>Created By: {community?.username}</li>
                             <li>Category: {community?.category}</li>
                             {community?.community_pic && <img className="community-image" src={community?.community_pic}></img>}
-                        </ul>
+                        </ul> :
+                        <div>
+                            <p>Are you sure you want to delete community {community?.name}?</p>
+                            <div className="confirm-delete-buttons">
+                                <button className="no-confirm-delete" onClick={() => setShowDeleteConfirmation(false)}>Naw</button>
+                                <button className="confirm-delete" onClick={handleDelete}>Yuh</button>
+                            </div>
+
+                        </div>}
                         <button className="create-post-home-button">Create Post</button>
                     </div>
                 </div>

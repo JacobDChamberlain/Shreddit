@@ -95,14 +95,12 @@ export const updateCommunity = (community) => async (dispatch) => {
 
 export const deleteCommunity = (community_id) => async (dispatch) => {
 
-    const res = await fetch(`/api/communities/${community_id}`, {
-        method: 'DELETE'
-    })
+    const res = await fetch(`/api/communities/${community_id}/delete`)
 
     if (res.ok) {
         const deletedCommunity = await res.json()
 
-        dispatch(deleteCommunity(deletedCommunity))
+        dispatch(deleteOne(deletedCommunity))
 
         return deletedCommunity;
     }
@@ -118,7 +116,7 @@ export default function communityReducer(state = initialState, action) {
 
     switch(action.type) {
         case GET_ALL_COMMUNITIES: {
-            newState = {...state};
+            newState = { ...state };
 
             action.communities.map(community => {
                 return newState[community.id] = community;
@@ -150,7 +148,10 @@ export default function communityReducer(state = initialState, action) {
         case DELETE_COMMUNITY: {
             newState = { ...state }
 
+            console.log("--1----",newState[action.community.id])
             delete newState[action.community.id];
+
+            console.log("--2----",newState[action.community.id])
 
             return newState;
         }
