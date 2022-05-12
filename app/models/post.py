@@ -4,8 +4,8 @@ class Post(db.Model):
     __tablename__ = 'posts'
 
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(300))
-    body = db.Column(db.String(4000))
+    title = db.Column(db.String(300), nullable=False)
+    body = db.Column(db.String(4000), nullable=False)
     image_url = db.Column(db.String(5000))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     community_id = db.Column(db.Integer, db.ForeignKey('communities.id'), nullable=False)
