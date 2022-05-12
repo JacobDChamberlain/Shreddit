@@ -60,11 +60,25 @@
     margin-top: 12px;
     margin-bottom: 12px;
     padding: 4px 16px;
-    min-height: 32px;
-    min-width: 32px;
     cursor: pointer;
     box-sizing: border-box;
     border: 1px solid #0079D3;
+}
+
+.delete-community-button {
+    border-radius: 9999px;
+    color: #FFFFFF;
+    background-color: orangered;
+    font-size: 14px;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 17px;
+    margin: 12px;
+    padding: 4px 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
 }
 
 .edit-community-form {
@@ -85,4 +99,17 @@
 .confirm-delete-buttons {
     display: flex;
     justify-content: space-around;
+}
+
+.confirm-delete {
+    border:none;
+    border-radius: 9999px;
+    background-color: orangered;
+    color:#FFFFFF
+}
+
+.no-confirm-delete {
+    border:none;
+    border-radius: 9999px;
+    color: #0079D3;
 }
