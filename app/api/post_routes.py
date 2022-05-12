@@ -22,13 +22,34 @@ def get_one_post(id):
 
 @post_routes.route('/', methods=['POST'])
 def create_post():
-    pass
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
 
+    if form.validate_on_submit():
+        newPost = Post(
+            title = form.data['title'],
+            body = form.data['body'],
+            image_url = form.data['image_url'],
+            user_id = form.data['user_id'],
+            community_id = form.data['community_id'],
+        )
+        db.session.add(newPost)
+        db.session.commit()
+        return newPost.to_dict()
 
 @post_routes.route('/<int:id>', methods=['PUT'])
 def update_post(id):
     post_to_update = Post.query.get(id)
-    pass
+
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        form.populate_obj(post_to_update)
+
+        db.session.add(post_to_update)
+        db.session.commit()
+        return post_to_update.to_dict()
 
 
 @post_routes.route('/<int:id>/delete')

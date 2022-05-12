@@ -26,6 +26,7 @@ def create_community():
     form['csrf_token'].data = request.cookies['csrf_token']
 
     communities = Community.query.all()
+    names = [community.name for community in communities]
 
     if form.validate_on_submit():
         newCommunity = Community(
@@ -35,8 +36,6 @@ def create_community():
             category = form.data['category'],
             user_id = form.data['user_id']
         )
-
-        names = [community.name for community in communities]
 
         if newCommunity.name in names:
             print("Community ", newCommunity.name, " already exists!")
