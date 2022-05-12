@@ -25,20 +25,27 @@ def create_community():
     form = CommunityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    # communities = Community.query.all()
+    communities = Community.query.all()
 
     if form.validate_on_submit():
-        community = Community(
+        newCommunity = Community(
             name = form.data['name'],
             description = form.data['description'],
             community_pic = form.data['community_pic'],
             category = form.data['category'],
             user_id = form.data['user_id']
         )
-        # print("communities---->", communities)
-        db.session.add(community)
-        db.session.commit()
-        return community.to_dict()
+
+        names = [community.name for community in communities]
+
+        if newCommunity.name in names:
+            print("Community ", newCommunity.name, " already exists!")
+            return
+        else:
+            db.session.add(newCommunity)
+            db.session.commit()
+            return newCommunity.to_dict()
+
 
 
 @community_routes.route('/<int:id>', methods=['PUT'])

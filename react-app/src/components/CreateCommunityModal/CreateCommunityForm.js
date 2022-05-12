@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { createCommunity } from "../../store/communities";
 
 
 const CreateCommunityForm = ({ showCommunityForm }) => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const currentUser = useSelector(state => state.session.user);
+    const communities = Object.values(useSelector(state => state.communities))
+    const communityNames = communities.map(community => community.name)
 
     const [validationErrors, setValidationErrors] = useState([]);
     const [showErrors, setShowErrors] = useState(false);
@@ -24,10 +24,10 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
 
         if (name.length === 0) errors.push("Please enter a name for your new community")
         if (name.length > 21) errors.push("Please keep community names under 21 characters.")
+        if (communityNames.includes(name)) errors.push(`Community ${name} already exists.`)
         if (name.includes(' ')) errors.push("Community names cannot have spaces.")
         if (description.length === 0) errors.push("Please enter a description for your community.")
         if (description.length > 500) errors.push("Please keep your description under 500 characters.")
-        // if (category.includes('--')) errors.push("Please select a category.")
 
         setValidationErrors(errors)
 
@@ -50,14 +50,12 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
             const data = await dispatch(createCommunity(community));
             showCommunityForm();
 
-            if (data && data.errors) {
-                setValidationErrors(data.errors)
+            if (data) {
+                setValidationErrors(data)
 
                 return
             } else {
                 setShowErrors(false)
-
-                // history.push('/')
             }
         } else {
             setShowErrors(true)
@@ -67,7 +65,6 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
     const handleCancel = (e) => {
         e.preventDefault();
         showCommunityForm(false);
-        // history.push('/')
     }
 
     return (
@@ -108,10 +105,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         name='category'
                         onChange={e => setCategory(e.target.value)}
                         value={category}
-                        required={true}
-                        // defaultValue={(e) =>setCategory(e.target.value)}
                     >
-                        {/* <option defaultValue>{'--'}</option> */}
                         <option selected value="Classical">Classical</option>
                         <option value="Jazz">Jazz</option>
                         <option value="Hair Metal">Hair Metal</option>
