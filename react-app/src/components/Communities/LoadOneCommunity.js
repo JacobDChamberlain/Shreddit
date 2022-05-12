@@ -63,7 +63,9 @@ const LoadOneCommunity = () => {
                 </div>
                 <div className="community-page-right">
                     <div className="about-community-container">
-                        <h4>About Community</h4>
+                        <div className="about-community-header">
+                            <h4>About Community</h4>
+                        </div>
                         <ul>
                             <li>Description: {community?.description}</li>
                             <li>Created: {community?.created_at}</li>

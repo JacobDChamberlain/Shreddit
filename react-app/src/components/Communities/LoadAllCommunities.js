@@ -27,7 +27,6 @@ const LoadAllCommunities = () => {
                     <ul>
                         <li>Created By: {community.username}</li>
                         <li>Category: {community.category}</li>
-
                         <img className='community-image' src={community.community_pic}></img>
                     </ul>
                 </div>
