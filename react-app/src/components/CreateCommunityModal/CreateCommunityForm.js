@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { createCommunity } from "../../store/communities";
 
 
 const CreateCommunityForm = ({ showCommunityForm }) => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const currentUser = useSelector(state => state.session.user);
+    const communities = Object.values(useSelector(state => state.communities))
+    const communityNames = communities.map(community => community.name)
 
     const [validationErrors, setValidationErrors] = useState([]);
     const [showErrors, setShowErrors] = useState(false);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [communityPic, setCommunityPic] = useState("");
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState("Classical");
 
     useEffect(() => {
 
@@ -24,12 +24,14 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
 
         if (name.length === 0) errors.push("Please enter a name for your new community")
         if (name.length > 21) errors.push("Please keep community names under 21 characters.")
+        if (communityNames.includes(name)) errors.push(`Community ${name} already exists.`)
+        if (name.includes(' ')) errors.push("Community names cannot have spaces.")
         if (description.length === 0) errors.push("Please enter a description for your community.")
         if (description.length > 500) errors.push("Please keep your description under 500 characters.")
 
         setValidationErrors(errors)
 
-    }, [name, description])
+    }, [name, description, category])
 
     const handleSubmit = async (e) => {
 
@@ -48,14 +50,12 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
             const data = await dispatch(createCommunity(community));
             showCommunityForm();
 
-            if (data && data.errors) {
-                setValidationErrors(data.errors)
+            if (data) {
+                setValidationErrors(data)
 
                 return
             } else {
                 setShowErrors(false)
-
-                // history.push('/')
             }
         } else {
             setShowErrors(true)
@@ -65,7 +65,6 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
     const handleCancel = (e) => {
         e.preventDefault();
         showCommunityForm(false);
-        // history.push('/')
     }
 
     return (
@@ -107,15 +106,15 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         onChange={e => setCategory(e.target.value)}
                         value={category}
                     >
-                        <option>Classical</option>
-                        <option>Jass</option>
-                        <option>Hair Metal</option>
-                        <option>Virtuoso</option>
-                        <option>Speed Metal</option>
-                        <option>Bluegrass</option>
-                        <option>Metal</option>
-                        <option>Country</option>
-                        <option>Death Metal</option>
+                        <option selected value="Classical">Classical</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Hair Metal">Hair Metal</option>
+                        <option value="Virtuoso">Virtuoso</option>
+                        <option value="Speed Metal">Speed Metal</option>
+                        <option value="Bluegrass">Bluegrass</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Country">Country</option>
+                        <option value="Death Metal">Death Metal</option>
                     </select>
                 </label>
                 <div className="community-form-buttons">

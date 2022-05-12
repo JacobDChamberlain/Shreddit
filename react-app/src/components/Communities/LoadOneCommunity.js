@@ -71,7 +71,7 @@ const LoadOneCommunity = () => {
                             <li>Created: {community?.created_at}</li>
                             <li>Created By: {community?.username}</li>
                             <li>Category: {community?.category}</li>
-                            <img className="community-image" src={community?.community_pic}></img>
+                            {community?.community_pic && <img className="community-image" src={community?.community_pic}></img>}
                         </ul>
                         <button className="create-post-home-button">Create Post</button>
                     </div>
