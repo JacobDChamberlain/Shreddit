@@ -63,9 +63,10 @@ def update_community(id):
         return community_to_update.to_dict()
 
 
-@community_routes.route('/<int:id>', methods=['DELETE'])
+@community_routes.route('/<int:id>/delete')
 def delete_community(id):
     community_to_delete = Community.query.get(id)
+    return_value = community_to_delete.to_dict()
     db.session.delete(community_to_delete)
     db.session.commit()
-    return community_to_delete.to_dict()
+    return return_value

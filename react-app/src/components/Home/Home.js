@@ -12,7 +12,7 @@ const Home = () => {
     const history = useHistory()
 
     const currentUser = useSelector(state => state.session.user)
-    const communities = Object.values(useSelector(state => state.communities))
+    const communities = useSelector(state => Object.values(state.communities))
 
     const [showModal, setShowModal] = useState(false);
 
