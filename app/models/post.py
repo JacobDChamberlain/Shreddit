@@ -23,7 +23,9 @@ class Post(db.Model):
             'body': self.body,
             'image_url': self.image_url,
             'user_id': self.user_id,
+            'user': self.user,
             'community_id': self.community_id,
+            'community': self.community,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
