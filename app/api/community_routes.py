@@ -25,6 +25,8 @@ def create_community():
     form = CommunityForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
+    # communities = Community.query.all()
+
     if form.validate_on_submit():
         community = Community(
             name = form.data['name'],
@@ -33,6 +35,7 @@ def create_community():
             category = form.data['category'],
             user_id = form.data['user_id']
         )
+        # print("communities---->", communities)
         db.session.add(community)
         db.session.commit()
         return community.to_dict()

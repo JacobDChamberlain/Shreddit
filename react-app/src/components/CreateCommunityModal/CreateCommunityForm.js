@@ -16,7 +16,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [communityPic, setCommunityPic] = useState("");
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState("Classical");
 
     useEffect(() => {
 
@@ -24,12 +24,14 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
 
         if (name.length === 0) errors.push("Please enter a name for your new community")
         if (name.length > 21) errors.push("Please keep community names under 21 characters.")
+        if (name.includes(' ')) errors.push("Community names cannot have spaces.")
         if (description.length === 0) errors.push("Please enter a description for your community.")
         if (description.length > 500) errors.push("Please keep your description under 500 characters.")
+        // if (category.includes('--')) errors.push("Please select a category.")
 
         setValidationErrors(errors)
 
-    }, [name, description])
+    }, [name, description, category])
 
     const handleSubmit = async (e) => {
 
@@ -106,16 +108,19 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         name='category'
                         onChange={e => setCategory(e.target.value)}
                         value={category}
+                        required={true}
+                        // defaultValue={(e) =>setCategory(e.target.value)}
                     >
-                        <option>Classical</option>
-                        <option>Jass</option>
-                        <option>Hair Metal</option>
-                        <option>Virtuoso</option>
-                        <option>Speed Metal</option>
-                        <option>Bluegrass</option>
-                        <option>Metal</option>
-                        <option>Country</option>
-                        <option>Death Metal</option>
+                        {/* <option defaultValue>{'--'}</option> */}
+                        <option selected value="Classical">Classical</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Hair Metal">Hair Metal</option>
+                        <option value="Virtuoso">Virtuoso</option>
+                        <option value="Speed Metal">Speed Metal</option>
+                        <option value="Bluegrass">Bluegrass</option>
+                        <option value="Metal">Metal</option>
+                        <option value="Country">Country</option>
+                        <option value="Death Metal">Death Metal</option>
                     </select>
                 </label>
                 <div className="community-form-buttons">
