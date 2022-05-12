@@ -37,7 +37,7 @@ const NavBar = () => {
           {!currentUser && <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>}
-          {currentUser && <NavLink to='/communities' exact={true} activeClassName='active'>
+          {currentUser && <NavLink to='/sh' exact={true} activeClassName='active'>
             Communities
           </NavLink>}
           {currentUser && <LogoutButton />}
