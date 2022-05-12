@@ -148,10 +148,7 @@ export default function communityReducer(state = initialState, action) {
         case DELETE_COMMUNITY: {
             newState = { ...state }
 
-            console.log("--1----",newState[action.community.id])
             delete newState[action.community.id];
-
-            console.log("--2----",newState[action.community.id])
 
             return newState;
         }

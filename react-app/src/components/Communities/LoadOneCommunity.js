@@ -53,9 +53,9 @@ const LoadOneCommunity = () => {
         setShowDeleteConfirmation(!showDeleteConfirmation)
     }
 
-    const handleDelete = () => {
+    const handleDelete = async () => {
         const communityId = community?.id
-        dispatch(deleteCommunity(communityId))
+        await dispatch(deleteCommunity(communityId))
         console.log(community.id)
         history.push("/")
     }
