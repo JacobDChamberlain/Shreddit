@@ -5,6 +5,13 @@ from app.forms.post_form import PostForm
 
 post_routes = Blueprint('posts', __name__)
 
+@post_routes.route('/')
+def get_all_posts():
+    # if want newest first:
+    posts = Post.query.order_by(Post.id.desc()).all()
+    # posts = Post.query.all()
+
+    return jsonify([post.to_dict() for post in posts])
 
 @post_routes.route('/sh/<int:id>')
 def get_all_community_posts(id):
