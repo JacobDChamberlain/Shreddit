@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getAllCommunities, getOneCommunity } from "../../store/communities";
+import { getAllCommunities, getOneCommunity, updateCommunity } from "../../store/communities";
 import './Communities.css'
+
 
 const LoadOneCommunity = () => {
     const {name} = useParams();
-    // console.log("name---->", name)
 
     const communities = Object.values(useSelector(state => state.communities))
-    // console.log("communities----->", communities)
+    const currentUser = useSelector(state => state.session.user)
+
     let community;
     for (let i = 0; i < communities.length; i++) {
         if (communities[i].name === name){
@@ -19,6 +20,11 @@ const LoadOneCommunity = () => {
     // attempted to refactor for loop below. wish i could use a list comprehension!
     // const community = Object.values(communities.filter(community => community.name == name))
     // console.log("community------->", community)
+
+    const [showEditForm, setShowEditForm] = useState(false)
+    const [description, setDescription] = useState("")
+    const [showErrors, setShowErrors] = useState(false)
+    const [validationErrors, setValidationErrors] = useState([])
 
 
     const dispatch = useDispatch();
@@ -30,6 +36,47 @@ const LoadOneCommunity = () => {
     useEffect(() => {
         dispatch(getOneCommunity(community?.id))
     }, [dispatch])
+
+    useEffect(() => {
+        const errors = []
+
+        if (description.length > 500) errors.push("Please keep description under 500 characters.")
+
+        setValidationErrors(errors)
+    }, [description])
+
+    const handleEdit = () => {
+        setShowEditForm(!showEditForm)
+    }
+
+    const handleSubmitEdit = async (e) => {
+        e.preventDefault();
+
+        const editedCommunity = {
+            id: community?.id,
+            name: community?.name,
+            description: description,
+            community_pic: community?.community_pic,
+            category: community?.category,
+            user_id: community?.user_id
+        }
+        if (validationErrors.length === 0) {
+
+            const data = await dispatch(updateCommunity(editedCommunity));
+
+            setShowEditForm(false)
+
+            if (data) {
+                setValidationErrors(data)
+
+                return
+            } else {
+                setShowErrors(false)
+            }
+        } else {
+            setShowErrors(true)
+        }
+    }
 
     return (
         <>
@@ -65,6 +112,26 @@ const LoadOneCommunity = () => {
                     <div className="about-community-container">
                         <div className="about-community-header">
                             <h4>About Community</h4>
+                            <button hidden={currentUser.username === community?.username ? false : true} className="edit-community-button" onClick={handleEdit}>{showEditForm ? "Cancel" : "Edit"}</button>
+                        </div>
+                        <div>{showEditForm &&
+                            <form>
+                                {showErrors && <div>
+                                    {validationErrors.map((error, idx) => (
+                                        <div className="error-text" key={idx}>{error}</div>
+                                    ))}
+                                </div>}
+                                <label>
+                                    Description: {' '}
+                                    <input
+                                        type='text'
+                                        name='description'
+                                        onChange={e => setDescription(e.target.value)}
+                                        defaultValue={community?.description}
+                                    />
+                                </label>
+                                <button onClick={handleSubmitEdit}>Submit</button>
+                            </form>}
                         </div>
                         <ul>
                             <li>Description: {community?.description}</li>
