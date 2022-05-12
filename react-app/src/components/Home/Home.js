@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { getAllCommunities } from "../../store/communities";
-import LoadAllCommunities from "../Communities/Community";
+import LoadAllCommunities from "../Communities/LoadAllCommunities";
 import CreateCommunityFormModal from "../CreateCommunityModal";
 import './Home.css'
 
@@ -23,7 +23,7 @@ const Home = () => {
 
     const handleViewAllCommunities = (e) => {
         e.preventDefault();
-        history.push("/communities");
+        history.push("/sh");
     }
 
     const handleTryNow = (e) => {
@@ -31,11 +31,6 @@ const Home = () => {
         window.location.href ="https://cash.app/$traightlegmusic"
     }
 
-    const createCommunity = (e) => {
-        e.preventDefault();
-        setShowModal(true);
-        history.push('/communities/new');
-    }
 
     return (
         <div className="home-container">
@@ -68,7 +63,7 @@ const Home = () => {
                     <ul>
                         {communities.map(community => (
                             <li key={community.id}>
-                                <NavLink to={`/communities/${community.id}`} key={community.id}>{community.name}</NavLink>
+                                <NavLink to={`/sh/${community.name}`} key={community.id}>{community.name}</NavLink>
                             </li>
                         ))}
                     </ul>

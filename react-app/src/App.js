@@ -8,9 +8,9 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
-import LoadAllCommunities from './components/Communities/Community';
+import LoadAllCommunities from './components/Communities/LoadAllCommunities';
+import LoadOneCommunity from './components/Communities/LoadOneCommunity';
 import Home from './components/Home/Home';
-import CreateCommunityForm from './components/CreateCommunityModal/CreateCommunityForm';
 
 
 function App() {
@@ -49,11 +49,11 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <Home />
         </ProtectedRoute>
-        <ProtectedRoute path='/communities' exact={true}>
+        <ProtectedRoute path='/sh' exact={true}>
           <LoadAllCommunities />
         </ProtectedRoute>
-        <ProtectedRoute path='/communities/new' exact={true}>
-          <CreateCommunityForm />
+        <ProtectedRoute path='/sh/:name' exact={true}>
+          <LoadOneCommunity />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

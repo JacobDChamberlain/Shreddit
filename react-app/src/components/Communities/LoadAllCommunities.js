@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllCommunities, getOneCommunity } from '../../store/communities'
+import { getAllCommunities} from '../../store/communities'
 import './Communities.css'
 
 const LoadAllCommunities = () => {
