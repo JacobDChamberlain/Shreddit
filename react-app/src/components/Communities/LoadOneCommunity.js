@@ -23,6 +23,8 @@ const LoadOneCommunity = () => {
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [description, setDescription] = useState("")
+    const [showErrors, setShowErrors] = useState(false)
+    const [validationErrors, setValidationErrors] = useState([])
 
 
     const dispatch = useDispatch();
@@ -34,6 +36,14 @@ const LoadOneCommunity = () => {
     useEffect(() => {
         dispatch(getOneCommunity(community?.id))
     }, [dispatch])
+
+    useEffect(() => {
+        const errors = []
+
+        if (description.length > 500) errors.push("Please keep description under 500 characters.")
+
+        setValidationErrors(errors)
+    }, [description])
 
     const handleEdit = () => {
         setShowEditForm(!showEditForm)
@@ -50,9 +60,22 @@ const LoadOneCommunity = () => {
             category: community?.category,
             user_id: community?.user_id
         }
+        if (validationErrors.length === 0) {
 
-        await dispatch(updateCommunity(editedCommunity))
-        setShowEditForm(false)
+            const data = await dispatch(updateCommunity(editedCommunity));
+
+            setShowEditForm(false)
+
+            if (data) {
+                setValidationErrors(data)
+
+                return
+            } else {
+                setShowErrors(false)
+            }
+        } else {
+            setShowErrors(true)
+        }
     }
 
     return (
@@ -93,13 +116,18 @@ const LoadOneCommunity = () => {
                         </div>
                         <div>{showEditForm &&
                             <form>
+                                {showErrors && <div>
+                                    {validationErrors.map((error, idx) => (
+                                        <div className="error-text" key={idx}>{error}</div>
+                                    ))}
+                                </div>}
                                 <label>
                                     Description: {' '}
                                     <input
                                         type='text'
                                         name='description'
                                         onChange={e => setDescription(e.target.value)}
-                                        value={description}
+                                        defaultValue={community?.description}
                                     />
                                 </label>
                                 <button onClick={handleSubmitEdit}>Submit</button>
