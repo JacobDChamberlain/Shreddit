@@ -106,7 +106,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         onChange={e => setCategory(e.target.value)}
                         value={category}
                     >
-                        <option selected value="Classical">Classical</option>
+                        <option value="Classical">Classical</option>
                         <option value="Jazz">Jazz</option>
                         <option value="Hair Metal">Hair Metal</option>
                         <option value="Virtuoso">Virtuoso</option>

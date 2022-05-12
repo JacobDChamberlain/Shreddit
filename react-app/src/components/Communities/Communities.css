@@ -41,4 +41,27 @@
     background-color: #0079D3;
     color: #FFFFFF;
     border-radius: 3px 3px 0 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.edit-community-button {
+    border-radius: 9999px;
+    color: #0079D3;
+    color: rgb(0, 121, 211);
+    background-color: #FFFFFF;
+    /* width: 286px; */
+    font-size: 14px;
+    font-family: "Noto Sans", Arial, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 17px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 4px 16px;
+    min-height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #0079D3;
 }
