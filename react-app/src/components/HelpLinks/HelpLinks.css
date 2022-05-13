@@ -7,6 +7,8 @@
     padding: 8px;
     margin-bottom: 16px;
     width: 310px;
+    position: sticky;
+    top: 0
 }
 
 .help-links-content {
