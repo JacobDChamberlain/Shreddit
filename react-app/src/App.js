@@ -11,6 +11,8 @@ import { authenticate } from './store/session';
 import LoadAllCommunities from './components/Communities/LoadAllCommunities';
 import LoadOneCommunity from './components/Communities/LoadOneCommunity';
 import Home from './components/Home/Home';
+import SubmitPostPage from './components/SubmitPostPage/SubmitPost';
+
 
 
 function App() {
@@ -46,6 +48,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <ProtectedRoute path='/user/:username' exact={true} >
+          <User />
+        </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <Home />
         </ProtectedRoute>
@@ -54,6 +59,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/sh/:name' exact={true}>
           <LoadOneCommunity />
+        </ProtectedRoute>
+        <ProtectedRoute path='/submit' exact={true} >
+          <SubmitPostPage/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

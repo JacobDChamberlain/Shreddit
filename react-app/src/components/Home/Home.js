@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { getAllCommunities } from "../../store/communities";
 import { getAllPosts } from "../../store/posts";
-import LoadAllCommunities from "../Communities/LoadAllCommunities";
 import CreateCommunityFormModal from "../CreateCommunityModal";
 import './Home.css'
 
@@ -32,6 +31,11 @@ const Home = () => {
     const handleTryNow = (e) => {
         e.preventDefault();
         window.location.href ="https://cash.app/$traightlegmusic"
+    }
+
+    const handleCreatePost = (e) => {
+        e.preventDefault();
+        history.push("/submit")
     }
 
 
@@ -81,7 +85,7 @@ const Home = () => {
                     <div className="home-right-create-links-inner-container">
                         <h4>Home</h4>
                         <p>Your personal Shreddit frontpage. Come<br/>here to check in with your favorite<br/>communities.</p>
-                        <button className="create-post-home-button">Create Post</button>
+                        <button className="create-post-home-button" onClick={handleCreatePost}>Create Post</button>
                         <CreateCommunityFormModal />
                     </div>
                 </div>

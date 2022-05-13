@@ -54,7 +54,7 @@ export const getAllPosts = () => async (dispatch) => {
 
 export const getAllCommunityPosts = (community_id) => async (dispatch) => {
 
-    const res = await fetch(`/api/sh/${community_id}`)
+    const res = await fetch(`/api/posts/sh/${community_id}`)
 
     if (res.ok) {
         const communityPosts = await res.json()
