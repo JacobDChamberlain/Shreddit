@@ -41,7 +41,7 @@ const deleteOne = (post) => ({
 
 export const getAllPosts = () => async (dispatch) => {
 
-    const res = await fetch('/api/posts')
+    const res = await fetch('/api/posts/')
 
     if (res.ok) {
         const posts = await res.json()
@@ -80,7 +80,7 @@ export const getOnePost = (post_id) => async (dispatch) => {
 
 export const createPost = (post) => async (dispatch) => {
 
-    const res = await fetch('/api/posts', {
+    const res = await fetch('/api/posts/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(post)
