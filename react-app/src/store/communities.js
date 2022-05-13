@@ -71,8 +71,13 @@ export const createCommunity = (community) => async (dispatch) => {
         const newCommunity = await res.json()
 
         dispatch(createOne(newCommunity))
-
-        return newCommunity
+    } else if (res.status < 500) {
+        const data = await res.json()
+        if (data.errors) {
+            return data.errors
+        }
+    } else {
+        return ['An error occured. Please try again.']
     }
 }
 

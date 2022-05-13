@@ -48,7 +48,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
 
         if (validationErrors.length === 0) {
             const data = await dispatch(createCommunity(community));
-            
+
             showCommunityForm();
 
             if (data) {
