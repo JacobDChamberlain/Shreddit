@@ -38,6 +38,7 @@ const LoadOneCommunity = () => {
     }, [dispatch])
 
     const posts = useSelector(state => Object.values(state.posts))
+    posts.reverse()
     const communities = useSelector(state => Object.values(state.communities))
     const community = communities[0];
 
