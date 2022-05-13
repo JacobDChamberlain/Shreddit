@@ -8,27 +8,28 @@ import './Communities.css'
 
 
 const LoadOneCommunity = () => {
-    const {name} = useParams();
+    const {communityId} = useParams();
+
 
     const history = useHistory();
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getAllCommunities())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getAllCommunities())
+    // }, [dispatch])
 
-    const communities = useSelector(state => Object.values(state.communities))
+    // const communities = useSelector(state => Object.values(state.communities))
     const currentUser = useSelector(state => state.session.user)
 
 
-    let community;
-    for (let i = 0; i < communities.length; i++) {
-        if (communities[i].name === name) {
-            community = communities[i]
-        }
-    }
-    const communityId = community?.id
-    console.log("communityId ---->", communityId)
+    // let community;
+    // for (let i = 0; i < communities.length; i++) {
+    //     if (communities[i].name === name) {
+    //         community = communities[i]
+    //     }
+    // }
+    // const communityId = community?.id
+    // console.log("communityId ---->", communityId)
 
     useEffect(() => {
         dispatch(getOneCommunity(communityId))
@@ -36,6 +37,8 @@ const LoadOneCommunity = () => {
     }, [dispatch])
 
     const posts = useSelector(state => Object.values(state.posts))
+    const communities = useSelector(state => Object.values(state.communities))
+    const community = communities[0];
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
@@ -110,7 +113,7 @@ const LoadOneCommunity = () => {
                     </div>
                     <div className="all-posts-container">
                         {posts?.map(post => (
-                            <div className="individual-post-container">
+                            <div key={post.id} className="individual-post-container">
                                 <div className="post-header">
                                     <div className="who-and-where-when-post">
                                         Posted by <NavLink to={`/user/${post.username}`}>/u/{post.username}</NavLink>  at {post.created_at}

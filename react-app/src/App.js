@@ -15,6 +15,7 @@ import SubmitPostPage from './components/SubmitPostPage/SubmitPost';
 
 
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
       setLoaded(true);
     })();
   }, [dispatch]);
+
 
   if (!loaded) {
     return null;
@@ -57,7 +59,7 @@ function App() {
         <ProtectedRoute path='/sh' exact={true}>
           <LoadAllCommunities />
         </ProtectedRoute>
-        <ProtectedRoute path='/sh/:name' exact={true}>
+        <ProtectedRoute path='/sh/:name/:communityId' exact={true}>
           <LoadOneCommunity />
         </ProtectedRoute>
         <ProtectedRoute path='/submit' exact={true} >

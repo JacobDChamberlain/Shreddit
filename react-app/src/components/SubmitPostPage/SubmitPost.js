@@ -61,7 +61,7 @@ const SubmitPostPage = () => {
         if (validationErrors.length === 0) {
             const data = await dispatch(createPost(post));
 
-            history.push(`/sh/${communityName}`)
+            history.push(`/sh/${communityName}/${communityId}`)
 
             if (data) {
                 setValidationErrors(data)
