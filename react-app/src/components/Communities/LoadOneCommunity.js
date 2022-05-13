@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { deleteCommunity, getAllCommunities, getOneCommunity, updateCommunity } from "../../store/communities";
+import { getAllCommunityPosts } from "../../store/posts";
 import './Communities.css'
 
 
@@ -10,13 +11,22 @@ const LoadOneCommunity = () => {
 
     const communities = useSelector(state => Object.values(state.communities))
     const currentUser = useSelector(state => state.session.user)
+    const posts = useSelector(state => Object.values(state.posts))
 
     let community;
     for (let i = 0; i < communities.length; i++) {
-        if (communities[i].name === name){
+        if (communities[i].name === name) {
             community = communities[i]
         }
     }
+
+    const communityPosts = []
+    for (let i = 0; i < posts.length; i++) {
+        if (posts[i].community_name === name) {
+            communityPosts.push(posts[i])
+        }
+    }
+
     // attempted to refactor for loop below. wish i could use a list comprehension!
     // const community = Object.values(communities.filter(community => community.name == name))
     // console.log("community------->", community)
@@ -35,6 +45,7 @@ const LoadOneCommunity = () => {
     useEffect(() => {
         dispatch(getOneCommunity(community?.id))
         dispatch(getAllCommunities())
+        dispatch(getAllCommunityPosts(community?.id))
     }, [dispatch])
 
     useEffect(() => {
@@ -104,19 +115,18 @@ const LoadOneCommunity = () => {
                         - 'sort posts by' buttons here -
                     </div>
                     <div className="all-posts-container">
-                        - display all posts here -
-                        <div className="individual-post-container">
-                            <h4>Post 1</h4>
-                            <p>content & stuff</p>
-                        </div>
-                        <div className="individual-post-container">
-                            <h4>Post 2</h4>
-                            <p>content & stuff</p>
-                        </div>
-                        <div className="individual-post-container">
-                            <h4>Post 3</h4>
-                            <p>content & stuff</p>
-                        </div>
+                        {communityPosts.map(post => (
+                            <div className="individual-post-container">
+                                <div className="post-header">
+                                    <div className="who-and-where-when-post">
+                                        Posted by <NavLink to={`/user/${post.username}`}>/u/{post.username}</NavLink>  at {post.created_at}
+                                    </div>
+                                    <h4>{post.title}</h4>
+                                </div>
+                                <img src={post.image_url}></img>
+                                <p>{post.body}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <div className="community-page-right">

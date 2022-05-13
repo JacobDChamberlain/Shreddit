@@ -47,14 +47,13 @@ const Home = () => {
                 <div className="all-posts-container">
                     {posts.map(post => (
                         <div className="individual-post-container">
-                            <div>
-                                <div>
-                                    <NavLink to={`/sh/${post.community_name}`}>/sh/{post.community_name}</NavLink> • 
+                            <div className="post-header">
+                                <div className="who-and-where-when-post">
+                                    <NavLink to={`/sh/${post.community_name}`}>/sh/{post.community_name}</NavLink> •
                                     Posted by <NavLink to={`/user/${post.username}`}>/u/{post.username}</NavLink>  at {post.created_at}
                                 </div>
                                 <h4>{post.title}</h4>
                             </div>
-
                             <img src={post.image_url}></img>
                             <p>{post.body}</p>
                         </div>

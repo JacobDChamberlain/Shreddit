@@ -144,7 +144,7 @@ export default function postReducer(state = initialState, action) {
             return newState
         }
         case GET_COMMUNITY_POSTS: {
-            newState = { ...state }
+            newState = {}
 
             action.posts.map(post => {
                 return newState[post.id] = post
