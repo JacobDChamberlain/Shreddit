@@ -4,7 +4,7 @@
 
 ## Git 'cha Pull
 
-## Getting started
+### To run locally:
 1. Clone this repository (only this branch)
 
    ```bash
