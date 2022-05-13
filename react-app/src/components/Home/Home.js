@@ -4,6 +4,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { getAllCommunities } from "../../store/communities";
 import { getAllPosts } from "../../store/posts";
 import CreateCommunityFormModal from "../CreateCommunityModal";
+import HelpLinks from "../HelpLinks/HelpLinks";
 import './Home.css'
 
 const Home = () => {
@@ -67,7 +68,7 @@ const Home = () => {
             <div className="home-content-right">
                 <div className="community-suggestions-container">
                     <h4>Top Shredder Communities</h4>
-                    <ul>
+                    <ul className="community-suggestions-ul">
                         {communities.map(community => (
                             <li key={community.id}>
                                 <NavLink to={`/sh/${community.name}`} key={community.id}>{community.name}</NavLink>
@@ -89,6 +90,7 @@ const Home = () => {
                         <CreateCommunityFormModal />
                     </div>
                 </div>
+                <HelpLinks />
             </div>
         </div>
     )
