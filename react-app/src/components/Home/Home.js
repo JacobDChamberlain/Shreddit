@@ -16,6 +16,8 @@ const Home = () => {
     const communities = useSelector(state => Object.values(state.communities))
     const posts = useSelector(state => Object.values(state.posts))
 
+    posts.reverse()
+
     const [showModal, setShowModal] = useState(false);
 
 

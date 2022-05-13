@@ -2,13 +2,14 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, Post, Community
 from app.forms.post_form import PostForm
+from sqlalchemy import asc, desc
 
 post_routes = Blueprint('posts', __name__)
 
 @post_routes.route('/')
 def get_all_posts():
     # if want newest first:
-    posts = Post.query.order_by(Post.id.desc()).all()
+    posts = Post.query.order_by(desc(Post.id))
     # posts = Post.query.all()
 
     return jsonify([post.to_dict() for post in posts])
