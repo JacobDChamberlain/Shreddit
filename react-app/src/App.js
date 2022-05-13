@@ -12,6 +12,7 @@ import LoadAllCommunities from './components/Communities/LoadAllCommunities';
 import LoadOneCommunity from './components/Communities/LoadOneCommunity';
 import Home from './components/Home/Home';
 import SubmitPostPage from './components/SubmitPostPage/SubmitPost';
+import SubmitPostFromCommunity from './components/SubmitPostPage/SubmitPostFromCommunity';
 
 
 
@@ -64,6 +65,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/submit' exact={true} >
           <SubmitPostPage/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/sh/:name/:communityId/submit' exact={true} >
+          <SubmitPostFromCommunity/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

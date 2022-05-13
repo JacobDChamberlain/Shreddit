@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { getAllCommunities } from "../../store/communities";
 import { createPost } from "../../store/posts";
 import postRulesLogo from '../../images/postrulesShreddit.png'
@@ -8,10 +8,14 @@ import HelpLinks from "../HelpLinks/HelpLinks";
 import './SubmitPost.css'
 import shlogo from "../../images/shlogo.png"
 
-const SubmitPostPage = () => {
+
+const SubmitPostFromCommunity = () => {
 
     const dispatch = useDispatch()
     const history = useHistory()
+
+    const {communityId} = useParams()
+    const {name} = useParams()
 
     const currentUser = useSelector(state => state.session.user)
     const communities = useSelector(state => Object.values(state.communities))
@@ -23,7 +27,6 @@ const SubmitPostPage = () => {
     const [body, setBody] = useState('')
     const [imageUrl, setImageUrl] = useState('')
     const userId = currentUser.id
-    const [communityId, setCommunityId] = useState(1)
 
     useEffect(() => {
         dispatch(getAllCommunities())
@@ -74,6 +77,7 @@ const SubmitPostPage = () => {
         } else {
             setShowErrors(true)
         }
+        // history.push(`/sh/${communityName}`)
     }
 
     return (
@@ -89,18 +93,10 @@ const SubmitPostPage = () => {
                                 <div className="error-text" key={idx}>{error}</div>
                             ))}
                         </div>}
-
-                        <label><img src={shlogo}></img>
-                            <select
-                                name='communityId'
-                                onChange={e => setCommunityId(e.target.value)}
-                                value={communityId}
-                            >
-                                {communities.map(community => (
-                                    <option value={community.id}>{community.name}</option>
-                                ))}
-                            </select>
-                        </label>
+                        <div className="submit-from-comm-form-header">
+                            <img src={shlogo}></img>
+                            /sh/{name}
+                        </div>
                         <label>Title:{' '}
                             <input
                                 type='text'
@@ -150,4 +146,4 @@ const SubmitPostPage = () => {
     )
 }
 
-export default SubmitPostPage
+export default SubmitPostFromCommunity
