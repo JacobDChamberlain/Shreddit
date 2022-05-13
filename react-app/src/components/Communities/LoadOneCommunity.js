@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { deleteCommunity, getAllCommunities, getOneCommunity, updateCommunity } from "../../store/communities";
-import { getAllCommunityPosts } from "../../store/posts";
+import { getAllCommunityPosts, updatePost } from "../../store/posts";
 import HelpLinks from "../HelpLinks/HelpLinks";
+import Post from "../Posts/Post";
 import './Communities.css'
 
 
@@ -119,16 +120,7 @@ const LoadOneCommunity = () => {
                     </div>
                     <div className="all-posts-container">
                         {posts?.map(post => (
-                            <div key={post.id} className="individual-post-container">
-                                <div className="post-header">
-                                    <div className="who-and-where-when-post">
-                                        Posted by <NavLink to={`/user/${post.username}`}>/u/{post.username}</NavLink>  at {post.created_at}
-                                    </div>
-                                    <h4>{post.title}</h4>
-                                </div>
-                                <img src={post.image_url}></img>
-                                <p>{post.body}</p>
-                            </div>
+                            <Post post={post} />
                         ))}
                     </div>
                 </div>
