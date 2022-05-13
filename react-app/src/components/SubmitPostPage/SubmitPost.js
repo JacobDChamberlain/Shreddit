@@ -136,7 +136,7 @@ const SubmitPostPage = () => {
                     <div className="posting-rules">
                         <ol>
                             <li>Remember the human</li>
-                            <li>Behave like you would in real life</li>
+                            <li>Behave like you would at a concert</li>
                             <li>Look for the original source of content</li>
                             <li>Search for duplicates before posting</li>
                             <li>Read the community's rules</li>
