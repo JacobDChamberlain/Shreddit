@@ -8,6 +8,7 @@ import './Communities.css'
 
 
 const LoadOneCommunity = () => {
+    const {name} = useParams();
     const {communityId} = useParams();
 
 
@@ -66,6 +67,10 @@ const LoadOneCommunity = () => {
     const handleDelete = async () => {
         await dispatch(deleteCommunity(communityId))
         history.push("/")
+    }
+
+    const handlePost = () => {
+        history.push(`/sh/${name}/${communityId}/submit`)
     }
 
     const handleSubmitEdit = async (e) => {
@@ -170,7 +175,7 @@ const LoadOneCommunity = () => {
                             </div>
 
                         </div>}
-                        <button className="create-post-home-button">Create Post</button>
+                        <button className="create-post-home-button" onClick={handlePost}>Create Post</button>
                     </div>
                     <HelpLinks />
                 </div>
