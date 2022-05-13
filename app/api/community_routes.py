@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import db, Community
 from app.forms.community_form import CommunityForm
+from .auth_routes import validation_errors_to_error_messages
 
 community_routes = Blueprint('communities', __name__)
 
@@ -44,6 +45,7 @@ def create_community():
             db.session.add(newCommunity)
             db.session.commit()
             return newCommunity.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 
@@ -60,6 +62,7 @@ def update_community(id):
         db.session.add(community_to_update)
         db.session.commit()
         return community_to_update.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @community_routes.route('/<int:id>/delete')

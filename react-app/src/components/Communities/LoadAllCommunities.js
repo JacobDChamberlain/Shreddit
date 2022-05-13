@@ -23,7 +23,7 @@ const LoadAllCommunities = () => {
             <div className='communities-container'>
             {communities.map(community => (
                 <div key={community.id}>
-                    <NavLink to={`/sh/${community.name}`}>{community.name}</NavLink>
+                    <NavLink to={`/sh/${community.name}/${community.id}`}>{community.name}</NavLink>
                     <ul>
                         <li>Created By: {community.username}</li>
                         <li>Category: {community.category}</li>

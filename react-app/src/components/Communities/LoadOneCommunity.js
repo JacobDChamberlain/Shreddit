@@ -8,29 +8,37 @@ import './Communities.css'
 
 
 const LoadOneCommunity = () => {
-    const {name} = useParams();
+    const {communityId} = useParams();
 
-    const communities = useSelector(state => Object.values(state.communities))
+
+    const history = useHistory();
+    const dispatch = useDispatch();
+
+    // useEffect(() => {
+    //     dispatch(getAllCommunities())
+    // }, [dispatch])
+
+    // const communities = useSelector(state => Object.values(state.communities))
     const currentUser = useSelector(state => state.session.user)
+
+
+    // let community;
+    // for (let i = 0; i < communities.length; i++) {
+    //     if (communities[i].name === name) {
+    //         community = communities[i]
+    //     }
+    // }
+    // const communityId = community?.id
+    // console.log("communityId ---->", communityId)
+
+    useEffect(() => {
+        dispatch(getOneCommunity(communityId))
+        dispatch(getAllCommunityPosts(communityId))
+    }, [dispatch])
+
     const posts = useSelector(state => Object.values(state.posts))
-
-    let community;
-    for (let i = 0; i < communities.length; i++) {
-        if (communities[i].name === name) {
-            community = communities[i]
-        }
-    }
-
-    const communityPosts = []
-    for (let i = 0; i < posts.length; i++) {
-        if (posts[i].community_name === name) {
-            communityPosts.push(posts[i])
-        }
-    }
-
-    // attempted to refactor for loop below. wish i could use a list comprehension!
-    // const community = Object.values(communities.filter(community => community.name == name))
-    // console.log("community------->", community)
+    const communities = useSelector(state => Object.values(state.communities))
+    const community = communities[0];
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
@@ -38,16 +46,6 @@ const LoadOneCommunity = () => {
     const [showErrors, setShowErrors] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
-
-    const dispatch = useDispatch();
-    const history = useHistory();
-
-
-    useEffect(() => {
-        dispatch(getOneCommunity(community?.id))
-        dispatch(getAllCommunities())
-        dispatch(getAllCommunityPosts(community?.id))
-    }, [dispatch])
 
     useEffect(() => {
         const errors = []
@@ -66,9 +64,7 @@ const LoadOneCommunity = () => {
     }
 
     const handleDelete = async () => {
-        const communityId = community?.id
         await dispatch(deleteCommunity(communityId))
-        console.log(community.id)
         history.push("/")
     }
 
@@ -116,8 +112,8 @@ const LoadOneCommunity = () => {
                         - 'sort posts by' buttons here -
                     </div>
                     <div className="all-posts-container">
-                        {communityPosts.map(post => (
-                            <div className="individual-post-container">
+                        {posts?.map(post => (
+                            <div key={post.id} className="individual-post-container">
                                 <div className="post-header">
                                     <div className="who-and-where-when-post">
                                         Posted by <NavLink to={`/user/${post.username}`}>/u/{post.username}</NavLink>  at {post.created_at}

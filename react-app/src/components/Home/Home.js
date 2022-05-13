@@ -54,7 +54,7 @@ const Home = () => {
                         <div className="individual-post-container">
                             <div className="post-header">
                                 <div className="who-and-where-when-post">
-                                    <NavLink to={`/sh/${post.community_name}`}>/sh/{post.community_name}</NavLink> •
+                                    <NavLink to={`/sh/${post.community_name}/${post.community_id}`}>/sh/{post.community_name}</NavLink> •
                                     Posted by <NavLink to={`/user/${post.username}`}>/u/{post.username}</NavLink>  at {post.created_at}
                                 </div>
                                 <h4>{post.title}</h4>
@@ -71,7 +71,7 @@ const Home = () => {
                     <ul className="community-suggestions-ul">
                         {communities.map(community => (
                             <li key={community.id}>
-                                <NavLink to={`/sh/${community.name}`} key={community.id}>{community.name}</NavLink>
+                                <NavLink to={`/sh/${community.name}/${community.id}`} key={community.id}>{community.name}</NavLink>
                             </li>
                         ))}
                     </ul>
