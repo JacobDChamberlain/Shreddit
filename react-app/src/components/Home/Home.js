@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { getAllCommunities } from "../../store/communities";
+import { getAllPosts } from "../../store/posts";
 import LoadAllCommunities from "../Communities/LoadAllCommunities";
 import CreateCommunityFormModal from "../CreateCommunityModal";
 import './Home.css'
@@ -13,12 +14,14 @@ const Home = () => {
 
     const currentUser = useSelector(state => state.session.user)
     const communities = useSelector(state => Object.values(state.communities))
+    const posts = useSelector(state => Object.values(state.posts))
 
     const [showModal, setShowModal] = useState(false);
 
 
     useEffect(() => {
         dispatch(getAllCommunities())
+        dispatch(getAllPosts())
     }, [dispatch])
 
     const handleViewAllCommunities = (e) => {
@@ -42,19 +45,20 @@ const Home = () => {
                     - 'sort posts by' buttons here -
                 </div>
                 <div className="all-posts-container">
-                    - display all posts here -
-                    <div className="individual-post-container">
-                        <h4>Post 1</h4>
-                        <p>content & stuff</p>
-                    </div>
-                    <div className="individual-post-container">
-                        <h4>Post 2</h4>
-                        <p>content & stuff</p>
-                    </div>
-                    <div className="individual-post-container">
-                        <h4>Post 3</h4>
-                        <p>content & stuff</p>
-                    </div>
+                    {posts.map(post => (
+                        <div className="individual-post-container">
+                            <div>
+                                <div>
+                                    <NavLink to={`/sh/${post.community_name}`}>/sh/{post.community_name}</NavLink> • 
+                                    Posted by <NavLink to={`/user/${post.username}`}>/u/{post.username}</NavLink>  at {post.created_at}
+                                </div>
+                                <h4>{post.title}</h4>
+                            </div>
+
+                            <img src={post.image_url}></img>
+                            <p>{post.body}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
             <div className="home-content-right">

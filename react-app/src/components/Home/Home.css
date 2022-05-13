@@ -40,7 +40,8 @@
     background-color: #FFFFFF;
     padding: 8px;
     margin-bottom: 16px;
-    height: 487px;
+    /* height: 487px; */
+    height: auto;
 }
 
 .community-suggestions-container {
