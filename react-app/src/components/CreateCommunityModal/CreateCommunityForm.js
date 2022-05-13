@@ -28,10 +28,11 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
         if (name.includes(' ')) errors.push("Community names cannot have spaces.")
         if (description.length === 0) errors.push("Please enter a description for your community.")
         if (description.length > 500) errors.push("Please keep your description under 500 characters.")
+        if (communityPic.length > 0 && !communityPic.includes('jpg')) errors.push("Image must be a .jpg")
 
         setValidationErrors(errors)
 
-    }, [name, description, category])
+    }, [name, description, category, communityPic])
 
     const handleSubmit = async (e) => {
 
