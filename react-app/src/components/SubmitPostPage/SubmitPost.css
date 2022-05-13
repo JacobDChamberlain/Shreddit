@@ -1,0 +1,36 @@
+.submit-page-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.posting-rules-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+
+.posting-rules-header {
+    display: inline-flex;
+}
+
+.posting-rules-img {
+    height: 100%;
+}
+
+.help-links-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+
+.help-links-content {
+    display: flex;
+}
