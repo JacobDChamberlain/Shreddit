@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { deleteCommunity, getAllCommunities, getOneCommunity, updateCommunity } from "../../store/communities";
 import { getAllCommunityPosts } from "../../store/posts";
+import HelpLinks from "../HelpLinks/HelpLinks";
 import './Communities.css'
 
 
@@ -175,6 +176,7 @@ const LoadOneCommunity = () => {
                         </div>}
                         <button className="create-post-home-button">Create Post</button>
                     </div>
+                    <HelpLinks />
                 </div>
             </div>
         </>

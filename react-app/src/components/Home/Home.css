@@ -16,6 +16,7 @@
     background-color: #FFFFFF;
     padding: 8px;
     margin-bottom: 16px;
+    width: 100%;
 }
 
 .sort-buttons-container {
@@ -25,11 +26,13 @@
     background-color: #FFFFFF;
     padding: 8px;
     margin-bottom: 16px;
+    width: 100%;
 }
 
 .all-posts-container {
     display: flex;
     flex-direction: column;
+
 }
 
 .individual-post-container {
@@ -42,6 +45,7 @@
     margin-bottom: 16px;
     /* height: 487px; */
     height: auto;
+    width: 100%;
 }
 
 .community-suggestions-container {
@@ -52,6 +56,11 @@
     background-color: #FFFFFF;
     padding: 8px;
     margin-bottom: 16px;
+    width: 310px;
+}
+
+.community-suggestions-ul {
+    list-style: none;
 }
 
 .view-all-communities-home-button {
@@ -81,6 +90,7 @@
     background-color: #FFFFFF;
     padding: 8px;
     margin-bottom: 16px;
+    width: 310px;
 }
 
 .try-now-home-button {
@@ -110,6 +120,7 @@
     background-color: #FFFFFF;
     padding: 8px;
     margin-bottom: 16px;
+    width: 310px;
 }
 
 .create-post-home-button {

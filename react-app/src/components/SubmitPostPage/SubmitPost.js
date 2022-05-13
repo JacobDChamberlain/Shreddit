@@ -4,7 +4,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { getAllCommunities } from "../../store/communities";
 import { createPost } from "../../store/posts";
 import postRulesLogo from '../../images/postrulesShreddit.png'
-
+import HelpLinks from "../HelpLinks/HelpLinks";
 import './SubmitPost.css'
 
 const SubmitPostPage = () => {
@@ -143,33 +143,7 @@ const SubmitPostPage = () => {
                         </ol>
                     </div>
                 </div>
-                <div className="help-links-container">
-                    <div className="help-links-content">
-                        <div className="help-links-left">
-                            <ul>
-                                <li>Help</li>
-                                <li>Shreddit Coins</li>
-                                <li>Shreddit Premium</li>
-                            </ul>
-                        </div>
-                        <div className="help-links-right">
-                            <ul>
-                                <li>About</li>
-                                <li>Careers</li>
-                                <li>Press</li>
-                                <li>Advertise</li>
-                                <li>Blog</li>
-                                <li>Terms</li>
-                                <li>Content Policy</li>
-                                <li>Privacy Policy</li>
-                                <li>Mod Policy</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="help-links-footer">
-                        Shreddit Inc © 2022. All rights reserved
-                    </div>
-                </div>
+                <HelpLinks />
             </div>
         </div>
     )

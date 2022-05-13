@@ -1,9 +1,4 @@
-.submit-page-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.posting-rules-container {
+.help-links-container {
     display: flex;
     flex-direction: column;
     border-radius: 4px;
@@ -14,10 +9,10 @@
     width: 310px;
 }
 
-.posting-rules-header {
-    display: inline-flex;
+.help-links-content {
+    display: flex;
 }
 
-.posting-rules-img {
-    height: 100%;
+.help-links-ul {
+    list-style: none;
 }
