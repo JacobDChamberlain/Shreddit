@@ -41,6 +41,7 @@ const Post = ({ post, communityId }) => {
 
     const handleDelete = async () => {
         await dispatch(deletePost(post.id))
+        setShowDeleteConfirmation(false)
         // history.push("/")
     }
 
@@ -51,7 +52,7 @@ const Post = ({ post, communityId }) => {
             id: post?.id,
             title: title,
             body: body,
-            image_url: imageUrl,
+            image_url: post?.image_url,
             user_id: post?.user_id,
             community_id: post?.community_id
         }
@@ -119,15 +120,15 @@ const Post = ({ post, communityId }) => {
                                 defaultValue={post?.body}
                             />
                         </label>
-                        <label>
+                        {/* <label>
                             New image: {' '}
                             <input
                                 type='text'
                                 name='imageUrl'
                                 onChange={e => setImageUrl(e.target.value)}
-                                defaultValue={post?.imageUrl}
+                                defaultValue={post?.image_url}
                             />
-                        </label>
+                        </label> */}
                         <div className="edit-post-form-buttons">
                             <button onClick={() => setShowEditPostForm(false)}>Cancel</button>
                             <button onClick={handleSubmitEditPost}>Save</button>
