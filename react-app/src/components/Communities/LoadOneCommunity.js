@@ -166,7 +166,6 @@ const LoadOneCommunity = () => {
                                 <button className="no-confirm-delete" onClick={() => setShowDeleteConfirmation(false)}>Naw</button>
                                 <button className="confirm-delete" onClick={handleDelete}>Yuh</button>
                             </div>
-
                         </div>}
                         <button className="create-post-home-button" onClick={handlePost}>Create Post</button>
                     </div>

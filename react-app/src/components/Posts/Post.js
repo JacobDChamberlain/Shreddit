@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { deletePost, getOnePost, updatePost } from "../../store/posts";
+import './Post.css'
 
+const Post = ({ post, communityId }) => {
 
-const Post = ({ post }) => {
+    const { name } = useParams();
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -34,6 +36,7 @@ const Post = ({ post }) => {
 
     const handleDeleteConfirmation = () => {
         setShowDeleteConfirmation(!showDeleteConfirmation)
+        setShowEditPostForm(false)
     }
 
     const handleDelete = async () => {
@@ -74,14 +77,24 @@ const Post = ({ post }) => {
     return (
         <>
             <div key={post.id} className="individual-post-container">
-                <div className="post-header">
-                    <div className="who-and-where-when-post">
-                        Posted by <NavLink to={`/user/${post.username}`}>/u/{post.username}</NavLink>  at {post.created_at}
+                {!showDeleteConfirmation ? <ul>
+                    <div className="post-header">
+                        <div className="who-and-where-when-post">
+                            {!name && <NavLink to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
+                            Posted by <NavLink to={`/user/${post.username}`}>/u/{post.username}</NavLink>  at {post.created_at}
+                        </div>
+                        <h4>{post.title}</h4>
                     </div>
-                    <h4>{post.title}</h4>
-                </div>
-                <img src={post.image_url}></img>
-                <p>{post.body}</p>
+                    <img className="post-image" src={post.image_url}></img>
+                    <p>{post.body}</p>
+                </ul> :
+                <div>
+                    <p>Are you sure you want to delete your post?</p>
+                    <div className="confirm-delete-buttons">
+                        <button className="no-confirm-delete" onClick={() => setShowDeleteConfirmation(false)}>Naw</button>
+                        <button className="confirm-delete" onClick={handleDelete}>Yuh</button>
+                    </div>
+                </div>}
                 <div>{showEditPostForm &&
                     <form className="edit-post-form">
                         {showErrors && <div>
