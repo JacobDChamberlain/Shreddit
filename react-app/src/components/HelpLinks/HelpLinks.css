@@ -7,14 +7,66 @@
     padding: 8px;
     margin-bottom: 16px;
     width: 310px;
+    height: 302px;
     position: sticky;
-    top: 0
+    top: 0;
+    font-family: Noto Sans, Arial, sans-serif;
+    font-size: 12px;
+    color: #1A1A1B;
+    font-weight: 800;
+    line-height: 16px;
+    box-sizing: border-box;
 }
 
 .help-links-content {
     display: flex;
+    padding: px 8px;
+    justify-content: center;
 }
 
 .help-links-ul {
     list-style: none;
+    padding: 5px;
+}
+
+.help-links-left {
+    width: 147px;
+    height: 198px;
+    padding: 0 4px;
+}
+.help-links-right {
+    width: 147px;
+    height: 198px;
+    padding: 0 4px;
+}
+
+.help-link {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.help-links-languages {
+    display: flex;
+    list-style: none;
+    height: 40px;
+    border-top: 1px solid #e9ebed;
+    border-bottom: 1px solid #e9ebed;
+    align-items: center;
+    width: 100%;
+}
+
+.help-links-language-left {
+    width: 147px;
+    padding: 0 4px;
+}
+.help-links-language-right {
+    width: 147px;
+    padding: 0 4px;
+}
+
+.help-links-footer {
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
