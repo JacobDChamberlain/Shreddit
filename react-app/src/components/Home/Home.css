@@ -8,6 +8,7 @@
 .home-content-left {
     width: 640px;
     margin-right: 16px;
+    /* box-sizing: border-box; */
 }
 
 .create-post-form-container {
@@ -18,7 +19,30 @@
     padding: 8px;
     margin-bottom: 16px;
     margin-top: 16px;
-    width: 634px;
+    width: 640px;
+    height: 58px;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.create-post-avatar {
+    height: 45px;
+    width: 45px;
+    vertical-align: middle;
+}
+
+.create-post-form-input {
+    width: 486px;
+    height: 38px;
+    margin-right: 8px;
+    padding: 0px 16px;
+    background-color: #F6F7F8;
+    border-radius: 4px;
+    border: 1px solid #EDEFF1;
+    flex-grow: 1;
+    font-family: Noto Sans, Arial, sans-serif;
+    font-weight: 800;
 }
 
 .sort-buttons-container {
@@ -29,6 +53,30 @@
     padding: 8px;
     margin-bottom: 16px;
     width: 100%;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.sort-button {
+    border-radius: 9999px;
+    color: rgb(154, 154, 154);
+    background-color: #FFFFFF;
+    width: 68px;
+    height: 32px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 17px;
+    margin-top: 12px;
+    padding: 4px 16px;
+    min-height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+    justify-content: center;
+    align-items: center;
 }
 
 .all-posts-container {
@@ -47,6 +95,7 @@
     /* height: 487px; */
     height: auto;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .home-content-right {
@@ -64,10 +113,23 @@
     margin-bottom: 16px;
     margin-top: 16px;
     width: 310px;
+    box-sizing: border-box;
 }
 
-.community-suggestions-ul {
-    list-style: none;
+.community-suggestion-li {
+    display: flexbox;
+    align-items: center;
+    height: 48px;
+    border-bottom: thin solid #EDEFF1;
+    padding: 0px 12px;
+}
+
+.comm-suggestion-pic {
+    height: 32px;
+    width: 32px;
+    border-radius: 24px;
+    margin: 0px 8px;
+    vertical-align: middle;
 }
 
 .view-all-communities-home-button {
@@ -98,6 +160,7 @@
     padding: 8px;
     margin-bottom: 16px;
     width: 310px;
+    box-sizing: border-box;
 }
 
 .try-now-home-button {
@@ -128,6 +191,7 @@
     padding: 8px;
     margin-bottom: 16px;
     width: 310px;
+    box-sizing: border-box;
 }
 
 .create-post-home-button {

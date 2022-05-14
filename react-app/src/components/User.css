@@ -36,6 +36,7 @@
     margin-bottom: 16px;
     margin-top: 16px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .user-info-ul {
@@ -51,4 +52,5 @@
     height: auto;
     width: 100%;
     display: flex;
+    box-sizing: border-box;
 }

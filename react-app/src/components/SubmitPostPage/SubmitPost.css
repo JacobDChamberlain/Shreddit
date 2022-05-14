@@ -1,6 +1,6 @@
 .submit-page-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .submit-page-left {
@@ -10,10 +10,17 @@
     height: 100%
 }
 
+.create-post-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .create-post-form-container {
     display: flex;
     flex-direction: column;
-    height:auto;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .posting-rules-container {
@@ -24,7 +31,9 @@
     background-color: #FFFFFF;
     padding: 8px;
     margin-bottom: 16px;
+    margin-top: 16px;
     width: 310px;
+    box-sizing: border-box;
 }
 
 .posting-rules-header {
