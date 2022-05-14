@@ -1,8 +1,9 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, Post, Community
+from app.models import db, Post
 from app.forms.post_form import PostForm
 from sqlalchemy import asc, desc
+from .auth_routes import validation_errors_to_error_messages
 
 post_routes = Blueprint('posts', __name__)
 
@@ -49,6 +50,8 @@ def create_post():
 def update_post(id):
     post_to_update = Post.query.get(id)
 
+    print("backend", post_to_update)
+
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -58,7 +61,7 @@ def update_post(id):
         db.session.add(post_to_update)
         db.session.commit()
         return post_to_update.to_dict()
-
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @post_routes.route('/<int:id>/delete')
 def delete_post(id):
