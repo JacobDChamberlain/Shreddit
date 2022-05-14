@@ -7,6 +7,7 @@ import CreateCommunityFormModal from "../CreateCommunityModal";
 import HelpLinks from "../HelpLinks/HelpLinks";
 import Post from "../Posts/Post";
 import './Home.css'
+import shravatar from "../../images/shreddit_avatar2.png"
 
 const Home = () => {
 
@@ -47,10 +48,22 @@ const Home = () => {
         <div className="home-container">
             <div className="home-content-left">
                 <div className="create-post-form-container">
-                    - create post form here -
+                    <div>
+                        <img className="create-post-avatar" src={shravatar}></img>
+                        <input
+                            className="create-post-form-input"
+                            placeholder="Create Post"
+                            onClick={handleCreatePost}
+                        />
+                    </div>
                 </div>
                 <div className="sort-buttons-container">
-                    - 'sort posts by' buttons here -
+                    <button className="sort-button">Best</button>
+                    <button className="sort-button">Hot</button>
+                    <button className="sort-button">New</button>
+                    <button className="sort-button">Top</button>
+                    <button className="sort-button">...</button>
+                    <button className="sort-button">Card</button>
                 </div>
                 <div className="all-posts-container">
                     {posts.map(post => (
@@ -61,13 +74,14 @@ const Home = () => {
             <div className="home-content-right">
                 <div className="community-suggestions-container">
                     <h4>Top Shredder Communities</h4>
-                    <ul className="community-suggestions-ul">
+                    <ol className="community-suggestions-ul">
                         {communities.map(community => (
-                            <li key={community.id}>
+                            <li className="community-suggestion-li" key={community.id}>
+                                <img className="comm-suggestion-pic" src={community.community_pic}></img>
                                 <NavLink to={`/sh/${community.name}/${community.id}`} key={community.id}>{community.name}</NavLink>
                             </li>
                         ))}
-                    </ul>
+                    </ol>
                     <button onClick={handleViewAllCommunities} className="view-all-communities-home-button">View All</button>
                 </div>
                 <div className="shreddit-premium-container">

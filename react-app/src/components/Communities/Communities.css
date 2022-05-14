@@ -1,6 +1,6 @@
 .single-community-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
@@ -14,6 +14,11 @@
 
 .community-page-left {
     width: 640px;
+    margin-right: 16px;
+}
+
+.community-page-right {
+    margin-left: 16px;
 }
 
 .community-image {
@@ -36,6 +41,7 @@
     padding: 8px;
     margin-bottom: 16px;
     width: 310px;
+    box-sizing: border-box;
 }
 
 .about-community-header {

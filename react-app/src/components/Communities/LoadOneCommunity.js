@@ -6,6 +6,7 @@ import { getAllCommunityPosts, updatePost } from "../../store/posts";
 import HelpLinks from "../HelpLinks/HelpLinks";
 import Post from "../Posts/Post";
 import './Communities.css'
+import shravatar from "../../images/shreddit_avatar2.png"
 
 
 const LoadOneCommunity = () => {
@@ -75,6 +76,11 @@ const LoadOneCommunity = () => {
         history.push(`/sh/${name}/${communityId}/submit`)
     }
 
+    const handleCreatePost = (e) => {
+        e.preventDefault();
+        history.push(`/sh/${name}/${communityId}/submit`)
+    }
+
     const handleSubmitEdit = async (e) => {
         e.preventDefault();
 
@@ -112,12 +118,24 @@ const LoadOneCommunity = () => {
             </div>
             <div className="single-community-container">
                 <div className="community-page-left">
-                    <div className="create-post-form-container">
-                        - create post form here -
+                <div className="create-post-form-container">
+                    <div>
+                        <img className="create-post-avatar" src={shravatar}></img>
+                        <input
+                            className="create-post-form-input"
+                            placeholder="Create Post"
+                            onClick={handleCreatePost}
+                        />
                     </div>
-                    <div className="sort-buttons-container">
-                        - 'sort posts by' buttons here -
-                    </div>
+                </div>
+                <div className="sort-buttons-container">
+                    <button className="sort-button">Best</button>
+                    <button className="sort-button">Hot</button>
+                    <button className="sort-button">New</button>
+                    <button className="sort-button">Top</button>
+                    <button className="sort-button">...</button>
+                    <button className="sort-button">Card</button>
+                </div>
                     <div className="all-posts-container">
                         {posts?.map(post => (
                             <Post post={post} />

@@ -1,3 +1,9 @@
 .post-image {
     width: 592px;
+    box-sizing: border-box;
 }
+
+/* .individual-post-container {
+    display: flex;
+    box-sizing: border-box;
+} */
