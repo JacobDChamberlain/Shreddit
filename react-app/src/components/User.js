@@ -25,9 +25,9 @@ function User() {
 
   return (
     <div className='user-profile-page-container'>
-      {/* <div className='user-profile-page-left'>
+      <div className='user-profile-page-left'>
 
-      </div> */}
+      </div>
       <div className='user-profile-page-right'>
         <div className='user-info-container'>
           <ul className='user-info-ul'>
@@ -45,10 +45,10 @@ function User() {
             </li>}
           </ul>
         </div>
-        {/* <div className='moderator-of-container'>
+        <div className='moderator-of-container'>
           <h4>You're a moderator of these communities</h4>
 
-        </div> */}
+        </div>
         <HelpLinks />
       </div>
     </div>
