@@ -26,7 +26,9 @@ function User() {
   return (
     <div className='user-profile-page-container'>
       <div className='user-profile-page-left'>
-
+        <div className="sort-buttons-container">
+            - 'sort posts by' buttons here -
+        </div>
       </div>
       <div className='user-profile-page-right'>
         <div className='user-info-container'>

@@ -1,26 +1,31 @@
 .user-profile-page-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .user-profile-page-left {
     display: flex;
     flex-direction: column;
+    /* height: 487px; */
+    height: auto;
+    width: 626px;
+    margin-right: 16px;
+}
+
+.sort-buttons-container {
     border-radius: 4px;
     border: 1px solid #ccc;
     background-color: #FFFFFF;
     padding: 8px;
     margin-bottom: 16px;
     margin-top: 16px;
-    /* height: 487px; */
-    height: auto;
-    width: 626px;
 }
 
 .user-profile-page-right {
     display: flex;
     flex-direction: column;
     width: 310px;
+    margin-left: 16px;
 }
 
 .user-info-container {

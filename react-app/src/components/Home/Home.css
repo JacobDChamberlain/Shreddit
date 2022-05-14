@@ -1,12 +1,13 @@
 .home-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }
 
 .home-content-left {
     width: 640px;
+    margin-right: 16px;
 }
 
 .create-post-form-container {
@@ -17,7 +18,7 @@
     padding: 8px;
     margin-bottom: 16px;
     margin-top: 16px;
-    width: 100%;
+    width: 634px;
 }
 
 .sort-buttons-container {
@@ -33,7 +34,6 @@
 .all-posts-container {
     display: flex;
     flex-direction: column;
-
 }
 
 .individual-post-container {
@@ -47,6 +47,11 @@
     /* height: 487px; */
     height: auto;
     width: 100%;
+}
+
+.home-content-right {
+    width: 310px;
+    margin-left: 24px;
 }
 
 .community-suggestions-container {
