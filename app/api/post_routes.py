@@ -50,8 +50,6 @@ def create_post():
 def update_post(id):
     post_to_update = Post.query.get(id)
 
-    print("backend", post_to_update)
-
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
