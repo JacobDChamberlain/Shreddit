@@ -78,7 +78,7 @@ const Home = () => {
                 <div className="home-right-create-links-container">
                     <div className="home-right-create-links-inner-container">
                         <h4>Home</h4>
-                        <p>Your personal Shreddit frontpage. Come<br/>here to check in with your favorite<br/>communities.</p>
+                        <p>Your personal Shreddit frontpage. Come here to check in with your favorite communities.</p>
                         <button className="create-post-home-button" onClick={handleCreatePost}>Create Post</button>
                         <CreateCommunityFormModal />
                     </div>
