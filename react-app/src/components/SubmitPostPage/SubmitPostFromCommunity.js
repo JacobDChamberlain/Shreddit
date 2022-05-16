@@ -6,7 +6,7 @@ import { createPost } from "../../store/posts";
 import postRulesLogo from '../../images/postrulesShreddit.png'
 import HelpLinks from "../HelpLinks/HelpLinks";
 import './SubmitPost.css'
-import shlogo from "../../images/shlogo.png"
+import shlogo from "../../images/shlogoORANGERED.png"
 
 
 const SubmitPostFromCommunity = () => {
