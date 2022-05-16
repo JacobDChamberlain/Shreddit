@@ -21,14 +21,14 @@ const Post = ({ post, communityId }) => {
     const [body, setBody] = useState('')
     const [imageUrl, setImageUrl] = useState('')
 
-    useEffect(() => {
-        const errors = []
+    // useEffect(() => {
+    //     const errors = []
 
-        if (title.length > 300) errors.push("Please keep title under 300 characters.")
-        if (body.length > 4000) errors.push("Please keep body under 4000 characters.")
+    //     if (title.length > 300) errors.push("Please keep title under 300 characters.")
+    //     if (body.length > 4000) errors.push("Please keep body under 4000 characters.")
 
-        setValidationErrors(errors)
-    }, [title, body])
+    //     setValidationErrors(errors)
+    // }, [title, body])
 
     const handleEdit = () => {
         setShowEditPostForm(!showEditPostForm)
@@ -56,21 +56,32 @@ const Post = ({ post, communityId }) => {
             user_id: post?.user_id,
             community_id: post?.community_id
         }
-        if (validationErrors.length === 0) {
+        // if (validationErrors.length === 0) {
 
-            const data = await dispatch(updatePost(editedPost));
+        //     const data = await dispatch(updatePost(editedPost));
+        //     console.log("data return from dispatch--->", data)
 
-            setShowEditPostForm(false)
+        //     setShowEditPostForm(false)
 
-            if (data) {
-                setValidationErrors(data)
+        //     if (data) {
+        //         setValidationErrors(data)
 
-                return
-            } else {
-                setShowErrors(false)
-            }
+        //         return
+        //     } else {
+        //         setShowErrors(false)
+        //     }
+        // } else {
+        //     setShowErrors(true)
+        // }
+
+        const data = await dispatch(updatePost(editedPost))
+        if (data) {
+            setValidationErrors(data)
+            console.log("post data", data)
         } else {
-            setShowErrors(true)
+            setValidationErrors([])
+            setShowEditPostForm(false)
+            // history.push(`/sh/${communityName}/${communityId}`)
         }
     }
 
@@ -98,11 +109,11 @@ const Post = ({ post, communityId }) => {
                 </div>}
                 <div>{showEditPostForm &&
                     <form className="edit-post-form">
-                        {showErrors && <div>
+                        <div>
                             {validationErrors.map((error, idx) => (
                                 <div className="error-text" key={idx}>{error}</div>
                             ))}
-                        </div>}
+                        </div>
                         <label>
                             New title: {' '}
                             <input

@@ -35,8 +35,11 @@ const LoadOneCommunity = () => {
     // console.log("communityId ---->", communityId)
 
     useEffect(() => {
-        dispatch(getOneCommunity(communityId))
-        dispatch(getAllCommunityPosts(communityId))
+        const getData = async () => {
+            await dispatch(getOneCommunity(communityId))
+            await dispatch(getAllCommunityPosts(communityId))
+        }
+        getData()
     }, [dispatch])
 
     const posts = useSelector(state => Object.values(state.posts))
@@ -49,6 +52,9 @@ const LoadOneCommunity = () => {
     const [description, setDescription] = useState("")
     const [showErrors, setShowErrors] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
+
+
+    console.log("LoadOneComm--->")
 
 
     useEffect(() => {
@@ -138,7 +144,7 @@ const LoadOneCommunity = () => {
                 </div>
                     <div className="all-posts-container">
                         {posts?.map(post => (
-                            <Post post={post} />
+                            <Post key={post.id} post={post} communityId={post.community_id} />
                         ))}
                     </div>
                 </div>

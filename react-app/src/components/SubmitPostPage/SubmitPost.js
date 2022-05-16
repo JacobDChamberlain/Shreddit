@@ -29,18 +29,18 @@ const SubmitPostPage = () => {
         dispatch(getAllCommunities())
     }, [dispatch])
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        const errors = []
+    //     const errors = []
 
-        if (title.length === 0) errors.push("Please enter a title for your post.")
-        if (title.length > 300) errors.push("Please keep titles under 300 characters.")
-        if (body.length === 0) errors.push("Please enter a body for your post.")
-        if (body.length > 4000) errors.push("Please keep your post body under 4000 characters.")
-        if (imageUrl.length > 0 && !imageUrl.includes('jpg')) errors.push("Image must be a .jpg")
+    //     if (title.length === 0) errors.push("Please enter a title for your post.")
+    //     if (title.length > 300) errors.push("Please keep titles under 300 characters.")
+    //     if (body.length === 0) errors.push("Please enter a body for your post.")
+    //     if (body.length > 4000) errors.push("Please keep your post body under 4000 characters.")
+    //     if (imageUrl.length > 0 && !imageUrl.includes('jpg')) errors.push("Image must be a .jpg")
 
-        setValidationErrors(errors)
-    }, [title, body, imageUrl])
+    //     setValidationErrors(errors)
+    // }, [title, body, imageUrl])
 
     const handlePost = async (e) => {
         e.preventDefault();
@@ -52,29 +52,34 @@ const SubmitPostPage = () => {
             community_id: communityId
         }
 
-        let communityName;
-        for (let i = 0; i < communities.length; i++) {
-            if (communities[i].id === post.community_id) {
-                communityName = communities[i].name
-            }
-        }
+        const communityName = communities[communityId - 1].name
 
-        if (validationErrors.length === 0) {
-            const data = await dispatch(createPost(post));
+        // if () {
+        //     const data = await dispatch(createPost(post));
+        //     console.log("submitfromhomeDATA", data)
 
-            history.push(`/sh/${communityName}/${communityId}`)
+        //     if (data) {
+        //         setValidationErrors(data)
+        //         // setShowErrors(true)
+        //         // return
+        //     } else {
+        //         // setShowErrors(false)
+        //     }
+        // } else {
+        //     // setShowErrors(true)
+        // }
+        // history.push(`/sh/${communityName}/${communityId}`)
 
-            if (data) {
-                setValidationErrors(data)
-
-                return
-            } else {
-                setShowErrors(false)
-            }
+        const data = await dispatch(createPost(post))
+        if (data) {
+            setValidationErrors(data)
         } else {
-            setShowErrors(true)
+            setValidationErrors([])
+            history.push(`/sh/${communityName}/${communityId}`)
         }
     }
+
+    console.log("validationerrors--->", validationErrors)
 
     return (
         <div className="submit-page-container">
@@ -84,11 +89,11 @@ const SubmitPostPage = () => {
                 </div>
                 <div className="create-post-form-container">
                     <form className="submit-post-form">
-                        {showErrors && <div>
+                        <div>
                             {validationErrors.map((error, idx) => (
                                 <div className="error-text" key={idx}>{error}</div>
                             ))}
-                        </div>}
+                        </div>
 
                         <label><img src={shlogo}></img>
                             <select
