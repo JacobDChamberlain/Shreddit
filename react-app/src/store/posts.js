@@ -115,8 +115,14 @@ export const updatePost = (post) => async (dispatch) => {
         console.log("post reducer, res--->", res)
 
         dispatch(updateOne(updatedPost))
-
-        return updatedPost
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+    if (data.errors) {
+        return data.errors;
+    }
+    } else {
+        return ['An error occurred. Please try again.']
     }
 }
 
