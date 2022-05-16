@@ -30,13 +30,13 @@ const NavBar = () => {
           {currentUser && <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>}
-          {!currentUser &&  <NavLink to='/login' exact={true} activeClassName='active'>
+          {/* {!currentUser &&  <NavLink to='/login' exact={true} activeClassName='active'>
             Login
-          </NavLink>}
+          </NavLink>} */}
           {!currentUser &&  <button className='demo-button' type='button' onClick={handleDemo}>Demo</button>}
-          {!currentUser && <NavLink to='/sign-up' exact={true} activeClassName='active'>
+          {/* {!currentUser && <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
-          </NavLink>}
+          </NavLink>} */}
           {currentUser && <LogoutButton />}
       </div>
     </nav>
