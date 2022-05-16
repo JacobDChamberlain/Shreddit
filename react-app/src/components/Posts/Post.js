@@ -59,6 +59,7 @@ const Post = ({ post, communityId }) => {
         if (validationErrors.length === 0) {
 
             const data = await dispatch(updatePost(editedPost));
+            console.log("data return from dispatch--->", data)
 
             setShowEditPostForm(false)
 

@@ -106,6 +106,8 @@ export const updatePost = (post) => async (dispatch) => {
     if (res.ok) {
         const updatedPost = await res.json()
 
+        console.log("post reducer, res--->", res)
+
         dispatch(updateOne(updatedPost))
 
         return updatedPost
