@@ -1,0 +1,46 @@
+.landing-page {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.landing-page-container {
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    width: 850px;
+    height: 650px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #1a1a1b;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+}
+
+.image-container-left {
+
+}
+
+.landing-bg {
+    width: 130px;
+    height: 650px;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.forms-container-right {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 24px;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}

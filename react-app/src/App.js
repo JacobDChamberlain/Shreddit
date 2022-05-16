@@ -13,7 +13,7 @@ import LoadOneCommunity from './components/Communities/LoadOneCommunity';
 import Home from './components/Home/Home';
 import SubmitPostPage from './components/SubmitPostPage/SubmitPost';
 import SubmitPostFromCommunity from './components/SubmitPostPage/SubmitPostFromCommunity';
-
+import LandingPage from './components/LandingPage/LandingPage';
 
 
 
@@ -39,11 +39,11 @@ function App() {
     <BrowserRouter>
       <NavBar className='navigation-bar' />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
+        <Route path='/test' exact={true}>
+          <LandingPage />
         </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
+        <Route path='/login' exact={true}>
+          <LandingPage />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
