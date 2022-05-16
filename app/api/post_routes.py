@@ -45,6 +45,7 @@ def create_post():
         db.session.add(newPost)
         db.session.commit()
         return newPost.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 @post_routes.route('/<int:id>', methods=['PUT'])
 def update_post(id):

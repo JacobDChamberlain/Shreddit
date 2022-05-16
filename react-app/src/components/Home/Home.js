@@ -23,6 +23,10 @@ const Home = () => {
     const [showModal, setShowModal] = useState(false);
 
 
+    console.log("Home--->")
+
+
+
     useEffect(() => {
         dispatch(getAllCommunities())
         dispatch(getAllPosts())
