@@ -77,8 +77,10 @@ const Post = ({ post, communityId }) => {
         const data = await dispatch(updatePost(editedPost))
         if (data) {
             setValidationErrors(data)
+            console.log("post data", data)
         } else {
             setValidationErrors([])
+            setShowEditPostForm(false)
             // history.push(`/sh/${communityName}/${communityId}`)
         }
     }
