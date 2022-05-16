@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { deletePost, getOnePost, updatePost } from "../../store/posts";
+import { MdModeEditOutline } from 'react-icons/md'
+import { IoSaveSharp } from 'react-icons/io5'
+import { TiCancel } from 'react-icons/ti'
+import { RiDeleteBinFill } from 'react-icons/ri'
 import './Post.css'
 
 const Post = ({ post, communityId }) => {
@@ -141,14 +145,14 @@ const Post = ({ post, communityId }) => {
                             />
                         </label> */}
                         <div className="edit-post-form-buttons">
-                            <button onClick={() => setShowEditPostForm(false)}>Cancel</button>
-                            <button onClick={handleSubmitEditPost}>Save</button>
+                            <TiCancel onClick={() => setShowEditPostForm(false)}>Cancel</TiCancel>
+                            <IoSaveSharp onClick={handleSubmitEditPost}>Save</IoSaveSharp>
                         </div>
                     </form>}
                 </div>
                 <div hidden={currentUser.username === post?.username ? false : true} className="edit-update-post-buttons">
-                    <button className="edit-post-button" onClick={handleEdit}>{showEditPostForm ? "Cancel" : "Update"}</button>
-                    <button className="delete-post-button" onClick={handleDeleteConfirmation}>{showDeleteConfirmation ? "Cancel" : "Delete"}</button>
+                    <MdModeEditOutline className="edit-post-button" onClick={handleEdit}>{showEditPostForm ? "Cancel" : "Update"}</MdModeEditOutline>
+                    <RiDeleteBinFill className="delete-post-button" onClick={handleDeleteConfirmation}>{showDeleteConfirmation ? "Cancel" : "Delete"}</RiDeleteBinFill>
                 </div>
             </div>
         </>

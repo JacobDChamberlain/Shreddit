@@ -7,3 +7,17 @@
     display: flex;
     box-sizing: border-box;
 } */
+
+.edit-post-form-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+.edit-update-post-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-size: 20px;
+}

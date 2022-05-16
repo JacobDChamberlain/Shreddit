@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
+import { FiLogOut } from 'react-icons/fi';
 
 const LogoutButton = () => {
   const dispatch = useDispatch()
@@ -8,7 +9,7 @@ const LogoutButton = () => {
     await dispatch(logout());
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return <FiLogOut  className='icon'  onClick={onLogout}>Logout</FiLogOut>;
 };
 
 export default LogoutButton;
