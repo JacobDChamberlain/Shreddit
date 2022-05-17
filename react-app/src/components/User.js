@@ -3,10 +3,14 @@ import { useParams } from 'react-router-dom';
 import Post from './Posts/Post';
 import HelpLinks from './HelpLinks/HelpLinks';
 import './User.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllPosts } from '../store/posts';
 
 function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (!userId) {
@@ -23,11 +27,22 @@ function User() {
     return null;
   }
 
+  // const posts = useSelector(state => Object.values(state.posts))
+
+  // useEffect(() => {
+  //   dispatch(getAllPosts())
+  // }, [dispatch])
+
+  // const posts = useSelector(state => Object.values(state.posts))
+
   return (
     <div className='user-profile-page-container'>
       <div className='user-profile-page-left'>
-        <div className="sort-buttons-container">
-            - 'sort posts by' buttons here -
+        <div className="all-posts-container">
+            {/* {posts.map(post => (
+                <Post key={post.id} post={post} communityId={post.community_id} />
+            ))} */}
+            - all user's posts here -
         </div>
       </div>
       <div className='user-profile-page-right'>
@@ -49,7 +64,7 @@ function User() {
         </div>
         <div className='moderator-of-container'>
           <h4>You're a moderator of these communities</h4>
-
+              - list communities created by user here -
         </div>
         <HelpLinks />
       </div>
