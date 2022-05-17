@@ -55,13 +55,13 @@ const SubmitPostFromCommunity = () => {
             community_id: communityId
         }
 
-        // let communityName;
-        // for (let i = 0; i < communities.length; i++) {
-        //     if (communities[i].id === post.community_id) {
-        //         communityName = communities[i].name
-        //     }
-        // }
-        const communityName = communities[communityId - 1].name;
+        let communityName;
+        for (let i = 0; i < communities.length; i++) {
+            if (communities[i].id === post.community_id) {
+                communityName = communities[i].name
+            }
+        }
+        // const communityName = communities[communityId - 1].name;
 
         // if (validationErrors.length === 0) {
         //     const data = await dispatch(createPost(post));
