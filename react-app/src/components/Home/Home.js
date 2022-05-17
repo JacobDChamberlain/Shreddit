@@ -61,14 +61,14 @@ const Home = () => {
                         />
                     </div>
                 </div>
-                <div className="sort-buttons-container">
+                {/* <div className="sort-buttons-container">
                     <button className="sort-button">Best</button>
                     <button className="sort-button">Hot</button>
                     <button className="sort-button">New</button>
                     <button className="sort-button">Top</button>
                     <button className="sort-button">...</button>
                     <button className="sort-button">Card</button>
-                </div>
+                </div> */}
                 <div className="all-posts-container">
                     {posts.map(post => (
                         <Post key={post.id} post={post} communityId={post.community_id} />
@@ -81,7 +81,7 @@ const Home = () => {
                     <ol className="community-suggestions-ul">
                         {communities.map(community => (
                             <li className="community-suggestion-li" key={community.id}>
-                                <img className="comm-suggestion-pic" src={community.community_pic}></img>
+                                {community.community_pic && <img className="comm-suggestion-pic" src={community.community_pic}></img>}
                                 <NavLink to={`/sh/${community.name}/${community.id}`} key={community.id}>{community.name}</NavLink>
                             </li>
                         ))}

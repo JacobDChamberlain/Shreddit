@@ -49,7 +49,8 @@ const LoadOneCommunity = () => {
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
-    const [description, setDescription] = useState("")
+    const [description, setDescription] = useState(community.description)
+    const [communityPic, setCommunityPic] = useState(community.community_pic)
     const [showErrors, setShowErrors] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
@@ -61,9 +62,9 @@ const LoadOneCommunity = () => {
         const errors = []
 
         if (description.length > 500) errors.push("Please keep description under 500 characters.")
-
+        if (communityPic.length > 0 && !communityPic.includes(".jpg")) errors.push("Image must be a .jpg url")
         setValidationErrors(errors)
-    }, [description])
+    }, [description, communityPic])
 
     const handleEdit = () => {
         setShowEditForm(!showEditForm)
@@ -94,7 +95,7 @@ const LoadOneCommunity = () => {
             id: community?.id,
             name: community?.name,
             description: description,
-            community_pic: community?.community_pic,
+            community_pic: communityPic,
             category: community?.category,
             user_id: community?.user_id
         }
@@ -134,14 +135,14 @@ const LoadOneCommunity = () => {
                         />
                     </div>
                 </div>
-                <div className="sort-buttons-container">
+                {/* <div className="sort-buttons-container">
                     <button className="sort-button">Best</button>
                     <button className="sort-button">Hot</button>
                     <button className="sort-button">New</button>
                     <button className="sort-button">Top</button>
                     <button className="sort-button">...</button>
                     <button className="sort-button">Card</button>
-                </div>
+                </div> */}
                     <div className="all-posts-container">
                         {posts?.map(post => (
                             <Post key={post.id} post={post} communityId={post.community_id} />
@@ -169,6 +170,15 @@ const LoadOneCommunity = () => {
                                         name='description'
                                         onChange={e => setDescription(e.target.value)}
                                         defaultValue={community?.description}
+                                    />
+                                </label>
+                                <label>
+                                    New image: {' '}
+                                    <input
+                                        type='text'
+                                        name='communityPic'
+                                        onChange={e => setCommunityPic(e.target.value)}
+                                        defaultValue={community?.community_pic}
                                     />
                                 </label>
                                 <div className="edit-community-form-buttons">
