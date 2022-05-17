@@ -21,9 +21,9 @@ const Post = ({ post, communityId }) => {
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
     const [showErrors, setShowErrors] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
-    const [title, setTitle] = useState('')
-    const [body, setBody] = useState('')
-    const [imageUrl, setImageUrl] = useState('')
+    const [title, setTitle] = useState(post.title)
+    const [body, setBody] = useState(post.body)
+    const [imageUrl, setImageUrl] = useState(post.image_url)
 
     // useEffect(() => {
     //     const errors = []
@@ -56,7 +56,7 @@ const Post = ({ post, communityId }) => {
             id: post?.id,
             title: title,
             body: body,
-            image_url: post?.image_url,
+            image_url: imageUrl,
             user_id: post?.user_id,
             community_id: post?.community_id
         }
@@ -135,7 +135,7 @@ const Post = ({ post, communityId }) => {
                                 defaultValue={post?.body}
                             />
                         </label>
-                        {/* <label>
+                        <label>
                             New image: {' '}
                             <input
                                 type='text'
@@ -143,7 +143,7 @@ const Post = ({ post, communityId }) => {
                                 onChange={e => setImageUrl(e.target.value)}
                                 defaultValue={post?.image_url}
                             />
-                        </label> */}
+                        </label>
                         <div className="edit-post-form-buttons">
                             <TiCancel onClick={() => setShowEditPostForm(false)}>Cancel</TiCancel>
                             <IoSaveSharp onClick={handleSubmitEditPost}>Save</IoSaveSharp>
