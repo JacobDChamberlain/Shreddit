@@ -49,8 +49,8 @@ const LoadOneCommunity = () => {
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
-    const [description, setDescription] = useState(community.description)
-    const [communityPic, setCommunityPic] = useState(community.community_pic)
+    const [description, setDescription] = useState(community?.description)
+    const [communityPic, setCommunityPic] = useState(community?.community_pic)
     const [showErrors, setShowErrors] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
 
@@ -61,8 +61,8 @@ const LoadOneCommunity = () => {
     useEffect(() => {
         const errors = []
 
-        if (description.length > 500) errors.push("Please keep description under 500 characters.")
-        if (communityPic.length > 0 && !communityPic.includes(".jpg")) errors.push("Image must be a .jpg url")
+        if (description?.length > 500) errors.push("Please keep description under 500 characters.")
+        if (communityPic?.length > 0 && !communityPic.includes(".jpg")) errors.push("Image must be a .jpg url")
         setValidationErrors(errors)
     }, [description, communityPic])
 
