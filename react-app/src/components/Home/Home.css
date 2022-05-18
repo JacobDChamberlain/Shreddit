@@ -104,12 +104,27 @@
     box-sizing: border-box;
 }
 
+.sugg-header {
+    display: flex;
+    justify-content: space-around;
+    /* align-self:center */
+}
+.sugg-h4 {
+    align-self: center;
+}
+.shlogo {
+    width: 32px;
+    height: 32px;
+    align-self: center;
+}
+
 .community-suggestion-li {
     display: flexbox;
     align-items: center;
     height: 48px;
     border-bottom: thin solid #EDEFF1;
     padding: 0px 12px;
+    font-size: 14px;
 }
 
 .comm-sugg {
@@ -167,6 +182,13 @@
     box-sizing: border-box;
 }
 
+.prem-h4 {
+    align-self: center;
+}
+.prem-p {
+    font-size: 14px;
+}
+
 .try-now-home-button {
     border-radius: 9999px;
     color: #FFFFFF;
@@ -200,6 +222,14 @@
     margin-bottom: 16px;
     width: 310px;
     box-sizing: border-box;
+}
+
+.home-h4 {
+    align-self: center;
+}
+
+.home-p {
+    font-size: 14px;
 }
 
 .create-post-home-button {
