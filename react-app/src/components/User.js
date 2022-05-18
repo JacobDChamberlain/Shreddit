@@ -4,34 +4,42 @@ import Post from './Posts/Post';
 import HelpLinks from './HelpLinks/HelpLinks';
 import './User.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllPosts } from '../store/posts';
+import { getAllUserPosts } from '../store/posts';
 
 function User() {
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const { userId }  = useParams();
 
-  const [posts, setPosts] = useState([])
+  // const [posts, setPosts] = useState([])
 
   const dispatch = useDispatch()
 
+  const user = useSelector(state => state.session.user)
+  const posts = useSelector(state => Object.values(state.posts))
+
   useEffect(() => {
-    if (!userId) {
-      return;
-    }
-    (async () => {
-      const response = await fetch(`/api/users/${userId}`);
-      const user = await response.json();
-      setUser(user);
-      const res = await fetch(`/api/posts/users/${userId}`);
-      const postsRes = await res.json();
-      setPosts(postsRes)
-    })();
-  }, [userId]);
+    dispatch(getAllUserPosts(userId))
+  }, [dispatch])
 
-  if (!user) {
-    return null;
-  }
+  // useEffect(() => {
+  //   if (!userId) {
+  //     return;
+  //   }
+  //   (async () => {
+  //     const response = await fetch(`/api/users/${userId}`);
+  //     const user = await response.json();
+  //     setUser(user);
+  //     // const res = await fetch(`/api/posts/users/${userId}`);
+  //     // const postsRes = await res.json();
+  //     // setPosts(postsRes)
+  //   })();
+  // }, [userId]);
 
+  // if (!user) {
+  //   return null;
+  // }
+
+  // const user = useSelector(state => state.session.user)
   // const posts = useSelector(state => Object.values(state.posts))
 
   // useEffect(() => {

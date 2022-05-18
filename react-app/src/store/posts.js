@@ -1,5 +1,6 @@
 const GET_ALL_POSTS = 'posts/GET_ALL_POSTS'
 const GET_COMMUNITY_POSTS = 'posts/GET_COMMUNITY_POSTS'
+const GET_USER_POSTS = 'posts/GET_USER_POSTS'
 const GET_ONE_POST = 'posts/GET_ONE_POST'
 const CREATE_POST = 'posts/CREATE_POST'
 const UPDATE_POST = 'posts/UPDATE_POST'
@@ -14,6 +15,11 @@ const getAll = (posts) => ({
 
 const getAllByCommun = (posts) => ({
     type: GET_COMMUNITY_POSTS,
+    posts
+})
+
+const getAllByUser = (posts) => ({
+    type: GET_USER_POSTS,
     posts
 })
 
@@ -62,6 +68,23 @@ export const getAllCommunityPosts = (community_id) => async (dispatch) => {
         dispatch(getAllByCommun(communityPosts))
 
         return communityPosts
+    }
+}
+
+export const getAllUserPosts = (user_id) => async (dispatch) => {
+
+    // console.log(user_id)
+
+    const res = await fetch(`/api/posts/users/${user_id}`)
+
+    if (res.ok) {
+        const userPosts = await res.json()
+
+        console.log("userPosts---->", userPosts)
+
+        dispatch(getAllByUser(userPosts))
+
+        return userPosts
     }
 }
 
@@ -158,6 +181,15 @@ export default function postReducer(state = initialState, action) {
             return newState
         }
         case GET_COMMUNITY_POSTS: {
+            newState = {}
+
+            action.posts.map(post => {
+                return newState[post.id] = post
+            })
+
+            return newState
+        }
+        case GET_USER_POSTS: {
             newState = {}
 
             action.posts.map(post => {
