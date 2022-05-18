@@ -1,4 +1,5 @@
 const GET_ALL_COMMUNITIES = 'communities/GET_ALL_COMMUNITIES'
+const GET_ALL_USER_COMMUNITIES = 'communities/GET_ALL_USER_COMMUNITIES'
 const GET_ONE_COMMUNITY = 'communities/GET_ONE_COMMUNITY'
 const CREATE_COMMUNITY = 'communities/CREATE_COMMUNITY'
 const UPDATE_COMMUNITY = 'communities/UPDATE_COMMUNITY'
@@ -8,6 +9,11 @@ const DELETE_COMMUNITY = 'communities/DELETE_COMMUNITY'
 
 const getAll = (communities) => ({
     type: GET_ALL_COMMUNITIES,
+    communities
+})
+
+const getAllByUser = (communities) => ({
+    type: GET_ALL_USER_COMMUNITIES,
     communities
 })
 
@@ -43,6 +49,19 @@ export const getAllCommunities = () => async (dispatch) => {
         dispatch(getAll(communities))
 
         return communities
+    }
+}
+
+export const getAllUserCommunities = (user_id) => async (dispatch) => {
+
+    const res = await fetch(`/api/communities/users/${user_id}`)
+
+    if (res.ok) {
+        const userCommunities = await res.json()
+
+        dispatch(getAllByUser(userCommunities))
+
+        return userCommunities
     }
 }
 
@@ -121,6 +140,15 @@ export default function communityReducer(state = initialState, action) {
 
     switch(action.type) {
         case GET_ALL_COMMUNITIES: {
+            newState = {};
+
+            action.communities.map(community => {
+                return newState[community.id] = community;
+            })
+
+            return newState;
+        }
+        case GET_ALL_USER_COMMUNITIES: {
             newState = {};
 
             action.communities.map(community => {

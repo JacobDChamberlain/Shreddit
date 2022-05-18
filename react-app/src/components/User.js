@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import Post from './Posts/Post';
 import HelpLinks from './HelpLinks/HelpLinks';
 import './User.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllUserPosts } from '../store/posts';
+import { getAllUserCommunities } from '../store/communities'
 
 function User() {
   // const [user, setUser] = useState({});
@@ -16,9 +17,13 @@ function User() {
 
   const user = useSelector(state => state.session.user)
   const posts = useSelector(state => Object.values(state.posts))
+  const communities = useSelector(state => Object.values(state.communities))
+
+  communities.reverse()
 
   useEffect(() => {
     dispatch(getAllUserPosts(userId))
+    dispatch(getAllUserCommunities(userId))
   }, [dispatch])
 
   posts.reverse()
@@ -77,10 +82,12 @@ function User() {
         </div>
         <div className='moderator-of-container'>
           <h4>You're a moderator of these communities</h4>
-              - list communities created by user here -
-              {/* {user.communities.map(community => (
-                <li key={community.id}>{community.name}</li>
-              ))} */}
+              {communities.map(community => (
+                <li className="community-mod-li" key={community.id}>
+                    {community.community_pic && <img className="comm-suggestion-pic" src={community.community_pic}></img>}
+                    <NavLink className='comm-sugg' to={`/sh/${community.name}/${community.id}`} key={community.id}>{community.name}</NavLink>
+                </li>
+              ))}
         </div>
         <HelpLinks />
       </div>

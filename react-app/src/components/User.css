@@ -68,4 +68,25 @@
     width: 100%;
     display: flex;
     box-sizing: border-box;
+    flex-direction: column;
+}
+
+.community-mod-li {
+    list-style: none;
+    align-items: center;
+    height: 48px;
+    border-bottom: thin solid #EDEFF1;
+    padding: 0px 12px;
+}
+
+.comm-sugg {
+    text-decoration: none;
+}
+
+.comm-sugg:visited {
+    text-decoration: none;
+    color: #000000;
+}
+.comm-sugg:hover {
+    color: orangered;
 }
