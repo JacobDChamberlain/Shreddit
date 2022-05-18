@@ -112,6 +112,18 @@
     padding: 0px 12px;
 }
 
+.comm-sugg {
+    text-decoration: none;
+}
+
+.comm-sugg:visited {
+    text-decoration: none;
+    color: #000000;
+}
+.comm-sugg:hover {
+    color: orangered;
+}
+
 .comm-suggestion-pic {
     height: 32px;
     width: 32px;

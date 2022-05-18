@@ -15,6 +15,13 @@ def get_all_communities():
     return jsonify([community.to_dict() for community in communities])
 
 
+@community_routes.route('/users/<int:id>')
+def get_all_user_communities(id):
+    communities = Community.query.filter(Community.user_id == id).all()
+
+    return jsonify([community.to_dict() for community in communities])
+
+
 @community_routes.route('/<int:id>')
 def get_one_community(id):
     community = Community.query.get(id)
