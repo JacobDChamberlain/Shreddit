@@ -150,10 +150,10 @@ const Post = ({ post, communityId }) => {
                         </div>
                     </form>}
                 </div>
-                <div hidden={currentUser.username === post?.username ? false : true} className="edit-update-post-buttons">
+                {currentUser.username === post?.username && <div className="edit-update-post-buttons">
                     <MdModeEditOutline className="edit-post-button" onClick={handleEdit}>{showEditPostForm ? "Cancel" : "Update"}</MdModeEditOutline>
                     <RiDeleteBinFill className="delete-post-button" onClick={handleDeleteConfirmation}>{showDeleteConfirmation ? "Cancel" : "Delete"}</RiDeleteBinFill>
-                </div>
+                </div>}
             </div>
         </>
     )
