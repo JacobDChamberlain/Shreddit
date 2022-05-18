@@ -21,6 +21,12 @@ def get_all_community_posts(id):
 
     return jsonify([post.to_dict() for post in posts])
 
+@post_routes.route('/users/<int:id>')
+def get_all_user_posts(id):
+    posts = Post.query.filter(Post.user_id == id).order_by(desc(Post.id)).all()
+
+    return jsonify([post.to_dict() for post in posts])
+
 
 @post_routes.route('/<int:id>')
 def get_one_post(id):
