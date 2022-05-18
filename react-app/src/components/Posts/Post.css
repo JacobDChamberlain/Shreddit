@@ -3,10 +3,18 @@
     box-sizing: border-box;
 }
 
-/* .individual-post-container {
+.individual-post-container {
     display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    padding: 8px;
+    margin-bottom: 16px;
+    height: auto;
+    width: 100%;
     box-sizing: border-box;
-} */
+}
 
 .edit-post-form-buttons {
     display: flex;
