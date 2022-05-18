@@ -21,6 +21,7 @@ function User() {
     dispatch(getAllUserPosts(userId))
   }, [dispatch])
 
+  posts.reverse()
   // useEffect(() => {
   //   if (!userId) {
   //     return;
