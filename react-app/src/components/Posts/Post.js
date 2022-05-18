@@ -97,7 +97,8 @@ const Post = ({ post, communityId }) => {
                     <div className="post-header">
                         <div className="who-and-where-when-post">
                             {!name && <NavLink className='comm-link' to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
-                            <div className="posted-by">Posted by <NavLink to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {post.created_at}</div>
+                            {/* <div className="posted-by">Posted by <NavLink to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {post.created_at}</div> */}
+                            <div className="posted-by">Posted by /u/{post.username}  at {post.created_at}</div>
                         </div>
                         <div className="post-title-div">{post.title}</div>
                     </div>

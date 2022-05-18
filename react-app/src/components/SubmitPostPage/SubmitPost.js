@@ -59,6 +59,9 @@ const SubmitPostPage = () => {
             }
         }
 
+        // console.log(communityName)
+        // console.log(communityId)
+
         // const communityName = communities[communityId - 1].name
 
         // if () {
@@ -82,7 +85,8 @@ const SubmitPostPage = () => {
             setValidationErrors(data)
         } else {
             setValidationErrors([])
-            history.push(`/sh/${communityName}/${communityId}`)
+            // history.push(`/sh/${communityName}/${communityId}`)
+            history.push('/')
         }
     }
 

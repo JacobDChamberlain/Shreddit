@@ -65,6 +65,9 @@ function User() {
         <div className='moderator-of-container'>
           <h4>You're a moderator of these communities</h4>
               - list communities created by user here -
+              {/* {user.communities.map(community => (
+                <li key={community.id}>{community.name}</li>
+              ))} */}
         </div>
         <HelpLinks />
       </div>

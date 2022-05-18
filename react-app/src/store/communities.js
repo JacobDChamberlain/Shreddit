@@ -121,7 +121,7 @@ export default function communityReducer(state = initialState, action) {
 
     switch(action.type) {
         case GET_ALL_COMMUNITIES: {
-            newState = { ...state };
+            newState = {};
 
             action.communities.map(community => {
                 return newState[community.id] = community;

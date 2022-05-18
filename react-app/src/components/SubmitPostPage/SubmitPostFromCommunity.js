@@ -61,6 +61,7 @@ const SubmitPostFromCommunity = () => {
                 communityName = communities[i].name
             }
         }
+
         // const communityName = communities[communityId - 1].name;
 
         // if (validationErrors.length === 0) {
@@ -85,7 +86,7 @@ const SubmitPostFromCommunity = () => {
             setValidationErrors(data)
         } else {
             setValidationErrors([])
-            history.push(`/sh/${communityName}/${communityId}`)
+            history.push(`/sh/${name}/${communityId}`)
         }
     }
 
