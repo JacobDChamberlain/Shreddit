@@ -6,6 +6,7 @@ import './User.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllUserPosts } from '../store/posts';
 import { getAllUserCommunities } from '../store/communities'
+import { getUserInfo } from '../store/userInfo'
 
 function User() {
   // const [user, setUser] = useState({});
@@ -18,12 +19,15 @@ function User() {
   const user = useSelector(state => state.session.user)
   const posts = useSelector(state => Object.values(state.posts))
   const communities = useSelector(state => Object.values(state.communities))
+  const userInfo1 = useSelector(state => Object.values(state.userInfo))
 
+  const userInfo = userInfo1[0]
   communities.reverse()
 
   useEffect(() => {
     dispatch(getAllUserPosts(userId))
     dispatch(getAllUserCommunities(userId))
+    dispatch(getUserInfo(userId))
   }, [dispatch])
 
   posts.reverse()
@@ -67,16 +71,16 @@ function User() {
         <div className='user-info-container'>
           <ul className='user-info-ul'>
             <li>
-              <strong>User Id</strong> {userId}
+              <strong>User Id</strong> {userInfo?.id}
             </li>
             <li>
-              <strong>Username</strong> {user.username}
+              <strong>Username</strong> {userInfo?.username}
             </li>
             <li>
-              <strong>Email</strong> {user.email}
+              <strong>Email</strong> {userInfo?.email}
             </li>
-            {user.profile_pic && <li>
-              <strong>Profile Picture</strong> <img className='user-profile-pic' src={user.profile_pic}></img>
+            {userInfo?.profile_pic && <li>
+              <strong>Profile Picture</strong> <img className='user-profile-pic' src={userInfo?.profile_pic}></img>
             </li>}
           </ul>
         </div>
