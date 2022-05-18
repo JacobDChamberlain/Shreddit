@@ -10,6 +10,8 @@ function User() {
   const [user, setUser] = useState({});
   const { userId }  = useParams();
 
+  const [posts, setPosts] = useState([])
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -20,6 +22,9 @@ function User() {
       const response = await fetch(`/api/users/${userId}`);
       const user = await response.json();
       setUser(user);
+      const res = await fetch(`/api/posts/users/${userId}`);
+      const postsRes = await res.json();
+      setPosts(postsRes)
     })();
   }, [userId]);
 
@@ -39,10 +44,9 @@ function User() {
     <div className='user-profile-page-container'>
       <div className='user-profile-page-left'>
         <div className="all-posts-container">
-            {/* {posts.map(post => (
+            {posts.map(post => (
                 <Post key={post.id} post={post} communityId={post.community_id} />
-            ))} */}
-            - all user's posts here -
+            ))}
         </div>
       </div>
       <div className='user-profile-page-right'>
