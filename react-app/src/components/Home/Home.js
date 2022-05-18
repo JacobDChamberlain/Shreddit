@@ -8,6 +8,8 @@ import HelpLinks from "../HelpLinks/HelpLinks";
 import Post from "../Posts/Post";
 import './Home.css'
 import shravatar from "../../images/shreddit_avatar2.png"
+import shlogo from "../../images/shlogo.png"
+import homeBanner from '../../images/shreddit_home_banner.png'
 
 const Home = () => {
 
@@ -15,8 +17,30 @@ const Home = () => {
     const history = useHistory()
 
     const currentUser = useSelector(state => state.session.user)
-    const communities = useSelector(state => Object.values(state.communities))
+    const communitiesArr = useSelector(state => Object.values(state.communities))
     const posts = useSelector(state => Object.values(state.posts))
+
+    function randomize(arr) {
+        let currIdx = arr.length, randIdx;
+
+        while (currIdx != 0) {
+            randIdx = Math.floor(Math.random() * currIdx);
+            currIdx--;
+
+            [arr[currIdx], arr[randIdx]] = [arr[randIdx], arr[currIdx]];
+        }
+
+        return arr;
+    }
+
+    const communitiesRand = randomize(communitiesArr)
+
+    const communities = [];
+    for (let i = 0; i < 5; i++) {
+        communities.push(communitiesRand[i])
+    }
+
+
 
     posts.reverse()
 
@@ -77,26 +101,30 @@ const Home = () => {
             </div>
             <div className="home-content-right">
                 <div className="community-suggestions-container">
-                    <h4>Top Shredder Communities</h4>
+                    <div className="sugg-header">
+                        <img className="shlogo" src={shlogo}></img>
+                        <h4 className="sugg-h4">Shredder Suggestions</h4>
+                    </div>
                     <ol className="community-suggestions-ul">
-                        {communities.map(community => (
-                            <li className="community-suggestion-li" key={community.id}>
-                                {community.community_pic && <img className="comm-suggestion-pic" src={community.community_pic}></img>}
-                                <NavLink className='comm-sugg' to={`/sh/${community.name}/${community.id}`} key={community.id}>{community.name}</NavLink>
+                        {communities?.map(community => (
+                            <li className="community-suggestion-li" key={community?.id}>
+                                {community?.community_pic && <img className="comm-suggestion-pic" src={community?.community_pic}></img>}
+                                <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
                             </li>
                         ))}
                     </ol>
                     <button onClick={handleViewAllCommunities} className="view-all-communities-home-button">View All</button>
                 </div>
                 <div className="shreddit-premium-container">
-                    <h4>Shreddit Premium</h4>
-                    <p>To get the best Sheddit experience,<br />send me monthly Coins</p>
+                    <h4 className="prem-h4">Shreddit Premium</h4>
+                    <p className="prem-p">To get the best Sheddit experience,<br />send me monthly Coins</p>
                     <button onClick={handleTryNow} className="try-now-home-button">Try Now</button>
                 </div>
                 <div className="home-right-create-links-container">
                     <div className="home-right-create-links-inner-container">
-                        <h4>Home</h4>
-                        <p>Your personal Shreddit frontpage. Come here to check in with your favorite communities.</p>
+                        <img className="home-banner-img" src={homeBanner}></img>
+                        <h4 className="home-h4">Home</h4>
+                        <p className="home-p">Your personal Shreddit frontpage. Come here to check in with your favorite communities.</p>
                         <button className="create-post-home-button" onClick={handleCreatePost}>Create Post</button>
                         <CreateCommunityFormModal />
                     </div>
