@@ -148,8 +148,8 @@ const Post = ({ post, communityId }) => {
                             />
                         </label>
                         <div className="edit-post-form-buttons">
-                            <TiCancel onClick={() => setShowEditPostForm(false)}>Cancel</TiCancel>
-                            <IoSaveSharp onClick={handleSubmitEditPost}>Save</IoSaveSharp>
+                            <TiCancel className="cancel-icon" onClick={() => setShowEditPostForm(false)}>Cancel</TiCancel>
+                            <IoSaveSharp className="save-icon" onClick={handleSubmitEditPost}>Save</IoSaveSharp>
                         </div>
                     </form>}
                 </div>

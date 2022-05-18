@@ -44,3 +44,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.switch-form-button {
+    cursor: pointer;
+}
