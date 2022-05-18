@@ -4,6 +4,14 @@
 
 ## Git 'cha Pull
 
+### Technologies Used:
+    - Frontend:
+        * ReactJs
+        * Redux
+    - Backend:
+        * Flask
+        * SQLAlchemy
+
 ### To run locally:
 1. Clone this repository (only this branch)
 
