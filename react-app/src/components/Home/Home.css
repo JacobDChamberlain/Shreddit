@@ -82,6 +82,7 @@
 .all-posts-container {
     display: flex;
     flex-direction: column;
+    width: 642px;
 }
 
 
