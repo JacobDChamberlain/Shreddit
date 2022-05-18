@@ -84,7 +84,7 @@ function User() {
             </li>}
           </ul>
         </div>
-        <div className='moderator-of-container'>
+        {communities.length > 0 && <div className='moderator-of-container'>
           <h4>You're a moderator of these communities</h4>
               {communities.map(community => (
                 <li className="community-mod-li" key={community.id}>
@@ -92,7 +92,7 @@ function User() {
                     <NavLink className='comm-sugg' to={`/sh/${community.name}/${community.id}`} key={community.id}>{community.name}</NavLink>
                 </li>
               ))}
-        </div>
+        </div>}
         <HelpLinks />
       </div>
     </div>
