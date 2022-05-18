@@ -96,13 +96,13 @@ const Post = ({ post, communityId }) => {
                 {!showDeleteConfirmation ? <ul>
                     <div className="post-header">
                         <div className="who-and-where-when-post">
-                            {!name && <NavLink to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
-                            Posted by <NavLink to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {post.created_at}
+                            {!name && <NavLink className='comm-link' to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
+                            <div className="posted-by">Posted by <NavLink to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {post.created_at}</div>
                         </div>
-                        <h4>{post.title}</h4>
+                        <div className="post-title-div">{post.title}</div>
                     </div>
                     <img className="post-image" src={post.image_url}></img>
-                    <p>{post.body}</p>
+                    <p className="post-body">{post.body}</p>
                 </ul> :
                 <div>
                     <p>Are you sure you want to delete your post?</p>

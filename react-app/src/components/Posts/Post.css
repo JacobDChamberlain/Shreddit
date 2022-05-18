@@ -21,3 +21,28 @@
     justify-content: space-between;
     font-size: 20px;
 }
+
+.who-and-where-when-post {
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+}
+
+.post-title-div {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    color: #222222
+}
+
+.posted-by {
+    color: #787C7E
+}
+
+.post-body {
+    font-size: 16px;
+    font-family: Noto Sans, Arial, sans-serif;
+    font-weight: 600;
+    line-height: 18px;
+    color: #222222;
+}
