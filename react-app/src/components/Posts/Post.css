@@ -73,3 +73,28 @@
     line-height: 18px;
     color: #222222;
 }
+
+
+.comm-link {
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.comm-link:visited {
+    text-decoration: none;
+    color: #000000;
+}
+.comm-link:hover {
+    color: orangered;
+}
+
+.user-link {
+    text-decoration: none;
+}
+.user-link:visited {
+    text-decoration: none;
+    color: #787C7E
+}
+.user-link:hover {
+    color: orangered;
+}
