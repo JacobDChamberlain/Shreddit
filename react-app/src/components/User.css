@@ -52,6 +52,12 @@
     list-style: none;
 }
 
+.user-profile-pic {
+    height: 200px;
+    width: 200px;
+    border-radius: 50px;
+}
+
 .moderator-of-container {
     border-radius: 4px;
     border: 1px solid #ccc;

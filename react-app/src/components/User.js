@@ -62,7 +62,7 @@ function User() {
               <strong>Email</strong> {user.email}
             </li>
             {user.profile_pic && <li>
-              <strong>Profile Picture</strong> <img src={user.profile_pic}></img>
+              <strong>Profile Picture</strong> <img className='user-profile-pic' src={user.profile_pic}></img>
             </li>}
           </ul>
         </div>
