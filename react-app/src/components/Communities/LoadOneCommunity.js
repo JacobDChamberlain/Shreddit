@@ -184,8 +184,8 @@ const LoadOneCommunity = () => {
                                     />
                                 </label>
                                 <div className="edit-community-form-buttons">
-                                    <button onClick={() => setShowEditForm(false)}>Cancel</button>
-                                    <button onClick={handleSubmitEdit}>Save</button>
+                                    <button className="cancel-edit" onClick={() => setShowEditForm(false)}>Cancel</button>
+                                    <button className="save-edit" onClick={handleSubmitEdit}>Save</button>
                                 </div>
                             </form>}
                         </div>

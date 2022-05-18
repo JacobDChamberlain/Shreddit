@@ -139,6 +139,10 @@
     border: none;
 }
 
+.view-all-communities-home-button:hover {
+    background-color: #0078d3a6;
+}
+
 .shreddit-premium-container {
     display: flex;
     flex-direction: column;
@@ -168,6 +172,10 @@
     cursor: pointer;
     box-sizing: border-box;
     border: none;
+}
+
+.try-now-home-button:hover {
+    background-color: rgba(255, 68, 0, 0.634);
 }
 
 .home-right-create-links-inner-container {
@@ -201,6 +209,10 @@
     border: none;
 }
 
+.create-post-home-button:hover {
+    background-color: #0078d3a6;
+}
+
 .create-community-home-button {
     border-radius: 9999px;
     color: #0079D3;
@@ -219,6 +231,11 @@
     cursor: pointer;
     box-sizing: border-box;
     border: 1px solid #0079D3;
+}
+
+.create-community-home-button:hover {
+    background-color: #0078d3a6;
+    color:#FFFFFF
 }
 
 .create-community-form {
@@ -275,6 +292,12 @@
     border: 1px solid #0079D3;
 }
 
+.cancel-create-community-button:hover {
+    background-color: orangered;
+    color:#FFFFFF;
+    border: none;
+}
+
 .create-community-form-button {
     border-radius: 9999px;
     color: #FFFFFF;
@@ -292,6 +315,10 @@
     cursor: pointer;
     box-sizing: border-box;
     border: none;
+}
+
+.create-community-form-button:hover {
+    background-color: #0078d3a6;
 }
 
 .error-text {

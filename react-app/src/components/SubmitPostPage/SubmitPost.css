@@ -43,3 +43,26 @@
 .posting-rules-img {
     height: 100%;
 }
+
+.submit-post-form-button {
+    border-radius: 9999px;
+    color: #FFFFFF;
+    background-color: #0079D3;
+    width: 286px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 17px;
+    margin-top: 12px;
+    padding: 4px 16px;
+    min-height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+}
+
+.submit-post-form-button:hover {
+    background-color: #0078d3a6;
+}

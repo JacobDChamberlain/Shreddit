@@ -23,6 +23,25 @@
     font-size: 20px;
 }
 
+.edit-post-button {
+    cursor: pointer;
+}
+.delete-post-button {
+    cursor: pointer;
+}
+.no-confirm-delete {
+    cursor: pointer;
+}
+.confirm-delete {
+    cursor: pointer;
+}
+.cancel-icon {
+    cursor: pointer;
+}
+.save-icon {
+    cursor: pointer;
+}
+
 .edit-update-post-buttons {
     display: flex;
     width: 100%;

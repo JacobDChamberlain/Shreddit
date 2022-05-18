@@ -29,6 +29,7 @@ form {
 
 .icon {
     font-size: 25px;
+    cursor: pointer;
 }
 
 .demo-button {
@@ -39,4 +40,9 @@ form {
     font-size: 18px;
     font-weight: 400;
     padding: 5px;
+    cursor: pointer;
+}
+
+.demo-button:hover {
+    background-color: rgba(255, 68, 0, 0.29);
 }

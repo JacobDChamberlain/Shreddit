@@ -29,6 +29,10 @@
     border: none;
 }
 
+.login-button:hover {
+    background-color: #0078d377;
+}
+
 .switch-form-button {
     border-style: none;
     background-color: #FFFFFF;

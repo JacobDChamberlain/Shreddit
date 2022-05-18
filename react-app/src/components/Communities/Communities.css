@@ -100,6 +100,23 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+    padding: 5px;
+}
+
+.cancel-edit {
+    border: none;
+    background-color: orangered;
+    color: #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.save-edit {
+    border: none;
+    background-color: #0079D3;
+    color: #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .confirm-delete-buttons {
