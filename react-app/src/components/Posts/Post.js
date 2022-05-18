@@ -6,6 +6,8 @@ import { MdModeEditOutline } from 'react-icons/md'
 import { IoSaveSharp } from 'react-icons/io5'
 import { TiCancel } from 'react-icons/ti'
 import { RiDeleteBinFill } from 'react-icons/ri'
+// import * as moment from 'moment'
+// import timezone from 'moment-timezone'
 import './Post.css'
 
 const Post = ({ post, communityId }) => {
@@ -88,7 +90,7 @@ const Post = ({ post, communityId }) => {
             // history.push(`/sh/${communityName}/${communityId}`)
         }
     }
-
+    const moment = require('moment-timezone');
 
     return (
         <>
@@ -98,7 +100,7 @@ const Post = ({ post, communityId }) => {
                         <div className="who-and-where-when-post">
                             {!name && <NavLink className='comm-link' to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
                             {/* <div className="posted-by">Posted by <NavLink to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {post.created_at}</div> */}
-                            <div className="posted-by">Posted by /u/{post.username}  at {post.created_at}</div>
+                            <div className="posted-by">Posted by /u/{post.username}  at {moment.tz(post.created_at, 'America/New York').format('MMMM Do YYYY, h:mm:ss a')}</div>
                         </div>
                         <div className="post-title-div">{post.title}</div>
                     </div>

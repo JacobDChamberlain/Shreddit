@@ -117,6 +117,8 @@ const LoadOneCommunity = () => {
         }
     }
 
+    const moment = require('moment-timezone');
+
     return (
         <>
             <div className="community-header-container">
@@ -189,7 +191,7 @@ const LoadOneCommunity = () => {
                         </div>
                         {!showDeleteConfirmation ? <ul>
                             <li>Description: {community?.description}</li>
-                            <li>Created: {community?.created_at}</li>
+                            <li>Created: {moment.tz(community?.created_at, 'America/New York').format('MMMM Do YYYY')}</li>
                             <li>Created By: {community?.username}</li>
                             <li>Category: {community?.category}</li>
                             {community?.community_pic && <img className="community-image" src={community?.community_pic}></img>}
