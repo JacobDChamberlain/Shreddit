@@ -46,3 +46,8 @@ form {
 .demo-button:hover {
     background-color: rgba(255, 68, 0, 0.29);
 }
+
+::-webkit-scrollbar {
+    width: 0;
+    /* background: transparent; */
+}
