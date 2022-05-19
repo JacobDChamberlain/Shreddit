@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email, ValidationError, EqualTo, Length
 from app.models import User
 
 
@@ -26,7 +26,7 @@ def is_jpg(form, field):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField('username', validators=[DataRequired(), username_exists])
+    username = StringField('username', validators=[DataRequired(), username_exists, Length(max=40)])
     email = StringField('email', validators=[DataRequired(), user_exists, Email()])
-    password = StringField('password', validators=[DataRequired()])
     profile_pic = StringField('profile_pic', validators=[is_jpg])
+    password = StringField('password', validators=[DataRequired()])
