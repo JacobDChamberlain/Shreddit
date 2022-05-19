@@ -33,12 +33,19 @@ const Home = () => {
         return arr;
     }
 
-    const communitiesRand = randomize(communitiesArr)
+    // const communitiesRand = randomize(communitiesArr)
 
-    const communities = [];
-    for (let i = 0; i < 5; i++) {
-        communities.push(communitiesRand[i])
+    // const communities = [];
+    // for (let i = 0; i < 5; i++) {
+    //     communities.push(communitiesRand[i])
+    // }
+
+    const fiveMostRecentCommunities = []
+    for (let i = communitiesArr.length - 1; i >= communitiesArr.length - 5; i--) {
+        fiveMostRecentCommunities.push(communitiesArr[i])
     }
+
+    const communities = randomize(fiveMostRecentCommunities)
 
 
 
