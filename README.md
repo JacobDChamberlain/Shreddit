@@ -4,6 +4,22 @@
 
 ## Git 'cha Pull
 
+### Technologies Used:
+    - Frontend:
+        * ReactJs
+        * Redux
+    - Backend:
+        * Flask
+        * SQLAlchemy
+### Screenshots:
+![Screen Shot 2022-05-18 at 6 40 41 PM](https://user-images.githubusercontent.com/91109296/169172940-77473e69-b791-4004-b2cb-c0bfe457dfa0.png)
+![Screen Shot 2022-05-18 at 6 40 53 PM](https://user-images.githubusercontent.com/91109296/169172943-17418902-42a6-47da-9eb7-33578de713f1.png)
+![Screen Shot 2022-05-18 at 6 41 20 PM](https://user-images.githubusercontent.com/91109296/169172944-e6d395f8-033a-4453-a7b9-c63f720277d9.png)
+![Screen Shot 2022-05-18 at 6 43 16 PM](https://user-images.githubusercontent.com/91109296/169172948-3741c82e-b4b9-4b34-9ebd-dec403470dde.png)
+![Screen Shot 2022-05-18 at 6 43 47 PM](https://user-images.githubusercontent.com/91109296/169172950-44e0c551-d1ba-4016-b63c-5f2e4a3e6251.png)
+![Screen Shot 2022-05-18 at 6 44 27 PM](https://user-images.githubusercontent.com/91109296/169172951-5dd7b8e3-e3db-447c-a3e9-9c44e22df829.png)
+
+
 ### To run locally:
 1. Clone this repository (only this branch)
 
