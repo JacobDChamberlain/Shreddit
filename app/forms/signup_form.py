@@ -19,9 +19,14 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
+def is_jpg(form, field):
+    profile_pic = field.data
+    if len(profile_pic) > 0 and ".jpg" not in profile_pic:
+        raise ValidationError('Profile Picture must be a .jpg URL.')
+
 
 class SignUpForm(FlaskForm):
     username = StringField('username', validators=[DataRequired(), username_exists])
     email = StringField('email', validators=[DataRequired(), user_exists, Email()])
     password = StringField('password', validators=[DataRequired()])
-    profile_pic = StringField('profile_pic')
+    profile_pic = StringField('profile_pic', validators=[is_jpg])
