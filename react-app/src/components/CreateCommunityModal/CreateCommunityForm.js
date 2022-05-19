@@ -65,6 +65,15 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
         } else {
             setShowErrors(true)
         }
+        // const data = await dispatch(createCommunity(community));
+        // if (data) {
+        //     setValidationErrors(data)
+        // } else {
+        //     setValidationErrors([])
+        //     // history.push(`/sh/${communityName}/${communityId}`)
+        //     // history.push('/')
+        //     showCommunityForm();
+        // }
     }
 
     const handleCancel = (e) => {

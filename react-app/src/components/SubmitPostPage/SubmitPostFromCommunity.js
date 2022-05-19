@@ -113,6 +113,7 @@ const SubmitPostFromCommunity = () => {
                                 name='title'
                                 onChange={e => setTitle(e.target.value)}
                                 value={title}
+                                placeholder='Required*'
                             />
                         </label>
                         <label>Body:{' '}
@@ -120,6 +121,7 @@ const SubmitPostFromCommunity = () => {
                                 name='body'
                                 onChange={e => setBody(e.target.value)}
                                 value={body}
+                                placeholder='Required*'
                             />
                         </label>
                         <label>Image:{' '}
