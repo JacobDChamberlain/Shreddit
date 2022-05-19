@@ -52,6 +52,10 @@
     justify-content: space-around;
 }
 
+.comm-description {
+    word-wrap: break-word;
+}
+
 .edit-community-button {
     border-radius: 9999px;
     color: #0079D3;

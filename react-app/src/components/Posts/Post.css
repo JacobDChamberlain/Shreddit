@@ -59,7 +59,8 @@
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
-    color: #222222
+    color: #222222;
+    word-wrap: break-word;
 }
 
 .posted-by {
@@ -72,6 +73,7 @@
     font-weight: 600;
     line-height: 18px;
     color: #222222;
+    word-wrap: break-word;
 }
 
 
