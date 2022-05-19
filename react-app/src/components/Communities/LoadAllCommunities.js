@@ -11,7 +11,10 @@ const LoadAllCommunities = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(getAllCommunities())
+        const getData = async () => {
+            await dispatch(getAllCommunities())
+        }
+        getData()
     }, [dispatch])
 
 
