@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { createCommunity } from "../../store/communities";
 
 
 const CreateCommunityForm = ({ showCommunityForm }) => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const currentUser = useSelector(state => state.session.user);
     const communities = Object.values(useSelector(state => state.communities))
@@ -35,6 +37,8 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
     }, [name, description, category, communityPic])
 
     const handleSubmit = async (e) => {
+
+        // if (!communityPic) setCommunityPic("https://bbts1.azureedge.net/images/p/full/2021/08/e1a029ef-58be-4f6f-84ed-06172f325047.jpg")
 
         e.preventDefault();
 
@@ -68,6 +72,15 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
         showCommunityForm(false);
     }
 
+    useEffect(() => {
+        return () => {
+            setName("")
+            setDescription("")
+            setCommunityPic("")
+            setCategory("Classical")
+        }
+    }, [])
+
     return (
         <div className="create-community-form-container">
             <form className="create-community-form">
@@ -83,6 +96,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         name='name'
                         onChange={e => setName(e.target.value)}
                         value={name}
+                        placeholder="Required*"
                     />
                 </label>
                 <label>Description:{' '}
@@ -91,6 +105,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         name='description'
                         onChange={e => setDescription(e.target.value)}
                         value={description}
+                        placeholder="Required*"
                     />
                 </label>
                 <label>Community Picture:{' '}

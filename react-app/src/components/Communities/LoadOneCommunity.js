@@ -41,11 +41,13 @@ const LoadOneCommunity = () => {
         }
         getData()
     }, [dispatch])
-
+    let community = {}
     const posts = useSelector(state => Object.values(state.posts))
     posts.reverse()
     const communities = useSelector(state => Object.values(state.communities))
-    const community = communities[0];
+    // console.log("communities--->", communities)
+    community = communities[communities.length - 1];
+    // console.log("community--->", community)
 
     const [showEditForm, setShowEditForm] = useState(false)
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
@@ -55,12 +57,12 @@ const LoadOneCommunity = () => {
     const [validationErrors, setValidationErrors] = useState([])
 
 
-    console.log("LoadOneComm--->")
+    // console.log("LoadOneComm--->")
 
 
     useEffect(() => {
         const errors = []
-
+        if (description?.length === 0) errors.push("Description cannot be empty.")
         if (description?.length > 500) errors.push("Please keep description under 500 characters.")
         if (communityPic?.length > 0 && !communityPic.includes(".jpg")) errors.push("Image must be a .jpg url")
         setValidationErrors(errors)
@@ -99,21 +101,30 @@ const LoadOneCommunity = () => {
             category: community?.category,
             user_id: community?.user_id
         }
-        if (validationErrors.length === 0) {
+        // if (validationErrors.length === 0) {
 
-            const data = await dispatch(updateCommunity(editedCommunity));
+        //     const data = await dispatch(updateCommunity(editedCommunity));
 
-            setShowEditForm(false)
+        //     setShowEditForm(false)
 
-            if (data) {
-                setValidationErrors(data)
+        //     if (data) {
+        //         setValidationErrors(data)
 
-                return
-            } else {
-                setShowErrors(false)
-            }
+        //         return
+        //     } else {
+        //         setShowErrors(false)
+        //     }
+        // } else {
+        //     setShowErrors(true)
+        // }
+
+        const data = await dispatch(updateCommunity(editedCommunity))
+        if (data) {
+            setValidationErrors(data)
+            // console.log("post data", data)
         } else {
-            setShowErrors(true)
+            setValidationErrors([])
+            setShowEditForm(false)
         }
     }
 
@@ -160,18 +171,18 @@ const LoadOneCommunity = () => {
                         </div>
                         <div>{showEditForm &&
                             <form className="edit-community-form">
-                                {showErrors && <div>
+                                <div>
                                     {validationErrors.map((error, idx) => (
                                         <div className="error-text" key={idx}>{error}</div>
                                     ))}
-                                </div>}
+                                </div>
                                 <label>
                                     New description: {' '}
                                     <textarea
-
                                         name='description'
                                         onChange={e => setDescription(e.target.value)}
                                         defaultValue={community?.description}
+                                        // value={description}
                                     />
                                 </label>
                                 <label>
@@ -181,11 +192,12 @@ const LoadOneCommunity = () => {
                                         name='communityPic'
                                         onChange={e => setCommunityPic(e.target.value)}
                                         defaultValue={community?.community_pic}
+                                        // value={communityPic}
                                     />
                                 </label>
                                 <div className="edit-community-form-buttons">
                                     <button className="cancel-edit" onClick={() => setShowEditForm(false)}>Cancel</button>
-                                    <button className="save-edit" onClick={handleSubmitEdit}>Save</button>
+                                    <button className="save-edit" type="submit" onClick={handleSubmitEdit}>Save</button>
                                 </div>
                             </form>}
                         </div>
