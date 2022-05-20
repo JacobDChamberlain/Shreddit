@@ -154,12 +154,12 @@ const SubmitPostPage = () => {
                             <h4>Posting to Shreddit</h4>
                         </div>
                         <div className="posting-rules">
-                            <ol>
-                                <li>Remember the human</li>
-                                <li>Behave like you would at a concert</li>
-                                <li>Look for the original source of shred</li>
-                                <li>Search for duplicates before posting</li>
-                                <li>Read the community's rules</li>
+                            <ol className="rules-ol">
+                                <li className="rules-li">Remember the human</li>
+                                <li className="rules-li">Behave like you would at a concert</li>
+                                <li className="rules-li">Look for the original source of shred</li>
+                                <li className="rules-li">Search for duplicates before posting</li>
+                                <li className="rules-li">Read the community's rules</li>
                             </ol>
                         </div>
                     </div>
