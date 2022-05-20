@@ -73,6 +73,16 @@ const Home = () => {
         window.location.href ="https://cash.app/$traightlegmusic"
     }
 
+    const handleGitHub = (e) => {
+        e.preventDefault();
+        window.location.href ="https://github.com/JacobDChamberlain"
+    }
+
+    const handleLinkedIn = (e) => {
+        e.preventDefault();
+        window.location.href ="https://www.linkedin.com/in/jacob-chamberlain-8a5484237/"
+    }
+
     const handleCreatePost = (e) => {
         e.preventDefault();
         history.push("/submit")
@@ -126,6 +136,12 @@ const Home = () => {
                     <h4 className="prem-h4">Shreddit Premium</h4>
                     <p className="prem-p">To get the best Sheddit experience,<br />send me monthly Coins</p>
                     <button onClick={handleTryNow} className="try-now-home-button">Try Now</button>
+                </div>
+                <div className="developer-contact-container">
+                    <h4 className="dev-h4"> ☞ Contact the Developer ☜ </h4>
+                    <p className="dev-p">How can I be useful? Help me help you.</p>
+                    <button onClick={handleGitHub} className="github-link-home-button">GitHub</button>
+                    <button onClick={handleLinkedIn} className="linkedin-link-home-button">LinkedIn</button>
                 </div>
                 <div className="home-right-create-links-container">
                     <div className="home-right-create-links-inner-container">
