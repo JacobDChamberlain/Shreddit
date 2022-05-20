@@ -100,7 +100,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         <div className="error-text" key={idx}>{error}</div>
                     ))}
                 </div>}
-                <label>Name</label>
+                <label className="comm-label">Name</label>
                 <div className="name-info">Community names including capitalization cannot be changed.</div>
                     <input
                         type='text'
@@ -111,7 +111,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         className="create-comm-input"
                     />
 
-                <label>Description</label>
+                <label className="comm-label">Description</label>
                     <input
                         type='text'
                         name='description'
@@ -121,7 +121,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         className="create-comm-input"
                     />
 
-                <label>Community Picture</label>
+                <label className="comm-label">Community Picture</label>
                     <input
                         type='text'
                         name='communityPic'
@@ -130,7 +130,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         placeholder="(Optional; image must be a .jpg URL)"
                         className="create-comm-input"
                     />
-                <label>Category</label>
+                <label className="comm-label">Category</label>
                     <select
                         name='category'
                         onChange={e => setCategory(e.target.value)}

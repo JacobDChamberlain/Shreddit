@@ -1,6 +1,9 @@
 .create-community-form-header{
     font-size: 16px;
     color: #1C1C1C;
+    line-height: 20px;
+    padding: 0px 0px 16px;
+    margin-bottom: 16px;
 }
 
 .name-info {
@@ -9,6 +12,7 @@
     font-family: Noto Sans, Arial, sans-serif;
     font-weight: 400;
     line-height: 16px;
+    margin-bottom: 16px;
 }
 
 .create-comm-input {
@@ -23,9 +27,10 @@
     font-size: 14px;
     font-family: Noto Sans, Arial, sans-serif;
     font-weight: 400;
+    border: 1px solid #EDEFF1
 }
 
-label {
+.comm-label {
     font-size: 16px;
     font-weight: 400;
 }
