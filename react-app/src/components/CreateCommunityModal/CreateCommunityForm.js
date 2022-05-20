@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createCommunity } from "../../store/communities";
+import './CreateCommunity.css'
 
 
 const CreateCommunityForm = ({ showCommunityForm }) => {
@@ -93,43 +94,48 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
     return (
         <div className="create-community-form-container">
             <form className="create-community-form">
-                <h3 className="create-community-form-header">Create a community</h3>
+                <div className="create-community-form-header">Create a community</div>
                 {showErrors && <div>
                     {validationErrors.map((error, idx) => (
                         <div className="error-text" key={idx}>{error}</div>
                     ))}
                 </div>}
-                <label>Name:{' '}
+                <label>Name</label>
+                <div className="name-info">Community names including capitalization cannot be changed.</div>
                     <input
                         type='text'
                         name='name'
                         onChange={e => setName(e.target.value)}
                         value={name}
                         placeholder="Required*"
+                        className="create-comm-input"
                     />
-                </label>
-                <label>Description:{' '}
+
+                <label>Description</label>
                     <input
                         type='text'
                         name='description'
                         onChange={e => setDescription(e.target.value)}
                         value={description}
                         placeholder="Required*"
+                        className="create-comm-input"
                     />
-                </label>
-                <label>Community Picture:{' '}
+
+                <label>Community Picture</label>
                     <input
                         type='text'
                         name='communityPic'
                         onChange={e => setCommunityPic(e.target.value)}
                         value={communityPic}
+                        placeholder="(Optional; image must be a .jpg URL)"
+                        className="create-comm-input"
                     />
-                </label>
-                <label>Category:{' '}
+                <label>Category</label>
                     <select
                         name='category'
                         onChange={e => setCategory(e.target.value)}
                         value={category}
+                        className="create-comm-input"
                     >
                         <option value="Classical">Classical</option>
                         <option value="Jazz">Jazz</option>
@@ -141,7 +147,6 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         <option value="Country">Country</option>
                         <option value="Death Metal">Death Metal</option>
                     </select>
-                </label>
                 <div className="community-form-buttons">
                     <button className="cancel-create-community-button" onClick={handleCancel}>Cancel</button>
                     <button className="create-community-form-button" onClick={handleSubmit} type='submit'>Create Community</button>
