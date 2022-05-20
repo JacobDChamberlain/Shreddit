@@ -37,7 +37,7 @@ Have fun!
 ![Screen Shot 2022-05-18 at 6 43 16 PM](https://user-images.githubusercontent.com/91109296/169172948-3741c82e-b4b9-4b34-9ebd-dec403470dde.png)
 ### Create Communities:
 Users can create new Communities focused on a certain "Shredder" where others can submit Posts on that topic.
-![Screen Shot 2022-05-20 at 1 57 34 PM](https://user-images.githubusercontent.com/91109296/169594454-4b9990a0-0979-45ce-a9f5-1412d9a55e7c.png)
+![Screen Shot 2022-05-20 at 3 47 17 PM](https://user-images.githubusercontent.com/91109296/169608477-6cb7ae15-db7f-49f2-a1fa-c82b67137d3c.png)
 ### Submit Posts:
 Users can submit new Posts to Communities to share their thoughts
 ![Screen Shot 2022-05-18 at 6 43 47 PM](https://user-images.githubusercontent.com/91109296/169172950-44e0c551-d1ba-4016-b63c-5f2e4a3e6251.png)
