@@ -5,8 +5,8 @@
 ## Git 'cha Pull
 
 ### Features:
-  Users can create an account (or sign in with the Demo button at the top of the landing page) and, upon sucessful login, see a home page feed, populated by all sorts of different Posts in different Communities! Each Post in the feed has a link to the Community Page it's a part of, as well as a link to the User who submitted the Post's User Profile Page. Submitting Posts is easy! Users can either browse around and find a Community they'd like to Post in, or start their own Community. Community creation is just as easy as submitting a Post! Both can be done right from the Home page, via clearly displayed buttons on the right-hand side of the page. Users can also submit posts to any Community by clicking the input box at the top of the Home page.
-  On the top-right-hand side of the Home page, Users will find a "Shredder Suggestions" section, displaying (in random order) the 5 most recenly created Communities. Clicking on any of the Community names in the list will navigate the User to the Community's page, which displays all the Posts associated with that Community. Users can also submit Posts from a Community page by clicking the input box at the top, though this time we'll take care of selecting the Community for you so things don't get mixed up!
+  - Users can create an account (or sign in with the Demo button at the top of the landing page) and, upon sucessful login, see a home page feed, populated by all sorts of different Posts in different Communities! Each Post in the feed has a link to the Community Page it's a part of, as well as a link to the User who submitted the Post's User Profile Page. Submitting Posts is easy! Users can either browse around and find a Community they'd like to Post in, or start their own Community. Community creation is just as easy as submitting a Post! Both can be done right from the Home page, via clearly displayed buttons on the right-hand side of the page. Users can also submit posts to any Community by clicking the input box at the top of the Home page.
+  - On the top-right-hand side of the Home page, Users will find a "Shredder Suggestions" section, displaying (in random order) the 5 most recenly created Communities. Clicking on any of the Community names in the list will navigate the User to the Community's page, which displays all the Posts associated with that Community. Users can also submit Posts from a Community page by clicking the input box at the top, though this time we'll take care of selecting the Community for you so things don't get mixed up!
   
 ### On the Horizon:
   Ideally, Users will be able to "follow" Communities, and their Home feed will be populated by Posts from the Communities they follow. Additionally, Users will be able to submit Comments on Posts, as well as Upvote/Downvote Posts. Keep checking for updates in the near future! :) 
@@ -15,13 +15,13 @@ Have fun!
 
 
 ### Technologies Used:
-   Frontend:
+   - Frontend:
      - JavaScript
      - React
      - Redux
      - HTML
      - CSS
-   Backend:
+   - Backend:
      - Python
      - Flask
      - SQLAlchemy
