@@ -212,6 +212,74 @@
     background-color: rgba(255, 68, 0, 0.634);
 }
 
+.developer-contact-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #FFFFFF;
+    padding: 8px;
+    margin-bottom: 16px;
+    width: 310px;
+    box-sizing: border-box;
+}
+
+.dev-h4 {
+    align-self: center;
+}
+.dev-p {
+    font-size: 14px;
+}
+
+.github-link-home-button {
+    border-radius: 9999px;
+    color: #FFFFFF;
+    background-color: #0079D3;
+    width: 286px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 17px;
+    margin-top: 12px;
+    padding: 4px 16px;
+    min-height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: none;
+}
+
+.github-link-home-button:hover {
+    background-color: #0078d3a6;
+}
+
+.linkedin-link-home-button {
+    border-radius: 9999px;
+    color: #0079D3;
+    color: rgb(0, 121, 211);
+    background-color: #FFFFFF;
+    width: 286px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-stretch: 100%;
+    font-weight: 700;
+    line-height: 17px;
+    margin-top: 12px;
+    padding: 4px 16px;
+    min-height: 32px;
+    min-width: 32px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #0079D3;
+}
+
+.linkedin-link-home-button:hover {
+    background-color: #0078d3a6;
+    color:#FFFFFF;
+    border-style: none;
+}
+
 .home-right-create-links-inner-container {
     display: flex;
     flex-direction: column;
@@ -277,7 +345,8 @@
 
 .create-community-home-button:hover {
     background-color: #0078d3a6;
-    color:#FFFFFF
+    color:#FFFFFF;
+    border-style: none;
 }
 
 .create-community-form {
