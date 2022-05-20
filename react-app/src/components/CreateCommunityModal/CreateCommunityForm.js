@@ -31,6 +31,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
         if (name.includes(' ')) errors.push("Community names cannot have spaces.")
         if (description.length === 0) errors.push("Please enter a description for your community.")
         if (description.length > 500) errors.push("Please keep your description under 500 characters.")
+        if (communityPic.length === 0) errors.push("Please enter a URL for your Community Picture .jpg")
         if (communityPic.length > 0 && !communityPic.includes('jpg')) errors.push("Image must be a .jpg")
 
         setValidationErrors(errors)
@@ -127,7 +128,7 @@ const CreateCommunityForm = ({ showCommunityForm }) => {
                         name='communityPic'
                         onChange={e => setCommunityPic(e.target.value)}
                         value={communityPic}
-                        placeholder="(Optional; image must be a .jpg URL)"
+                        placeholder="Required* (image must be a .jpg URL)"
                         className="create-comm-input"
                     />
                 <label className="comm-label">Category</label>
