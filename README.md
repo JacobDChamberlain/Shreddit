@@ -40,7 +40,7 @@ Users can create new Communities focused on a certain "Shredder" where others ca
 ![Screen Shot 2022-05-20 at 4 06 50 PM](https://user-images.githubusercontent.com/91109296/169610652-28a77cdd-998a-4528-b477-dad94ee6e49a.png)
 ### Submit Posts:
 Users can submit new Posts to Communities to share their thoughts
-![Screen Shot 2022-05-18 at 6 43 47 PM](https://user-images.githubusercontent.com/91109296/169172950-44e0c551-d1ba-4016-b63c-5f2e4a3e6251.png)
+![Screen Shot 2022-05-20 at 4 40 10 PM](https://user-images.githubusercontent.com/91109296/169616129-20c69e92-8532-4c4d-8856-df6351aaeba1.png)
 ### User Profile Page:
 Displays User's public info, all Posts the User has submitted, and a list of Communities for which they are a "Moderator" (have edit/delete authorization) 
 ![Screen Shot 2022-05-18 at 6 44 27 PM](https://user-images.githubusercontent.com/91109296/169172951-5dd7b8e3-e3db-447c-a3e9-9c44e22df829.png)
