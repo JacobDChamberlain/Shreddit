@@ -171,7 +171,6 @@ const SubmitPostPage = () => {
                 </div>
             </div>
         </>
-
     )
 }
 

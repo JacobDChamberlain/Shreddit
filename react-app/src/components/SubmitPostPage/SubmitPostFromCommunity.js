@@ -91,70 +91,75 @@ const SubmitPostFromCommunity = () => {
     }
 
     return (
-        <div className="submit-page-container">
-            <div className="submit-page-left">
-                <div className="create-post-header">
-                    <h2>Create a post</h2>
-                </div>
-                <div className="create-post-form-container">
-                    <form className="submit-post-form">
-                        <div>
-                            {validationErrors.map((error, idx) => (
-                                <div className="error-text" key={idx}>{error}</div>
-                            ))}
-                        </div>
-                        <div className="submit-from-comm-form-header">
+        <>
+            <div className="create-post-header">
+                <h2>Create a post</h2>
+            </div>
+            <div className="submit-page-container">
+                <div className="submit-page-left">
+                    <div className="create-post-form-container">
+                        <form className="submit-post-form">
+                            <div>
+                                {validationErrors.map((error, idx) => (
+                                    <div className="error-text" key={idx}>{error}</div>
+                                ))}
+                            </div>
                             <img src={shlogo}></img>
-                            /sh/{name}
+                            <div className="submit-from-comm-form-header">
+                                /sh/{name}
+                            </div>
+                                <input
+                                    type='text'
+                                    name='title'
+                                    onChange={e => setTitle(e.target.value)}
+                                    value={title}
+                                    placeholder='Title*'
+                                    className="submit-post-input"
+                                />
+                                <textarea
+                                    name='body'
+                                    onChange={e => setBody(e.target.value)}
+                                    value={body}
+                                    placeholder='Text*'
+                                    className="submit-post-input-textbox"
+                                />
+                            <label>Image Link (Optional)</label>
+                                <input
+                                    type='text'
+                                    name='imageUrl'
+                                    onChange={e => setImageUrl(e.target.value)}
+                                    value={imageUrl}
+                                    className="submit-post-input"
+                                    placeholder="(must be a .jpg URL)"
+                                />
+                            <button className="submit-post-form-button" onClick={handlePost} type='submit'>Post</button>
+                        </form>
+                    </div>
+                </div>
+                <div className="submit-page-right">
+                    <div className="posting-rules-container">
+                        <div className="posting-rules-header">
+                            <img className="posting-rules-img" src={postRulesLogo}></img>
+                            <h4>Posting to Shreddit</h4>
                         </div>
-                        <label>Title:{' '}
-                            <input
-                                type='text'
-                                name='title'
-                                onChange={e => setTitle(e.target.value)}
-                                value={title}
-                                placeholder='Required*'
-                            />
-                        </label>
-                        <label>Body:{' '}
-                            <textarea
-                                name='body'
-                                onChange={e => setBody(e.target.value)}
-                                value={body}
-                                placeholder='Required*'
-                            />
-                        </label>
-                        <label>Image:{' '}
-                            <input
-                                type='text'
-                                name='imageUrl'
-                                onChange={e => setImageUrl(e.target.value)}
-                                value={imageUrl}
-                            />
-                        </label>
-                        <button className="submit-post-form-button" onClick={handlePost} type='submit'>Post</button>
-                    </form>
+                        <div className="posting-rules">
+                            <ol>
+                                <li>Remember the human</li>
+                                <li>Behave like you would at a concert</li>
+                                <li>Look for the original source of shred</li>
+                                <li>Search for duplicates before posting</li>
+                                <li>Read the community's rules</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <p className="please-be-mindful">
+                        Please be mindful of shreddit's content policy<br />
+                        and practice good shreddiquette.
+                    </p>
+                    <HelpLinks />
                 </div>
             </div>
-            <div className="submit-page-right">
-                <div className="posting-rules-container">
-                    <div className="posting-rules-header">
-                        <img className="posting-rules-img" src={postRulesLogo}></img>
-                        <h4>Posting to Shreddit</h4>
-                    </div>
-                    <div className="posting-rules">
-                        <ol>
-                            <li>Remember the human</li>
-                            <li>Behave like you would at a concert</li>
-                            <li>Look for the original source of content</li>
-                            <li>Search for duplicates before posting</li>
-                            <li>Read the community's rules</li>
-                        </ol>
-                    </div>
-                </div>
-                <HelpLinks />
-            </div>
-        </div>
+        </>
     )
 }
 
