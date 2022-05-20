@@ -1,0 +1,36 @@
+.create-community-form-header{
+    font-size: 16px;
+    color: #1C1C1C;
+    line-height: 20px;
+    padding: 0px 0px 16px;
+    margin-bottom: 16px;
+}
+
+.name-info {
+    color: #7C7C7C;
+    font-size: 12px;
+    font-family: Noto Sans, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 16px;
+    margin-bottom: 16px;
+}
+
+.create-comm-input {
+    width: 300px;
+    /* margin: 0px 0px 8px; */
+    height: 37px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    padding: 12px 24px 4px 12px;
+    width: 100%;
+    font-size: 14px;
+    font-family: Noto Sans, Arial, sans-serif;
+    font-weight: 400;
+    border: 1px solid #EDEFF1
+}
+
+.comm-label {
+    font-size: 16px;
+    font-weight: 400;
+}
