@@ -18,13 +18,14 @@
     color: #1C1C1C;
 }
 
-.create-post-form-container {
+.create-post-form-container-submit {
     display: flex;
     flex-direction: column;
     height: auto;
     box-sizing: border-box;
     width: auto;
     margin-right: 24px;
+    margin-top: 16px;
 }
 
 .submit-post-input {

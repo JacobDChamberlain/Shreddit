@@ -100,7 +100,7 @@ const SubmitPostPage = () => {
             <div className="submit-page-container">
                 <div className="submit-page-left">
 
-                    <div className="create-post-form-container">
+                    <div className="create-post-form-container-submit">
                         <form className="submit-post-form">
                             <div>
                                 {validationErrors.map((error, idx) => (
