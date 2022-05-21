@@ -1,6 +1,6 @@
 # Welcome to Shreddit!
 
-[Shreddit](https://shreddittt.herokuapp.com/) is a MVP clone of reddit.com, with a focus on shred-metal guitar music. Users can get the latest info on the world of shred-guitar here, share updates on your favorite guitarists, post videos and images, plug your own music, and tell other users why you think their favorite band's older stuff was better. Users can join Communities focused on various topics, and Post their thoughts.
+[Shreddit](https://shreddittt.herokuapp.com/) is a MVP clone of reddit.com, with a focus on shred-metal guitar music. Users can get the latest info on the world of shred-guitar here, share updates on your favorite guitarists, post videos and images, plug your own music, and tell other users why you think their favorite band's older stuff was better. Users can create Communities focused on various topics, and Post their thoughts.
 
 ## Git 'cha Pull
 
