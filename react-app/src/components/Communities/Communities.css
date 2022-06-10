@@ -10,6 +10,7 @@
     flex-direction: column;
     align-items: center;
     margin: 20px;
+    font-family: 'VAG Rounded';
 }
 
 .community-page-left {
@@ -50,10 +51,27 @@
     border-radius: 3px 3px 0 0;
     display: flex;
     justify-content: space-around;
+    font-family: 'IMB Plex Sans', Arial, sans-serif;
 }
 
 .comm-description {
     word-wrap: break-word;
+}
+
+.community-info {
+    font-family: 'VAG Rounded';
+}
+
+.moderator-link {
+    text-decoration: none;
+}
+
+.moderator-link:visited {
+    color: #000000
+}
+
+.moderator-link:hover {
+    color: orangered;
 }
 
 .edit-community-button {
