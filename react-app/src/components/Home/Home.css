@@ -107,10 +107,16 @@
 .sugg-header {
     display: flex;
     justify-content: space-around;
-    /* align-self:center */
+    align-self:center
 }
 .sugg-h4 {
     align-self: center;
+    font-size: 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #1C1C1C;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 16px 16px 0;
 }
 .shlogo {
     width: 32px;
@@ -125,6 +131,9 @@
     border-bottom: thin solid #EDEFF1;
     padding: 0px 12px;
     font-size: 14px;
+    font-family: 'IMB Plex Sans', Arial, sans-serif;
+    color: #1A1A1B;
+    line-height: 18px;
 }
 
 .comm-sugg {
@@ -184,9 +193,21 @@
 
 .prem-h4 {
     align-self: center;
+    font-size: 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #1C1C1C;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 16px 16px 0;
 }
 .prem-p {
+    text-align: center;
     font-size: 14px;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    word-wrap: break-word;
 }
 
 .try-now-home-button {
@@ -226,9 +247,21 @@
 
 .dev-h4 {
     align-self: center;
+    font-size: 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #1C1C1C;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 16px 16px 0;
 }
 .dev-p {
+    align-self: center;
     font-size: 14px;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    word-wrap: break-word;
 }
 
 .github-link-home-button {
@@ -294,10 +327,22 @@
 
 .home-h4 {
     align-self: center;
+    font-size: 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #1C1C1C;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 16px 16px 0;
 }
 
 .home-p {
+    text-align: center;
     font-size: 14px;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    word-wrap: break-word;
 }
 
 .create-post-home-button {
