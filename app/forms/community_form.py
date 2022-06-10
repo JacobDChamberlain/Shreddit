@@ -32,6 +32,6 @@ def validate_community_pic(form, field):
 class CommunityForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired(), max_description_length])
-    community_pic = StringField('Community Pic', validators=[validate_community_pic])
+    community_pic = StringField('Community Pic', validators=[DataRequired(), validate_community_pic])
     category = SelectField('Category', choices=["Classical", "Jazz", "Hair Metal", "Virtuoso", "Speed Metal", "Bluegrass", "Metal", "Country", "Death Metal"], validators=[DataRequired()])
     user_id = IntegerField('User Id', validators=[DataRequired()])
