@@ -26,8 +26,14 @@
 .edit-post-button {
     cursor: pointer;
 }
+.edit-post-button:hover {
+    color:orangered;
+}
 .delete-post-button {
     cursor: pointer;
+}
+.delete-post-button:hover {
+    color:orangered;
 }
 .no-confirm-delete {
     cursor: pointer;

@@ -70,9 +70,9 @@ function User() {
       <div className='user-profile-page-right'>
         <div className='user-info-container'>
           <ul className='user-info-ul'>
-            <li>
+            {/* <li>
               <strong>User Id</strong> {userInfo?.id}
-            </li>
+            </li> */}
             <li>
               <strong>Username</strong> {userInfo?.username}
             </li>
@@ -85,7 +85,7 @@ function User() {
           </ul>
         </div>
         {communities.length > 0 && <div className='moderator-of-container'>
-          <h4>You're a moderator of these communities</h4>
+          <h4 className='sugg-h4'>You're a moderator of these communities</h4>
               {communities.map(community => (
                 <li className="community-mod-li" key={community.id}>
                     {community.community_pic && <img className="comm-suggestion-pic" src={community.community_pic}></img>}

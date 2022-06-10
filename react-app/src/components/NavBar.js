@@ -28,8 +28,8 @@ const NavBar = () => {
   return (
     <nav>
       <div className='navlinks-container'>
-          {currentUser && <NavLink to='/' exact={true} activeClassName='active'>
-            <HiHome className='icon' />
+          {currentUser && <NavLink className='home-button-nav' to='/' exact={true} activeClassName='active'>
+            <HiHome className='icon' /> Home
           </NavLink>}
           {/* {!currentUser &&  <NavLink to='/login' exact={true} activeClassName='active'>
             Login

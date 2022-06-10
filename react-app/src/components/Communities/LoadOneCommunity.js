@@ -65,7 +65,7 @@ const LoadOneCommunity = () => {
         if (description?.length === 0) errors.push("Description cannot be empty.")
         if (description?.length > 500) errors.push("Please keep description under 500 characters.")
         if (communityPic?.length > 0 && !communityPic.includes(".jpg")) errors.push("Image must be a .jpg url")
-        if (communityPic.length === 0) errors.push("Please enter a URL for your Community Picture .jpg")
+        if (communityPic?.length === 0) errors.push("Please enter a URL for your Community Picture .jpg")
         setValidationErrors(errors)
     }, [description, communityPic])
 
@@ -202,10 +202,10 @@ const LoadOneCommunity = () => {
                                 </div>
                             </form>}
                         </div>
-                        {!showDeleteConfirmation ? <ul>
+                        {!showDeleteConfirmation ? <ul className="community-info">
                             <li className="comm-description">Description: {community?.description}</li>
                             <li>Created: {moment.tz(community?.created_at, 'America/Chicago').format('MMMM Do YYYY')}</li>
-                            <li>Created By: {community?.username}</li>
+                            <li>Moderator: <NavLink className='moderator-link' to={`/user/${community?.username}/${community?.user_id}`}>/u/{community?.username}</NavLink></li>
                             <li>Category: {community?.category}</li>
                             {community?.community_pic && <img className="community-image" src={community?.community_pic}></img>}
                         </ul> :

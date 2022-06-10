@@ -54,7 +54,7 @@ const Home = () => {
     const [showModal, setShowModal] = useState(false);
 
 
-    console.log("Home--->")
+    // console.log("Home--->")
 
 
 
@@ -134,7 +134,7 @@ const Home = () => {
                 </div>
                 <div className="shreddit-premium-container">
                     <h4 className="prem-h4">Shreddit Premium</h4>
-                    <p className="prem-p">To get the best Sheddit experience,<br />send me monthly Coins</p>
+                    <p className="prem-p">To get the best Sheddit experience, send us monthly Coins for exciting surprises!</p>
                     <button onClick={handleTryNow} className="try-now-home-button">Try Now</button>
                 </div>
                 <div className="home-right-create-links-container">

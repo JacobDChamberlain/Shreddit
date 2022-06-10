@@ -50,6 +50,7 @@
 
 .user-info-ul {
     list-style: none;
+    font-family: 'IMB Plex Sans', Arial, sans-serif;
 }
 
 .user-profile-pic {
@@ -81,6 +82,7 @@
 
 .comm-sugg {
     text-decoration: none;
+    font-family: 'IMB Plex Sans', Arial, sans-serif;
 }
 
 .comm-sugg:visited {

@@ -52,3 +52,24 @@ form {
     width: 0;
     /* background: transparent; */
 }
+
+.home-button-nav {
+    /* font-family: ''; */
+    display: flex;
+    font-size: 14px;
+    font-family: 'IMB Plex Sans', Arial, sans-serif;
+    align-items: center;
+    text-decoration: none;
+}
+
+.home-button-nav:visited {
+    color: #000000;
+}
+
+.home-button-nav:hover {
+    color: orangered;
+}
+
+.icon:hover {
+    color: orangered;
+}
