@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
-import HelpLinks from "../HelpLinks/HelpLinks";
-import Post from "../Posts/Post";
 import { search, emptySearch } from "../../store/search";
-import './SearchResultsPage.css'
+import './SearchBar.css'
 
 
-const SearchResultsPage = () => {
+const SearchBar = () => {
 
     const dispatch = useDispatch()
     const history = useHistory()
@@ -25,25 +23,24 @@ const SearchResultsPage = () => {
 
 
     return (
-        <div className="search-results-page-container">
+        <div className="search-bar-container">
             <div className="navBar__searchBar">
                 <div className="navBar__searchInput">
-                    <h4 className="sugg-h4">Search for Posts (by title) or Communities (by name)</h4>
                     <input
                         onChange={e => setSearchInput(e.target.value)}
                         value={searchInput}
-                        className='search-icon'
+                        className='search-bar'
                         placeholder='Search'
                     ></input>
                 </div>
             </div>
-
             <div className="navBar__searchResults">
                 {results?.map(result => (
                     <div>
-                        {result.title ?
+                        {/* {result.title ?
                         <div>Post: <NavLink to={`/sh/${result.community_name}/${result.community_id}`}>{result.title}</NavLink></div> :
-                        <div>Community: <NavLink to={`/sh/${result.name}/${result.id}`}>{result.name}</NavLink></div>}
+                        <div>Community: <NavLink to={`/sh/${result.name}/${result.id}`}>{result.name}</NavLink></div>} */}
+                        <div><NavLink className='search-result' to={`/sh/${result.name}/${result.id}`}>{result.name}</NavLink></div>
                     </div>
                 ))}
             </div>
@@ -52,4 +49,4 @@ const SearchResultsPage = () => {
 }
 
 
-export default SearchResultsPage
+export default SearchBar

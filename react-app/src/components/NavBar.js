@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom';
 import { login } from '../store/session';
 import LogoutButton from './auth/LogoutButton';
+import SearchBar from './SearchBar/SearchBar';
 import { HiHome } from 'react-icons/hi'
 
 
@@ -34,6 +35,7 @@ const NavBar = () => {
           {/* {!currentUser &&  <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>} */}
+          <SearchBar />
           {!currentUser &&  <button className='demo-button' type='button' onClick={handleDemo}>Demo</button>}
           {/* {!currentUser && <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up

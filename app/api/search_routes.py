@@ -5,7 +5,7 @@ search_routes = Blueprint('search', __name__)
 
 @search_routes.route('/shred')
 def search():
-    posts = Post.query.all()
+    # posts = Post.query.all()
     # print('posts--->', posts)
     args = request.args.get('search_input').lower()
     search_results = []
@@ -16,10 +16,10 @@ def search():
     # users = User.query.all()
     # print('users--->', users)
 
-    for post in posts:
-        title = post.title.lower()
-        if title.find(args) >= 0:
-            search_results.append(post.to_dict())
+    # for post in posts:
+    #     title = post.title.lower()
+    #     if title.find(args) >= 0:
+    #         search_results.append(post.to_dict())
 
     for community in communities:
         name = community.name.lower()

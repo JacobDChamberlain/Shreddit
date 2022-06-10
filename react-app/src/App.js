@@ -14,7 +14,7 @@ import Home from './components/Home/Home';
 import SubmitPostPage from './components/SubmitPostPage/SubmitPost';
 import SubmitPostFromCommunity from './components/SubmitPostPage/SubmitPostFromCommunity';
 import LandingPage from './components/LandingPage/LandingPage';
-import SearchResultsPage from './components/Search/SearchResultsPage';
+import SearchResultsPage from './components/SearchResults/SearchResultsPage';
 
 
 
