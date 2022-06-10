@@ -54,7 +54,7 @@ const Home = () => {
     const [showModal, setShowModal] = useState(false);
 
 
-    console.log("Home--->")
+    // console.log("Home--->")
 
 
 
