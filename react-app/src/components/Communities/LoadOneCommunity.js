@@ -65,6 +65,7 @@ const LoadOneCommunity = () => {
         if (description?.length === 0) errors.push("Description cannot be empty.")
         if (description?.length > 500) errors.push("Please keep description under 500 characters.")
         if (communityPic?.length > 0 && !communityPic.includes(".jpg")) errors.push("Image must be a .jpg url")
+        if (communityPic.length === 0) errors.push("Please enter a URL for your Community Picture .jpg")
         setValidationErrors(errors)
     }, [description, communityPic])
 
