@@ -4,12 +4,14 @@ import session from './session'
 import communityReducer from './communities';
 import postReducer from './posts';
 import userInfoReducer from './userInfo';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
   session,
   communities: communityReducer,
   posts: postReducer,
-  userInfo: userInfoReducer
+  userInfo: userInfoReducer,
+  search: searchReducer
 });
 
 
