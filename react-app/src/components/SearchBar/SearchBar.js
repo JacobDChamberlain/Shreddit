@@ -30,7 +30,7 @@ const SearchBar = () => {
                         onChange={e => setSearchInput(e.target.value)}
                         value={searchInput}
                         className='search-bar'
-                        placeholder='Search'
+                        placeholder='Search Shreddit'
                     ></input>
                 </div>
             </div>
