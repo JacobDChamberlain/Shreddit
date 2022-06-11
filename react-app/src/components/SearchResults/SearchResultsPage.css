@@ -1,0 +1,19 @@
+.search-results-page-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.search-results-page-left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.search-results-page-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}

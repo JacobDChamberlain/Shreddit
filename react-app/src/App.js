@@ -14,6 +14,7 @@ import Home from './components/Home/Home';
 import SubmitPostPage from './components/SubmitPostPage/SubmitPost';
 import SubmitPostFromCommunity from './components/SubmitPostPage/SubmitPostFromCommunity';
 import LandingPage from './components/LandingPage/LandingPage';
+import SearchResultsPage from './components/SearchResults/SearchResultsPage';
 
 
 
@@ -39,8 +40,8 @@ function App() {
     <BrowserRouter>
       <NavBar className='navigation-bar' />
       <Switch>
-        <Route path='/test' exact={true}>
-          <LandingPage />
+        <Route path='/search' exact={true}>
+          <SearchResultsPage />
         </Route>
         <Route path='/login' exact={true}>
           <LandingPage />
