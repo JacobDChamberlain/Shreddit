@@ -90,7 +90,7 @@ const SubmitPostPage = () => {
         }
     }
 
-    console.log("validationerrors--->", validationErrors)
+    // console.log("validationerrors--->", validationErrors)
 
     return (
         <>

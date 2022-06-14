@@ -19,7 +19,7 @@ const SubmitPostFromCommunity = () => {
 
     const currentUser = useSelector(state => state.session.user)
     const communities = useSelector(state => Object.values(state.communities))
-    console.log("communities ---> ", communities)
+    // console.log("communities ---> ", communities)
 
     const [validationErrors, setValidationErrors] = useState([])
     const [showErrors, setShowErrors] = useState(false)

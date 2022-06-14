@@ -80,7 +80,7 @@ export const getAllUserPosts = (user_id) => async (dispatch) => {
     if (res.ok) {
         const userPosts = await res.json()
 
-        console.log("userPosts---->", userPosts)
+        // console.log("userPosts---->", userPosts)
 
         dispatch(getAllByUser(userPosts))
 
