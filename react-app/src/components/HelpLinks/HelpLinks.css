@@ -44,6 +44,13 @@
     margin-top: 3px;
     margin-bottom: 3px;
 }
+.help-a {
+    text-decoration: none;
+    color:#1A1A1B;
+}
+.help-a:visited {
+    color: #1A1A1B;
+}
 
 .help-links-languages {
     display: flex;
