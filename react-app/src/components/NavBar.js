@@ -14,20 +14,8 @@ const NavBar = () => {
 
   const currentUser = useSelector(state => state.session.user)
 
-  const handleDemo = async (e) => {
-    e.preventDefault()
-
-    const demoUser = {
-      email: 'demo@aa.io',
-      password: 'password'
-    }
-
-    await dispatch(login(demoUser.email, demoUser.password))
-    history.push('/')
-  }
-
   return (
-    <nav>
+    <nav hidden={currentUser ? false : true}>
       <div className='navlinks-container'>
           {currentUser && <NavLink className='home-button-nav' to='/' exact={true} activeClassName='active'>
             <HiHome className='icon' /> Home
@@ -36,7 +24,6 @@ const NavBar = () => {
             Login
           </NavLink>} */}
           {currentUser && <SearchBar />}
-          {/* {!currentUser &&  <button className='demo-button' type='button' onClick={handleDemo}>Demo</button>} */}
           {/* {!currentUser && <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>} */}
