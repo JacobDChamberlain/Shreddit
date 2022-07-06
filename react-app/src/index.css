@@ -73,3 +73,16 @@ form {
 .icon:hover {
     color: orangered;
 }
+
+
+.welcome-username {
+    text-decoration: none;
+}
+
+.welcome-username:visited {
+    color:#000000;
+}
+
+.welcome-username:hover {
+    color: orangered;
+}
