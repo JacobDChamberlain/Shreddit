@@ -21,6 +21,10 @@ const SearchBar = () => {
         }
     }, [dispatch, searchInput])
 
+    const handleSearch = () => {
+        history.push('/search');
+    }
+
 
     return (
         <div className="search-bar-container">
@@ -32,6 +36,7 @@ const SearchBar = () => {
                         className='search-bar'
                         placeholder='Search Shreddit'
                     ></input>
+                    <button onClick={handleSearch}>Search</button>
                 </div>
             </div>
             <div className="navBar__searchResults">

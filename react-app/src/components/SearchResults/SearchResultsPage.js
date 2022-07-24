@@ -27,6 +27,11 @@ const SearchResultsPage = () => {
         <div className="search-results-page-container">
             <div className="search-results-page-left">
                 - display posts -
+                {results.map((result) => {
+                    <div>
+                        {result.name}
+                    </div>
+                })}
             </div>
             <div className="search-results-page-right">
                 <div className="community-search-results">
