@@ -30,10 +30,20 @@ const SearchResultsPage = () => {
                 - display posts -
                 {results?.map((result) => {
                     <div>
-                        "hello, "{result.category}
+                        "hello, "{result.name}
                     </div>
                     {console.log(result.name)}
                 })}
+
+                {/* <ul>
+                   {results?.map((result) => {
+                    <li key={result.id}>
+                        "hello, "{result.name}
+                    </li>
+                    {console.log(result.name)}
+                })}
+                </ul> */}
+
                 {/* {results?.length > 0 && results.map((result) => {
                     <div>{result.name}</div>
                 })} */}
