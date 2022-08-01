@@ -39,16 +39,6 @@ const SearchBar = () => {
                     <button onClick={handleSearch}>Search</button>
                 </div>
             </div>
-            <div className="navBar__searchResults">
-                {results?.map(result => (
-                    <div>
-                        {/* {result.title ?
-                        <div>Post: <NavLink to={`/sh/${result.community_name}/${result.community_id}`}>{result.title}</NavLink></div> :
-                        <div>Community: <NavLink to={`/sh/${result.name}/${result.id}`}>{result.name}</NavLink></div>} */}
-                        <div onClick={() => setSearchInput('')} className="search-result-div"><img className="search-result-comm-image" src={result.community_pic} /><NavLink className='search-result' to={`/sh/${result.name}/${result.id}`}>{result.name}</NavLink></div>
-                    </div>
-                ))}
-            </div>
         </div>
     )
 }
