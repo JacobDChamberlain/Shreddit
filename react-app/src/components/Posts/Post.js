@@ -15,13 +15,13 @@ const Post = ({ post, communityId }) => {
     const { name } = useParams();
 
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
 
     const currentUser = useSelector(state => state.session.user)
 
     const [showEditPostForm, setShowEditPostForm] = useState(false)
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false)
-    const [showErrors, setShowErrors] = useState(false)
+    // const [showErrors, setShowErrors] = useState(false)
     const [validationErrors, setValidationErrors] = useState([])
     const [title, setTitle] = useState(post.title)
     const [body, setBody] = useState(post.body)
