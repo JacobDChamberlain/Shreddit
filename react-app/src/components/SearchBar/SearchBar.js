@@ -22,6 +22,7 @@ const SearchBar = () => {
     }, [dispatch, searchInput])
 
     const handleSearch = () => {
+
         history.push('/search');
     }
 

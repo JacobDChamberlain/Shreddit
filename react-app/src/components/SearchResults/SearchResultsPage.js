@@ -32,7 +32,7 @@ const SearchResultsPage = () => {
     return (
         <div className="search-results-page-container">
             <div className="search-results-page-left">
-                - display posts -
+                {/* - display posts -
                 <div className="all-results-container">
                     {results?.map((result) => {
                         <div>
@@ -40,7 +40,7 @@ const SearchResultsPage = () => {
                         </div>
                         {console.log(result.name)}
                     })}
-                </div>
+                </div> */}
 
                 <ol className="community-suggestions-ul">
                     {results?.map(community => (
