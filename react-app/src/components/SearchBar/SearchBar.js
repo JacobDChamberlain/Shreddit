@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { search, emptySearch } from "../../store/search";
 import './SearchBar.css'
-
+import { AiOutlineSearch } from 'react-icons/ai'
 
 const SearchBar = () => {
 
@@ -47,7 +47,8 @@ const SearchBar = () => {
                         className='search-bar'
                         placeholder='Search Shreddit'
                     ></input>
-                    <button className="search-button" onClick={handleSearch}>Search</button>
+                    <AiOutlineSearch className="search-button" onClick={handleSearch} />
+                    {/* <button className="search-button" onClick={handleSearch}>Search</button> */}
                 </div>
             </div>
         </div>

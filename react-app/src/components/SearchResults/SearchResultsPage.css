@@ -16,16 +16,30 @@
 }
 
 .community-result-li {
-    display: flexbox;
-    align-items: center;
-    margin: 10px;
-    height: 100px;
-    border-bottom: thin solid #EDEFF1;
-    padding: 0px 12px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: flex-start;
+    margin: 16px;
+    height: auto;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 8px;
     font-size: 14px;
     font-family: 'IMB Plex Sans', Arial, sans-serif;
     color: #1A1A1B;
     line-height: 18px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+}
+
+.community-result-li > p {
+    font-size: 16px;
+    font-family: Noto Sans, Arial, sans-serif;
+    font-weight: 600;
+    line-height: 18px;
+    color: #222222;
+    word-wrap: break-word;
 }
 
 .search-results-page-right {

@@ -29,13 +29,16 @@ const SearchResultsPage = () => {
 
     const posts = useSelector(state => Object.values(state.posts))
 
+    // add/remove onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}}
+    // to/from community-result-li if want change whether whole result to navigate to that page
+
     return (
         <div className="search-results-page-container">
             <div className="search-results-page-left">
                 <div className="all-results-container">
                     <ul className="community-results-ul">
                         {results?.map((community) => (
-                            <li className="community-result-li" key={community?.id}>
+                            <li onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}} className="community-result-li" key={community?.id}>
                                 {community?.community_pic && <img className="comm-suggestion-pic" src={community?.community_pic}></img>}
                                 <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
                                 <p>{community?.description}</p>

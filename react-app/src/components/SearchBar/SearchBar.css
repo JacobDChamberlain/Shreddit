@@ -60,6 +60,13 @@
 
 .search-button {
     margin: 10px;
+    font-size: 25px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    color: orangered;
 }
 
 .search-result {
