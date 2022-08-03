@@ -58,6 +58,10 @@
     font-weight: 800;
 }
 
+.search-button {
+    margin: 10px;
+}
+
 .search-result {
     text-decoration: none;
 }

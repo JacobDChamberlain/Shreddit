@@ -11,6 +11,23 @@
     align-items: center;
 }
 
+.community-results-ul {
+    list-style: none;
+}
+
+.community-result-li {
+    display: flexbox;
+    align-items: center;
+    margin: 10px;
+    height: 100px;
+    border-bottom: thin solid #EDEFF1;
+    padding: 0px 12px;
+    font-size: 14px;
+    font-family: 'IMB Plex Sans', Arial, sans-serif;
+    color: #1A1A1B;
+    line-height: 18px;
+}
+
 .search-results-page-right {
     display: flex;
     flex-direction: column;
