@@ -9,6 +9,8 @@ import { RiDeleteBinFill } from 'react-icons/ri'
 // import * as moment from 'moment'
 // import timezone from 'moment-timezone'
 import './Post.css'
+import brokenLinkAvatar from "../../images/frybroke.webp"
+
 
 const Post = ({ post, communityId }) => {
 
@@ -92,6 +94,11 @@ const Post = ({ post, communityId }) => {
     }
     const moment = require('moment-timezone');
 
+
+    const addDefaultImageSrc = (e) => {
+        e.target.src = brokenLinkAvatar;
+    }
+
     return (
         <>
             <div key={post.id} className="individual-post-container">
@@ -104,7 +111,7 @@ const Post = ({ post, communityId }) => {
                         </div>
                         <div className="post-title-div">{post.title}</div>
                     </div>
-                    <img className="post-image" src={post.image_url}></img>
+                    <img onError={addDefaultImageSrc} className="post-image" src={post.image_url}></img>
                     <p className="post-body">{post.body}</p>
                 </ul> :
                 <div>
