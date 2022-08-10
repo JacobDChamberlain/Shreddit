@@ -111,7 +111,7 @@ const Post = ({ post, communityId }) => {
                         </div>
                         <div className="post-title-div">{post.title}</div>
                     </div>
-                    <img onError={addDefaultImageSrc} className="post-image" src={post.image_url}></img>
+                    <img className="post-image" src={post.image_url} onError={addDefaultImageSrc}></img>
                     <p className="post-body">{post.body}</p>
                 </ul> :
                 <div>
