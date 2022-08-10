@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllUserPosts } from '../store/posts';
 import { getAllUserCommunities } from '../store/communities'
 import { getUserInfo } from '../store/userInfo'
+import brokenLinkAvatar from "../images/shreddit_avatar.png"
 
 function User() {
   // const [user, setUser] = useState({});
@@ -58,6 +59,13 @@ function User() {
 
   // const posts = useSelector(state => Object.values(state.posts))
 
+
+
+  const addDefaultImageSrc = (e) => {
+    e.target.src = brokenLinkAvatar;
+  }
+
+
   return (
     <div className='user-profile-page-container'>
       <div className='user-profile-page-left'>
@@ -88,7 +96,7 @@ function User() {
           <h4 className='sugg-h4'>You're a moderator of these communities</h4>
               {communities.map(community => (
                 <li className="community-mod-li" key={community.id}>
-                    {community.community_pic && <img className="comm-suggestion-pic" src={community.community_pic}></img>}
+                    {community.community_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={community.community_pic}></img>}
                     <NavLink className='comm-sugg' to={`/sh/${community.name}/${community.id}`} key={community.id}>{community.name}</NavLink>
                 </li>
               ))}

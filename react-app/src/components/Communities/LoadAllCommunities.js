@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { getAllCommunities} from '../../store/communities'
 import './Communities.css'
+import brokenLinkAvatar from "../../images/shreddit_avatar.png"
 
 const LoadAllCommunities = () => {
 
@@ -18,6 +19,12 @@ const LoadAllCommunities = () => {
     }, [dispatch])
 
 
+
+    const addDefaultImageSrc = (e) => {
+        e.target.src = brokenLinkAvatar;
+    }
+
+
     return (
         <div className='all-communities'>
             <div className='community-header-container'>
@@ -31,7 +38,7 @@ const LoadAllCommunities = () => {
                             <li>Moderator: {community.username}</li>
                             <li>Category: {community.category}</li>
                         </ul>
-                        {community?.community_pic && <img className="community-image" src={community?.community_pic}></img>}
+                        {community?.community_pic && <img onError={addDefaultImageSrc} className="community-image" src={community?.community_pic}></img>}
                     </div>
                 ))}
             </div>

@@ -6,6 +6,13 @@ import HelpLinks from "../HelpLinks/HelpLinks";
 import Post from "../Posts/Post";
 import './SearchResultsPage.css'
 import shlogo from "../../images/shlogo.png"
+import brokenLinkAvatar from "../../images/shreddit_avatar.png"
+
+
+
+const addDefaultImageSrc = (e) => {
+    e.target.src = brokenLinkAvatar;
+}
 
 
 
@@ -39,7 +46,7 @@ const SearchResultsPage = () => {
                 <ul className="community-results-ul">
                     {results?.map((community) => (
                         <li onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}} className="community-result-li" key={community?.id}>
-                            {community?.community_pic && <img className="comm-suggestion-pic" src={community?.community_pic}></img>}
+                            {community?.community_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={community?.community_pic}></img>}
                             <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
                             <p>{community?.description}</p>
                         </li>

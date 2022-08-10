@@ -7,6 +7,7 @@ import HelpLinks from "../HelpLinks/HelpLinks";
 import Post from "../Posts/Post";
 import './Communities.css'
 import shravatar from "../../images/shreddit_avatar2.png"
+import brokenLinkAvatar from "../../images/shreddit_avatar.png"
 
 
 const LoadOneCommunity = () => {
@@ -131,6 +132,12 @@ const LoadOneCommunity = () => {
 
     const moment = require('moment-timezone');
 
+
+    const addDefaultImageSrc = (e) => {
+        e.target.src = brokenLinkAvatar;
+    }
+
+
     return (
         <>
             <div className="community-header-container">
@@ -207,7 +214,7 @@ const LoadOneCommunity = () => {
                             <li>Created: {moment.tz(community?.created_at, 'America/Chicago').format('MMMM Do YYYY')}</li>
                             <li>Moderator: <NavLink className='moderator-link' to={`/user/${community?.username}/${community?.user_id}`}>/u/{community?.username}</NavLink></li>
                             <li>Category: {community?.category}</li>
-                            {community?.community_pic && <img className="community-image" src={community?.community_pic}></img>}
+                            {community?.community_pic && <img onError={addDefaultImageSrc} className="community-image" src={community?.community_pic}></img>}
                         </ul> :
                         <div>
                             <p>Are you sure you want to delete community {community?.name}?</p>
