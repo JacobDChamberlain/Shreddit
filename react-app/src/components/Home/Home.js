@@ -10,6 +10,7 @@ import './Home.css'
 import shravatar from "../../images/shreddit_avatar2.png"
 import shlogo from "../../images/shlogo.png"
 import homeBanner from '../../images/shreddit_home_banner.png'
+import brokenLinkAvatar from "../../images/shreddit_avatar.png"
 
 const Home = () => {
 
@@ -89,6 +90,11 @@ const Home = () => {
     }
 
 
+    const addDefaultImageSrc = (e) => {
+        e.target.src = brokenLinkAvatar;
+    }
+
+
     return (
         <div className="home-container">
             <div className="home-content-left">
@@ -125,7 +131,7 @@ const Home = () => {
                     <ol className="community-suggestions-ul">
                         {communities?.map(community => (
                             <li className="community-suggestion-li" key={community?.id}>
-                                {community?.community_pic && <img className="comm-suggestion-pic" src={community?.community_pic}></img>}
+                                {community?.community_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={community?.community_pic}></img>}
                                 <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
                             </li>
                         ))}
