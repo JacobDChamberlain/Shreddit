@@ -8,7 +8,6 @@
 .home-content-left {
     width: 640px;
     margin-right: 16px;
-    /* box-sizing: border-box; */
 }
 
 .create-post-form-container {
@@ -146,6 +145,28 @@
 }
 .comm-sugg:hover {
     color: orangered;
+}
+
+.community-suggestion-li:hover {
+    animation: shake 0.8s;
+    border-bottom: none;
+}
+
+
+@keyframes shake{
+    0%{
+      transform: translateX(0)
+    }
+    25%{
+      transform: translateX(15px);
+    }
+
+    50%{
+      transform: translateX(-15px);
+    }
+    100%{
+      transform: translateX(0px);
+    }
 }
 
 .comm-suggestion-pic {
