@@ -109,20 +109,27 @@ const Post = ({ post, communityId }) => {
                     <Post post={post}/>
             </Modal>
             :
-            <div key={post.id} className="individual-post-container" onClick={() => setShowModal(true)}>
-                {!showDeleteConfirmation ? <ul>
-                    <div className="post-header">
-                        <div className="who-and-where-when-post">
-                            {!name && <NavLink className='comm-link' to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
-                            {/* <div className="posted-by">Posted by /u/{post.username}  at {moment.tz(post.created_at, 'America/Chicago').format('MMMM Do YYYY, h:mm:ss a')}</div> */}
-                            <div className="posted-by">Posted by <NavLink className='user-link' to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {moment.tz(post.created_at, 'America/Chicago').format('MMMM Do YYYY, h:mm:ss a')}</div>
-                        </div>
-                        <div className="post-title-div">{post.title}</div>
+            <div key={post.id} className="individual-post-container">
+
+                <div className="post-outer-container">
+                    <div className="post-inner-container-left">
+
                     </div>
-                    {post?.image_url !== '' && <img className="post-image" src={post?.image_url} onError={addDefaultImageSrc}></img>}
-                    <p className="post-body">{post.body}</p>
-                </ul> :
-                <div>
+                    <div className="post-inner-container-right" onClick={() => setShowModal(true)}>
+                        <div className="post-header">
+                            <div className="who-and-where-when-post">
+                                {!name && <NavLink className='comm-link' to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
+                                {/* <div className="posted-by">Posted by /u/{post.username}  at {moment.tz(post.created_at, 'America/Chicago').format('MMMM Do YYYY, h:mm:ss a')}</div> */}
+                                <div className="posted-by">Posted by <NavLink className='user-link' to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {moment.tz(post.created_at, 'America/Chicago').format('MMMM Do YYYY, h:mm:ss a')}</div>
+                            </div>
+                            <div className="post-title-div">{post.title}</div>
+                        </div>
+                        {post?.image_url !== '' && <img className="post-image" src={post?.image_url} onError={addDefaultImageSrc}></img>}
+                        <p className="post-body">{post.body}</p>
+                    </div>
+                </div>
+                {showDeleteConfirmation &&
+                <div className="delete-post-confirm">
                     <p>Are you sure you want to delete your post?</p>
                     <div className="confirm-delete-buttons">
                         <button className="no-confirm-delete" onClick={() => setShowDeleteConfirmation(false)}>Naw</button>
