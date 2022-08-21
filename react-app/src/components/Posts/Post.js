@@ -6,6 +6,7 @@ import { MdModeEditOutline } from 'react-icons/md'
 import { IoSaveSharp } from 'react-icons/io5'
 import { TiCancel } from 'react-icons/ti'
 import { RiDeleteBinFill } from 'react-icons/ri'
+import { Modal } from "../../context/Modal";
 // import * as moment from 'moment'
 // import timezone from 'moment-timezone'
 import './Post.css'
@@ -28,6 +29,7 @@ const Post = ({ post, communityId }) => {
     const [title, setTitle] = useState(post.title)
     const [body, setBody] = useState(post.body)
     const [imageUrl, setImageUrl] = useState(post.image_url)
+    const [showModal, setShowModal] = useState(false);
 
     // useEffect(() => {
     //     const errors = []
@@ -101,7 +103,13 @@ const Post = ({ post, communityId }) => {
 
     return (
         <>
-            <div key={post.id} className="individual-post-container">
+            {showModal ?
+            // <div>(modal)</div>
+            <Modal onClose={() => setShowModal(false)}>
+                    <Post post={post}/>
+            </Modal>
+            :
+            <div key={post.id} className="individual-post-container" onClick={() => setShowModal(true)}>
                 {!showDeleteConfirmation ? <ul>
                     <div className="post-header">
                         <div className="who-and-where-when-post">
@@ -164,7 +172,7 @@ const Post = ({ post, communityId }) => {
                     <MdModeEditOutline className="edit-post-button" onClick={handleEdit}>{showEditPostForm ? "Cancel" : "Update"}</MdModeEditOutline>
                     <RiDeleteBinFill className="delete-post-button" onClick={handleDeleteConfirmation}>{showDeleteConfirmation ? "Cancel" : "Delete"}</RiDeleteBinFill>
                 </div>}
-            </div>
+            </div>}
         </>
     )
 }

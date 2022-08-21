@@ -16,6 +16,11 @@
     box-sizing: border-box;
 }
 
+.individual-post-container:hover {
+    border: 1px solid #787C7E;
+    cursor: pointer;
+}
+
 .edit-post-form-buttons {
     display: flex;
     width: 100%;
