@@ -132,7 +132,7 @@ const Home = () => {
                         {communities?.map(community => (
                             <li className="community-suggestion-li" key={community?.id}>
                                 {community?.community_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={community?.community_pic}></img>}
-                                <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
+                                <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>sh/{community?.name}</NavLink>
                             </li>
                         ))}
                     </ol>
