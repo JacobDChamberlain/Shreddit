@@ -27,7 +27,6 @@
 .post-inner-container-left {
     width: 500px;
     background-color: #F6F7F8;
-    box-sizing: border-box;
 }
 
 .post-inner-container-right:hover {

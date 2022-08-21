@@ -1,0 +1,23 @@
+.post-modal-container {
+    background-color: #ffffff;
+    height: 600px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.post-image-modal {
+    height: 300px;
+    width: 600px;
+}
+
+.post-header-modal {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

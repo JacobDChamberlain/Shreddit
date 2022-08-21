@@ -7,6 +7,7 @@ import { IoSaveSharp } from 'react-icons/io5'
 import { TiCancel } from 'react-icons/ti'
 import { RiDeleteBinFill } from 'react-icons/ri'
 import { Modal } from "../../context/Modal";
+import OnePostModal from "../OnePostModal";
 // import * as moment from 'moment'
 // import timezone from 'moment-timezone'
 import './Post.css'
@@ -106,7 +107,7 @@ const Post = ({ post, communityId }) => {
             {showModal ?
             // <div>(modal)</div>
             <Modal onClose={() => setShowModal(false)}>
-                    <Post post={post}/>
+                    <OnePostModal post={post}/>
             </Modal>
             :
             <div key={post.id} className="individual-post-container">
