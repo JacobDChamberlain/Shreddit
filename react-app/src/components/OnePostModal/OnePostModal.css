@@ -1,16 +1,25 @@
 .post-modal-container {
     background-color: #ffffff;
     height: 600px;
-    width: 600px;
+    width: 740px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: flex-start;
     box-sizing: border-box;
+    scroll-behavior: auto;
+}
+
+.post-modal-inner-left {
+    width: 50px;
+    background-color: #F6F7F8;
+}
+
+.post-modal-inner-right {
+    width: 640px;
+    overflow-y: scroll;
 }
 
 .post-image-modal {
-    height: 300px;
+    height: auto;
     width: 600px;
 }
 
@@ -18,6 +27,17 @@
     width: 600px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
+}
+
+.post-body-modal {
+    display: flex;
+    text-align: start;
+    font-size: 16px;
+    font-family: Noto Sans, Arial, sans-serif;
+    font-weight: 600;
+    line-height: 18px;
+    color: #222222;
+    word-wrap: break-word;
 }
