@@ -8,6 +8,7 @@ import Post from "../Posts/Post";
 import './Communities.css'
 import shravatar from "../../images/shreddit_avatar2.png"
 import brokenLinkAvatar from "../../images/shreddit_avatar.png"
+import shlogo from "../../images/shlogo.png"
 
 
 const LoadOneCommunity = () => {
@@ -141,12 +142,18 @@ const LoadOneCommunity = () => {
     return (
         <>
             <div className="community-header-container">
-                <h2>{community?.name}</h2>
-                <div>sh/{community?.name}</div>
+                <div className="community-header-top"></div>
+                <div className="community-header-bottom">
+                    <img className="comm-shlogo" src={shlogo}></img>
+                    <div>
+                        {community?.name}: {community?.description}
+                        <div className="community-header-name">sh/{community?.name}</div>
+                    </div>
+                </div>
             </div>
             <div className="single-community-container">
                 <div className="community-page-left">
-                <div className="create-post-form-container">
+                <div className="create-post-form-container-comm-page">
                     <div>
                         <img className="create-post-avatar" src={shravatar}></img>
                         <input
