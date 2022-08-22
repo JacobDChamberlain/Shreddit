@@ -53,7 +53,6 @@ const OnePostModal = ({ post, communityId, setShowModal }) => {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
