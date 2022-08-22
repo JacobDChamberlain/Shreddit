@@ -42,7 +42,7 @@ const OnePostModal = ({ post, communityId, setShowModal }) => {
                     <div className="post-header-modal">
                         <div className="who-and-where-when-post">
                             {!name && <NavLink className='comm-link' to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
-                            <div className="posted-by">Posted by <NavLink className='user-link' to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {moment.tz(post.created_at, 'America/Chicago').format('MMMM Do YYYY, h:mm:ss a')}</div>
+                            <div className="posted-by">Posted by <NavLink className='user-link' to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink> {moment.tz(post.created_at, 'America/Chicago').fromNow()}</div>
                         </div>
                         <div className="post-title-div">{post.title}</div>
                     </div>
