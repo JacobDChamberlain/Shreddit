@@ -1,6 +1,6 @@
 .post-modal-container {
     background-color: #ffffff;
-    height: 600px;
+    height: auto;
     width: 740px;
     display: flex;
     justify-content: flex-start;
