@@ -42,7 +42,7 @@ export const getCommentsByPost = (post_id) => async (dispatch) => {
 
 export const createComment = (comment) => async (dispatch) => {
 
-    const res = await fetch('/api/comments', {
+    const res = await fetch('/api/comments/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(comment)
@@ -55,9 +55,9 @@ export const createComment = (comment) => async (dispatch) => {
         return null;
     } else if (res.status < 500) {
         const data = await res.json();
-    }
-    if (data.errors) {
-        return data.errors;
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
         return ['An error occured. Please try again.']
     }
@@ -79,9 +79,9 @@ export const updateComment = (comment) => async (dispatch) => {
         return null;
     } else if (res.status < 500) {
         const data = await res.json();
-    }
-    if (data.errors) {
-        return data.errors;
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
         return ['An error occured. Please try again.']
     }

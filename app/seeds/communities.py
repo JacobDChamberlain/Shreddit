@@ -2,7 +2,7 @@ from app.models import db, Community
 
 def seed_communities():
     community1 = Community(
-        name='ShreddyVanHalen',
+        name='ShreddieVanHalen',
         description='The greatest guitarist who ever lived.',
         community_pic='https://ca-times.brightspotcdn.com/dims4/default/c7140f2/2147483647/strip/true/crop/1620x1080+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fff%2Ff3%2Fc9267bb641fe827028f08e568aed%2Feddie-van-halen-dies-la-thmb.jpg',
         category='Hair Metal',

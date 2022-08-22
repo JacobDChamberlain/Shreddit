@@ -1,0 +1,49 @@
+.comment-container {
+    border: 1px solid #efefef;
+    border-radius: 4px;
+    margin: 5px;
+    padding: 5px;
+    width: 600px;
+    height: auto;
+}
+
+.commented-by {
+    text-align: left;
+    border-bottom: 1px solid #efefef;
+    font-size: 14px;
+    font-family: 'IMB Plex Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+.commented-by-inner {
+    display: flex;
+}
+
+.trash-icon:hover {
+    color: orangered;
+    cursor: pointer;
+}
+
+.comment-date {
+    color: #8c8c8c;
+}
+
+.user-link-comment {
+    text-decoration: none;
+}
+.user-link-comment:visited {
+    text-decoration: none;
+    color: #000000
+}
+.user-link-comment:hover {
+    color: orangered;
+}
+
+.comment-content {
+    text-align: left;
+    font-size: 14px;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    font-weight: 700;
+    word-wrap: break-word;
+}
