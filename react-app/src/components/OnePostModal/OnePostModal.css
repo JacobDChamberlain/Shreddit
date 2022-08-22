@@ -7,12 +7,12 @@
     justify-content: flex-start;
     box-sizing: border-box;
     scroll-behavior: auto;
+    scrollbar-width: 10px;
 }
 
 .close-modal-top {
     background-color: #1C1C1C;
     color: white;
-    height: 50px;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
@@ -20,6 +20,7 @@
     padding: 0px 32px;
     font-size: 14px;
     font-family: 'IMB Plex Sans', Arial, sans-serif;
+    padding: 15px;
 }
 
 .close-modal-top:hover {
@@ -126,4 +127,11 @@
     margin-bottom: 4px;
     padding: 4px 16px;
     cursor: pointer;
+}
+
+
+.comments-container {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
 }
