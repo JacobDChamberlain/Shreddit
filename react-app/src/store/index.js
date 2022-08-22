@@ -5,13 +5,15 @@ import communityReducer from './communities';
 import postReducer from './posts';
 import userInfoReducer from './userInfo';
 import searchReducer from './search';
+import commentReducer from './comments';
 
 const rootReducer = combineReducers({
   session,
   communities: communityReducer,
   posts: postReducer,
   userInfo: userInfoReducer,
-  search: searchReducer
+  search: searchReducer,
+  comments: commentReducer
 });
 
 
