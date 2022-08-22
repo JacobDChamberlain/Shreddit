@@ -55,9 +55,9 @@ export const createComment = (comment) => async (dispatch) => {
         return null;
     } else if (res.status < 500) {
         const data = await res.json();
-    }
-    if (data.errors) {
-        return data.errors;
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
         return ['An error occured. Please try again.']
     }
@@ -79,9 +79,9 @@ export const updateComment = (comment) => async (dispatch) => {
         return null;
     } else if (res.status < 500) {
         const data = await res.json();
-    }
-    if (data.errors) {
-        return data.errors;
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
         return ['An error occured. Please try again.']
     }

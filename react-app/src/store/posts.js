@@ -116,9 +116,9 @@ export const createPost = (post) => async (dispatch) => {
         return null;
     } else if (res.status < 500) {
         const data = await res.json();
-    if (data.errors) {
-        return data.errors;
-    }
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
         return ['An error occurred. Please try again.']
     }
@@ -141,9 +141,9 @@ export const updatePost = (post) => async (dispatch) => {
         return null;
     } else if (res.status < 500) {
         const data = await res.json();
-    if (data.errors) {
-        return data.errors;
-    }
+        if (data.errors) {
+            return data.errors;
+        }
     } else {
         return ['An error occurred. Please try again.']
     }

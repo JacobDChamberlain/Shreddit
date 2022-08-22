@@ -3,13 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import './OnePostModal.css'
 import brokenLinkAvatar from "../../images/frybroke.webp";
 import { NavLink, useParams } from "react-router-dom";
-
+import { getCommentsByPost } from "../../store/comments";
+import Comment from "../Comments/Comment";
 
 const OnePostModal = ({ post, communityId, setShowModal }) => {
     const { name } = useParams();
     const moment = require('moment-timezone');
 
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getCommentsByPost(post.id))
+    }, [dispatch])
+
     const currentUser = useSelector(state => state.session.user)
+    const comments = useSelector(state => Object.values(state.comments))
+    console.log("comments--->", comments)
 
     const addDefaultImageSrc = (e) => {
         e.target.src = brokenLinkAvatar;
@@ -49,7 +58,11 @@ const OnePostModal = ({ post, communityId, setShowModal }) => {
                     </form>
 
                     <div className="comments-container">
-                        *** Comments Coming SOON! ***
+                        <ul>
+                            {comments.map(comment => (
+                                <Comment comment={comment} />
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </div>
