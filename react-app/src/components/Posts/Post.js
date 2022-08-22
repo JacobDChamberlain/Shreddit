@@ -107,7 +107,7 @@ const Post = ({ post, communityId }) => {
             {showModal ?
             // <div>(modal)</div>
             <Modal onClose={() => setShowModal(false)}>
-                    <OnePostModal setShowModal={setShowModal} post={post}/>
+                    <OnePostModal setShowModal={setShowModal} post={post} communityId={communityId}/>
             </Modal>
             :
             <div key={post.id} className="individual-post-container">
