@@ -35,4 +35,5 @@
     font-size: 14px;
     font-family: 'Noto Sans', Arial, sans-serif;
     font-weight: 700;
+    word-wrap: break-word;
 }
