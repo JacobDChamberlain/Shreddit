@@ -14,7 +14,10 @@ body {
     padding: 0 20px;
     background-color: #FFFFFF;
     border-bottom: 1px solid #EDEFF1;
-    height: 40px;
+    height: 48px;
+    position:fixed;
+    right: 0;
+    left:0;
 }
 
 form {

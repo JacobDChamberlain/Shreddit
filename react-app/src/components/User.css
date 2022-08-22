@@ -21,10 +21,10 @@
     margin-top: 16px;
 }
 
-.all-posts-container {
+.all-posts-container-user-page {
     display: flex;
     flex-direction: column;
-    margin-top: 16px;
+    margin-top: 68px;
     width: 642px;
 }
 
@@ -43,7 +43,7 @@
     background-color: #FFFFFF;
     padding: 8px;
     margin-bottom: 16px;
-    margin-top: 16px;
+    margin-top: 68px;
     width: 100%;
     box-sizing: border-box;
 }

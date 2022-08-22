@@ -16,6 +16,30 @@
     box-sizing: border-box;
 }
 
+.individual-post-container:hover {
+    border: 1px solid #787C7E;
+}
+
+.post-outer-container {
+    display: flex;
+}
+
+.post-inner-container-left {
+    width: 100%;
+    background-color: #F6F7F8;
+}
+
+.post-inner-container-right:hover {
+    cursor: pointer;
+}
+
+.delete-post-confirm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .edit-post-form-buttons {
     display: flex;
     width: 100%;
@@ -46,6 +70,12 @@
 }
 .save-icon {
     cursor: pointer;
+}
+
+
+.confirm-delete-buttons {
+    display: flex;
+    width: 100%;
 }
 
 .edit-update-post-buttons {

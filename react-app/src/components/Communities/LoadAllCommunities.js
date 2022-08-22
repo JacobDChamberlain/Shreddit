@@ -27,7 +27,7 @@ const LoadAllCommunities = () => {
 
     return (
         <div className='all-communities'>
-            <div className='community-header-container'>
+            <div className='community-header-container-view-all'>
                 <h2>Communites</h2>
             </div>
             <div className='communities-container'>

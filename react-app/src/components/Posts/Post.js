@@ -6,6 +6,8 @@ import { MdModeEditOutline } from 'react-icons/md'
 import { IoSaveSharp } from 'react-icons/io5'
 import { TiCancel } from 'react-icons/ti'
 import { RiDeleteBinFill } from 'react-icons/ri'
+import { Modal } from "../../context/Modal";
+import OnePostModal from "../OnePostModal";
 // import * as moment from 'moment'
 // import timezone from 'moment-timezone'
 import './Post.css'
@@ -28,6 +30,7 @@ const Post = ({ post, communityId }) => {
     const [title, setTitle] = useState(post.title)
     const [body, setBody] = useState(post.body)
     const [imageUrl, setImageUrl] = useState(post.image_url)
+    const [showModal, setShowModal] = useState(false);
 
     // useEffect(() => {
     //     const errors = []
@@ -101,20 +104,33 @@ const Post = ({ post, communityId }) => {
 
     return (
         <>
+            {showModal ?
+            // <div>(modal)</div>
+            <Modal onClose={() => setShowModal(false)}>
+                    <OnePostModal setShowModal={setShowModal} post={post} communityId={communityId}/>
+            </Modal>
+            :
             <div key={post.id} className="individual-post-container">
-                {!showDeleteConfirmation ? <ul>
-                    <div className="post-header">
-                        <div className="who-and-where-when-post">
-                            {!name && <NavLink className='comm-link' to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
-                            {/* <div className="posted-by">Posted by /u/{post.username}  at {moment.tz(post.created_at, 'America/Chicago').format('MMMM Do YYYY, h:mm:ss a')}</div> */}
-                            <div className="posted-by">Posted by <NavLink className='user-link' to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {moment.tz(post.created_at, 'America/Chicago').format('MMMM Do YYYY, h:mm:ss a')}</div>
-                        </div>
-                        <div className="post-title-div">{post.title}</div>
+
+                <div className="post-outer-container">
+                    <div className="post-inner-container-left">
+
                     </div>
-                    {post?.image_url !== '' && <img className="post-image" src={post?.image_url} onError={addDefaultImageSrc}></img>}
-                    <p className="post-body">{post.body}</p>
-                </ul> :
-                <div>
+                    <div className="post-inner-container-right" onClick={() => setShowModal(true)}>
+                        <div className="post-header">
+                            <div className="who-and-where-when-post">
+                                {!name && <NavLink className='comm-link' to={`/sh/${post.community_name}/${communityId}`}>/sh/{post.community_name}</NavLink>}{!name && ' • '}
+                                {/* <div className="posted-by">Posted by /u/{post.username}  at {moment.tz(post.created_at, 'America/Chicago').format('MMMM Do YYYY, h:mm:ss a')}</div> */}
+                                <div className="posted-by">Posted by <NavLink className='user-link' to={`/user/${post.username}/${post.user_id}`}>/u/{post.username}</NavLink>  at {moment.tz(post.created_at, 'America/Chicago').format('MMMM Do YYYY, h:mm:ss a')}</div>
+                            </div>
+                            <div className="post-title-div">{post.title}</div>
+                        </div>
+                        {post?.image_url !== '' && <img className="post-image" src={post?.image_url} onError={addDefaultImageSrc}></img>}
+                        <p className="post-body">{post.body}</p>
+                    </div>
+                </div>
+                {showDeleteConfirmation &&
+                <div className="delete-post-confirm">
                     <p>Are you sure you want to delete your post?</p>
                     <div className="confirm-delete-buttons">
                         <button className="no-confirm-delete" onClick={() => setShowDeleteConfirmation(false)}>Naw</button>
@@ -164,7 +180,7 @@ const Post = ({ post, communityId }) => {
                     <MdModeEditOutline className="edit-post-button" onClick={handleEdit}>{showEditPostForm ? "Cancel" : "Update"}</MdModeEditOutline>
                     <RiDeleteBinFill className="delete-post-button" onClick={handleDeleteConfirmation}>{showDeleteConfirmation ? "Cancel" : "Delete"}</RiDeleteBinFill>
                 </div>}
-            </div>
+            </div>}
         </>
     )
 }

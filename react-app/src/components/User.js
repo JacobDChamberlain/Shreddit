@@ -69,7 +69,7 @@ function User() {
   return (
     <div className='user-profile-page-container'>
       <div className='user-profile-page-left'>
-        <div className="all-posts-container">
+        <div className="all-posts-container-user-page">
             {posts.map(post => (
                 <Post key={post.id} post={post} communityId={post.community_id} />
             ))}
