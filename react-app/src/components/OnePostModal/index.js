@@ -49,7 +49,7 @@ const OnePostModal = ({ post, communityId, setShowModal }) => {
                     </form>
 
                     <div className="comments-container">
-                        
+                        *** Comments Coming SOON! ***
                     </div>
                 </div>
             </div>
