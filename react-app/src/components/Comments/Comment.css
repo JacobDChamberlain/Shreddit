@@ -13,6 +13,16 @@
     font-size: 14px;
     font-family: 'IMB Plex Sans', Arial, sans-serif;
     display: flex;
+    justify-content: space-between;
+}
+
+.commented-by-inner {
+    display: flex;
+}
+
+.trash-icon:hover {
+    color: orangered;
+    cursor: pointer;
 }
 
 .comment-date {

@@ -25,6 +25,7 @@
 
 .close-modal-top:hover {
     cursor: pointer;
+    color: orangered;
 }
 
 .post-modal-inner {

@@ -5,6 +5,8 @@ import brokenLinkAvatar from "../../images/frybroke.webp";
 import { NavLink, useParams } from "react-router-dom";
 import { getCommentsByPost } from "../../store/comments";
 import Comment from "../Comments/Comment";
+import { AiOutlineClose } from 'react-icons/ai'
+import { createComment } from "../../store/comments";
 
 const OnePostModal = ({ post, communityId, setShowModal }) => {
     const { name } = useParams();
@@ -18,21 +20,41 @@ const OnePostModal = ({ post, communityId, setShowModal }) => {
 
     const currentUser = useSelector(state => state.session.user)
     const comments = useSelector(state => Object.values(state.comments))
-    console.log("comments--->", comments)
 
     const addDefaultImageSrc = (e) => {
         e.target.src = brokenLinkAvatar;
     }
 
-    const handleSubmitComment = (e) => {
+
+    const [validationErrors, setValidationErrors] = useState([])
+    const [content, setContent] = useState('')
+    const userId = currentUser.id
+    const postId = post.id
+
+
+
+
+
+    const handleSubmitComment = async (e) => {
         e.preventDefault();
-        // dispatch the thing to post a new comment
+        const comment = {
+            content: content,
+            user_id: userId,
+            post_id: postId
+        }
+        const data = await dispatch(createComment(comment))
+        if (data) {
+            setValidationErrors(data)
+        } else {
+            setValidationErrors([])
+        }
+        setContent('')
     }
 
     return (
         <div className="post-modal-container">
             <div className="close-modal-top" onClick={() => setShowModal(false)}>
-                Close
+                <AiOutlineClose className="icon"/> Close
             </div>
             <div className="post-modal-inner">
                 <div className="post-modal-inner-left">
@@ -50,10 +72,21 @@ const OnePostModal = ({ post, communityId, setShowModal }) => {
                     <p className="post-body-modal">{post.body}</p>
 
                     <form onSubmit={handleSubmitComment} className="post-comment-form">
+                        <div>
+                            {validationErrors.map((error, idx) => (
+                                <div className="error-text" key={idx}>{error}</div>
+                            ))}
+                        </div>
                         <div className="comment-as">Comment as <NavLink className='commented-by-link' to={`/user/${currentUser.username}/${currentUser.id}`}>{currentUser.username}</NavLink></div>
-                        <textarea className="comment-input" placeholder="What are your thoughts?" />
+                        <textarea
+                            className="comment-input"
+                            placeholder="What are your thoughts?"
+                            name="content"
+                            onChange={e => setContent(e.target.value)}
+                            value={content}
+                        />
                         <div className="comment-button-holder">
-                            <button className="comment-button">Comment</button>
+                            <button className="comment-button" type="submit">Comment</button>
                         </div>
                     </form>
 
