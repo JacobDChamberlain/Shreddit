@@ -76,6 +76,14 @@
     border-radius: 50px;
 }
 
+.community-container-div:hover > .community-image {
+    filter: drop-shadow(0 0 0.75rem #33a8ff);
+}
+
+.community-container-div:hover > .link-to-comm {
+    color: #33a8ff;
+}
+
 .communities-container {
     display: flex;
     flex-wrap: wrap;
@@ -241,6 +249,11 @@
     border-radius: 4px;
     margin: 10px;
     padding: 4px;
+    cursor: pointer;
+}
+
+.community-container-div:hover {
+    border: 1px solid #33a8ff;
 }
 
 
