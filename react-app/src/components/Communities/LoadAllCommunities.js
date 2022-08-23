@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { getAllCommunities} from '../../store/communities'
 import './Communities.css'
 import brokenLinkAvatar from "../../images/shreddit_avatar.png"
+
+
 
 const LoadAllCommunities = () => {
 
     const communities = Object.values(useSelector(state => state.communities))
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     useEffect(() => {
         const getData = async () => {
@@ -32,7 +35,7 @@ const LoadAllCommunities = () => {
             </div>
             <div className='communities-container'>
                 {communities.map(community => (
-                    <div className='community-container-div' key={community.id}>
+                    <div className='community-container-div' onClick={() => history.push(`/sh/${community.name}/${community.id}`)} key={community.id}>
                         <NavLink className='link-to-comm' to={`/sh/${community.name}/${community.id}`}>/sh/{community.name}</NavLink>
                         <ul className='community-info-ul'>
                             <li>Moderator: {community.username}</li>
