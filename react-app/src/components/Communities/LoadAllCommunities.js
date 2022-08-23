@@ -38,8 +38,7 @@ const LoadAllCommunities = () => {
                     <div className='community-container-div' onClick={() => history.push(`/sh/${community.name}/${community.id}`)} key={community.id}>
                         <NavLink className='link-to-comm' to={`/sh/${community.name}/${community.id}`}>/sh/{community.name}</NavLink>
                         <ul className='community-info-ul'>
-                            <li>Moderator: {community.username}</li>
-                            <li>Category: {community.category}</li>
+                            <li className='mod'>Moderator: {community.username}</li>
                         </ul>
                         {community?.community_pic && <img onError={addDefaultImageSrc} className="community-image" src={community?.community_pic}></img>}
                     </div>

@@ -70,6 +70,10 @@
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
+    background-image: url('../images/mesa-head.jpeg');
+    background-size:contain;
+    background-repeat: no-repeat;
+    padding-top: 70px;
 }
 
 .community-mod-li {
@@ -91,4 +95,9 @@
 }
 .comm-sugg:hover {
     color: orangered;
+}
+
+
+.sugg-h4 {
+    filter: drop-shadow(0 0 .75rem crimson)
 }

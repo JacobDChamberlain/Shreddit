@@ -265,3 +265,7 @@
     font-family: 'VAG Rounded';
     margin-top: 20px;
 }
+
+.comm-description-view-all {
+    word-wrap: break-word;
+}
