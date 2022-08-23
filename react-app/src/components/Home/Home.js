@@ -11,6 +11,7 @@ import shravatar from "../../images/shreddit_avatar2.png"
 import shlogo from "../../images/shlogo.png"
 import homeBanner from '../../images/shreddit_home_banner.png'
 import brokenLinkAvatar from "../../images/shreddit_avatar.png"
+import mesaHead from '../../images/mesa-head.jpeg'
 
 const Home = () => {
 
@@ -125,8 +126,8 @@ const Home = () => {
             <div className="home-content-right">
                 <div className="community-suggestions-container">
                     <div className="sugg-header">
-                        <img className="shlogo" src={shlogo}></img>
-                        <h4 className="sugg-h4">Shredder Suggestions</h4>
+                        {/* <img className="shlogo" src={shlogo}></img> */}
+                        <h4 className="sugg-h4">New Shredder Communities:</h4>
                     </div>
                     <ol className="community-suggestions-ul">
                         {communities?.map(community => (

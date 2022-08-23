@@ -101,26 +101,31 @@
     margin-top: 68px;
     width: 310px;
     box-sizing: border-box;
+    background-image: url('../../images/mesa-head.jpeg');
+    background-size:contain;
+    background-repeat: no-repeat;
+    padding-top: 75px;
 }
 
 .sugg-header {
     display: flex;
     justify-content: space-around;
-    align-self:center
+    align-self:center;
+    filter: drop-shadow(0 0 0.75rem orangered);
 }
 .sugg-h4 {
     align-self: center;
     font-size: 16px;
     font-family: 'IBM Plex Sans', sans-serif;
-    color: #1C1C1C;
+    color: #FFFFFF;
     font-weight: 500;
     line-height: 20px;
     padding: 16px 16px 0;
 }
 .shlogo {
-    width: 32px;
-    height: 32px;
-    align-self: center;
+    width: 42px;
+    height: 42px;
+    align-self: flex-end;
 }
 
 .community-suggestion-li {
