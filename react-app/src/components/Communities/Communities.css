@@ -78,6 +78,15 @@
 
 .community-container-div:hover > .community-image {
     filter: drop-shadow(0 0 0.75rem #33a8ff);
+    animation: tilt-shaking 0.25s infinite;
+}
+
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
 }
 
 .community-container-div:hover > .link-to-comm {
