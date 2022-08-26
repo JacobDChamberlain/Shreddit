@@ -1,4 +1,9 @@
-.comment-container {
+.comment-container-outer {
+    display: flex;
+    align-items: center;
+}
+
+.comment-container-inner {
     border: 1px solid #efefef;
     border-radius: 4px;
     margin: 5px;
@@ -56,4 +61,10 @@
 .edit-comment-icon:hover {
     color: orangered;
     cursor: pointer;
+}
+
+.comment-user-image {
+    height: 50px;
+    width: 50px;
+    border-radius: 9999px;
 }
