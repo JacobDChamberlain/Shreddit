@@ -69,6 +69,18 @@
     border-radius: 9999px;
 }
 
+.comment-user-image:hover {
+    animation: tilt-shaking 0.25s infinite;
+}
+
+@keyframes tilt-shaking {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0eg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
 .update-comment-button {
     border-radius: 9999px;
     color: #0079D3;

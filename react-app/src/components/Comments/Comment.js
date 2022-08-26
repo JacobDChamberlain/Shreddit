@@ -57,9 +57,9 @@ const Comment = ({ comment }) => {
         <div className="comment-container-outer">
             {comment.profile_pic !== null
             ?
-            <img onError={addDefaultImageSrc} className="comment-user-image" src={comment?.profile_pic} />
+            <NavLink to={`/user/${comment.username}/${comment.user_id}`}><img onError={addDefaultImageSrc} className="comment-user-image" src={comment?.profile_pic} /></NavLink>
             :
-            <img onError={addDefaultImageSrc} className="comment-user-image" src={brokenLinkAvatar} />
+            <NavLink to={`/user/${comment.username}/${comment.user_id}`}><img onError={addDefaultImageSrc} className="comment-user-image" src={brokenLinkAvatar} /></NavLink>
             }
             <div className="comment-container-inner">
                 <div className="commented-by">
