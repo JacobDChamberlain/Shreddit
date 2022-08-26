@@ -47,3 +47,13 @@
     font-weight: 700;
     word-wrap: break-word;
 }
+
+.edit-delete-comment-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-comment-icon:hover {
+    color: orangered;
+    cursor: pointer;
+}
