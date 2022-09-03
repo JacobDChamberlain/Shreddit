@@ -55,12 +55,20 @@ const Comment = ({ comment }) => {
 
     return (
         <div className="comment-container-outer">
-            {comment.profile_pic !== null
+            {comment.profile_pic === '(unknown)'
             ?
-            <NavLink to={`/user/${comment.username}/${comment.user_id}`}><img onError={addDefaultImageSrc} className="comment-user-image" src={comment?.profile_pic} /></NavLink>
+            <NavLink to={`/user/${comment.username}/${comment.user_id}`}><img className="comment-user-image" src={brokenLinkAvatar} /></NavLink>
             :
-            <NavLink to={`/user/${comment.username}/${comment.user_id}`}><img onError={addDefaultImageSrc} className="comment-user-image" src={brokenLinkAvatar} /></NavLink>
+            <div>
+                {comment.profile_pic !== null
+                ?
+                <NavLink to={`/user/${comment.username}/${comment.user_id}`}><img onError={addDefaultImageSrc} className="comment-user-image" src={comment?.profile_pic} /></NavLink>
+                :
+                <NavLink to={`/user/${comment.username}/${comment.user_id}`}><img onError={addDefaultImageSrc} className="comment-user-image" src={brokenLinkAvatar} /></NavLink>
+                }
+            </div>
             }
+
             <div className="comment-container-inner">
                 <div className="commented-by">
                     <div className="commented-by-inner">

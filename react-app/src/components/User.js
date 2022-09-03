@@ -88,7 +88,7 @@ function User() {
               <strong>Email</strong> {userInfo?.email}
             </li>
             {userInfo?.profile_pic && <li>
-              <strong>Profile Picture</strong> <img className='user-profile-pic' src={userInfo?.profile_pic}></img>
+              <strong>Profile Picture</strong> <img className='user-profile-pic' src={userInfo?.profile_pic} onError={addDefaultImageSrc}></img>
             </li>}
           </ul>
         </div>
