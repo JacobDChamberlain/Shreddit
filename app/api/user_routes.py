@@ -21,7 +21,7 @@ def user(id):
     return user.to_dict()
 
 
-@user_routes.route('/<int:id>', methods=['PUT'])
+@user_routes.route('/<int:id>', methods=['PATCH'])
 def update_user(id):
     user_to_update = User.query.get(id)
 

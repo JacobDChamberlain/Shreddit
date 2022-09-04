@@ -29,7 +29,7 @@ export const getUserInfo = (user_id) => async (dispatch) => {
 export const updateUserInfo = (user) => async (dispatch) => {
 
     const res = await fetch(`/api/users/${user.id}`, {
-        method: 'PUT',
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(user)
     })
