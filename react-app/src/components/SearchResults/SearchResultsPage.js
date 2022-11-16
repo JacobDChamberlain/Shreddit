@@ -35,7 +35,7 @@ const SearchResultsPage = () => {
     console.log("results--->", results)
 
 
-    const posts = useSelector(state => Object.values(state.posts))
+    // const posts = useSelector(state => Object.values(state.posts))
 
     // add/remove onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}}
     // to/from community-result-li if want change whether whole result to navigate to that page
@@ -44,7 +44,7 @@ const SearchResultsPage = () => {
         <div className="search-results-page-container">
             <div className="search-results-page-left">
                 <ul className="community-results-ul">
-                    {results?.map((community) => (
+                    {results?.communities?.map((community) => (
                         <li onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}} className="community-result-li" key={community?.id}>
                             {community?.community_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={community?.community_pic}></img>}
                             <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
@@ -52,6 +52,23 @@ const SearchResultsPage = () => {
                         </li>
                     ))}
                 </ul>
+                <ul className="community-results-ul">
+                    {results?.posts?.map((post) => (
+                        <li onClick={() => {history.push(`/sh/${post?.community_name}/${post?.community_id}`)}} className="community-result-li" >
+                            <NavLink className='comm-sugg' to={`/sh/${post?.community_name}/${post?.community_id}`} >{post?.title}</NavLink>
+                            <p>{post?.body}</p>
+                        </li>
+                    ))}
+                </ul>
+                {/* search for users too! */}
+                {/* <ul className="community-results-ul">
+                    {results?.users?.map((user) => (
+                        <li onClick={() => {history.push(`/sh/${post?.community_name}/${post?.community_id}`)}} className="community-result-li" >
+                            <NavLink className='comm-sugg' to={`/sh/${post?.community_name}/${post?.community_id}`} >{post?.title}</NavLink>
+                            <p>{post?.body}</p>
+                        </li>
+                    ))}
+                </ul> */}
             </div>
             <div className="search-results-page-right">
                 <div className="community-suggestions-container">
