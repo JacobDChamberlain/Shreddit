@@ -19,8 +19,8 @@ def search():
     communities = Community.query.all()
     # print('communities--->', communities)
 
-    # users = User.query.all()
-    # print('users--->', users)
+    users = User.query.all()
+    print('users--->', users)
 
     for post in posts:
         title = post.title.lower()
@@ -33,10 +33,10 @@ def search():
         if name.find(args) >= 0:
             search_results['communities'].append(community.to_dict())
 
-    # for user in users:
-    #     username = user.username.lower()
-    #     if username.find(args) >= 0:
-    #         search_results['users'].append(user.to_dict())
+    for user in users:
+        username = user.username.lower()
+        if username.find(args) >= 0:
+            search_results['users'].append(user.to_dict())
 
     print('search_results--->', search_results)
     return {'results': search_results}

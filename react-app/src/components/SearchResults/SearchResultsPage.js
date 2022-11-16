@@ -60,15 +60,15 @@ const SearchResultsPage = () => {
                         </li>
                     ))}
                 </ul>
-                {/* search for users too! */}
-                {/* <ul className="community-results-ul">
+                <ul className="community-results-ul">
                     {results?.users?.map((user) => (
-                        <li onClick={() => {history.push(`/sh/${post?.community_name}/${post?.community_id}`)}} className="community-result-li" >
-                            <NavLink className='comm-sugg' to={`/sh/${post?.community_name}/${post?.community_id}`} >{post?.title}</NavLink>
-                            <p>{post?.body}</p>
+                        <li onClick={() => {history.push(`/user/${user?.username}/${user?.id}`)}} className="community-result-li" >
+                        {user?.profile_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={user?.profile_pic}></img>}
+                            <NavLink className='comm-sugg' to={`/user/${user?.username}/${user?.id}`} >{user?.username}</NavLink>
+                            <p>{user?.body}</p>
                         </li>
                     ))}
-                </ul> */}
+                </ul>
             </div>
             <div className="search-results-page-right">
                 <div className="community-suggestions-container">
