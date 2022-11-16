@@ -35,24 +35,26 @@ const SearchResultsPage = () => {
     console.log("results--->", results)
 
 
-    const posts = useSelector(state => Object.values(state.posts))
+    // const posts = useSelector(state => Object.values(state.posts))
 
     // add/remove onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}}
     // to/from community-result-li if want change whether whole result to navigate to that page
 
+    //* !!!!!!! STYLE THESE RESULTS LIKE REDDIT !!!!!!!
+
     return (
         <div className="search-results-page-container">
             <div className="search-results-page-left">
-                <ul className="community-results-ul">
-                    {results?.map((community) => (
-                        <li onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}} className="community-result-li" key={community?.id}>
-                            {community?.community_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={community?.community_pic}></img>}
-                            <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
-                            <p>{community?.description}</p>
+                <ul className="post-results-ul">
+                    {results?.posts?.map((post) => (
+                        <li onClick={() => {history.push(`/sh/${post?.community_name}/${post?.community_id}`)}} className="post-result-li" >
+                            <NavLink className='comm-sugg' to={`/sh/${post?.community_name}/${post?.community_id}`} >{post?.title}</NavLink>
+                            <p>{post?.body}</p>
                         </li>
                     ))}
                 </ul>
             </div>
+
             <div className="search-results-page-right">
                 <div className="community-suggestions-container">
                     <div className="sugg-header">
@@ -61,12 +63,26 @@ const SearchResultsPage = () => {
                     </div>
                     <p className="prem-p">Discover new guitarists! The shredder world is endlessly growing! Chug chug chug chug Meedly meedly meedly meedly MEEEEEEE</p>
                 </div>
-                {/* <div style={{visibility: "hidden"}} className="community-search-results">
-                    - display communities -
-                </div>
-                <div style={{visibility: "hidden"}} className="user-search-results">
-                    - display people -
-                </div> */}
+
+                <ul className="community-results-ul">
+                    {results?.communities?.map((community) => (
+                        <li onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}} className="community-result-li" key={community?.id}>
+                            {community?.community_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={community?.community_pic}></img>}
+                            <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
+                            <p>{community?.description}</p>
+                        </li>
+                    ))}
+                </ul>
+                <ul className="user-results-ul">
+                    {results?.users?.map((user) => (
+                        <li onClick={() => {history.push(`/user/${user?.username}/${user?.id}`)}} className="user-result-li" >
+                        {user?.profile_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={user?.profile_pic}></img>}
+                            <NavLink className='comm-sugg' to={`/user/${user?.username}/${user?.id}`} >{user?.username}</NavLink>
+                            <p>{user?.body}</p>
+                        </li>
+                    ))}
+                </ul>
+
                 <HelpLinks />
             </div>
         </div>
