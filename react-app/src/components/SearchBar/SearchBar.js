@@ -45,7 +45,7 @@ const SearchBar = () => {
                         onChange={e => setSearchInput(e.target.value)}
                         value={searchInput}
                         className='search-bar'
-                        placeholder='Search Shredder Communities'
+                        placeholder='***NEW*** Search for Posts, Communities, and Users! ***NEW***'
                     ></input>
                     <AiOutlineSearch className="search-button" onClick={handleSearch} />
                     {/* <button className="search-button" onClick={handleSearch}>Search</button> */}
