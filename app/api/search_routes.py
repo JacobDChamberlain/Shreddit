@@ -30,7 +30,8 @@ def search():
 
     for community in communities:
         name = community.name.lower()
-        if name.find(args) >= 0:
+        description = community.description.lower()
+        if name.find(args) >= 0 or description.find(args) >= 0:
             search_results['communities'].append(community.to_dict())
 
     for user in users:
