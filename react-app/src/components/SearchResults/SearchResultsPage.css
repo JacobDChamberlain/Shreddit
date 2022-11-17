@@ -54,6 +54,14 @@
     justify-content: space-between;
 }
 
+.post-result-body {
+    font-size: 12px;
+    font-family: 'IMB Plex Sans', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 18px;
+    color: #7C7C7C;
+}
+
 .post-result-li:hover {
     cursor: pointer;
     border: 1px solid #787C7E;
@@ -118,7 +126,7 @@
     font-family: 'IMB Plex Sans', Arial, sans-serif;
     font-weight: 400;
     line-height: 18px;
-    color: #7C7C7C;;
+    color: #7C7C7C;
     word-wrap: break-word;
     box-sizing: border-box;
     padding-left: 12px;

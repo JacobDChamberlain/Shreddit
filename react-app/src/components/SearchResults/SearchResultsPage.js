@@ -50,7 +50,7 @@ const SearchResultsPage = () => {
                         <li onClick={() => {history.push(`/sh/${post?.community_name}/${post?.community_id}`)}} className="post-result-li" >
                             <div>
                                 <NavLink className='comm-sugg' to={`/sh/${post?.community_name}/${post?.community_id}`} >{post?.title}</NavLink>
-                                <p>{post?.body}</p>
+                                <p className="post-result-body">{post?.body}</p>
                             </div>
                             {post?.image_url && <img className="post-result-image" src={post?.image_url}></img>}
                         </li>
