@@ -51,6 +51,7 @@
     line-height: 18px;
     background-color: #FFFFFF;
     border-radius: 4px;
+    justify-content: space-between;
 }
 
 .post-result-li:hover {
