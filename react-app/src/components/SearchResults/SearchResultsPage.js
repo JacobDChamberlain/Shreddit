@@ -48,8 +48,11 @@ const SearchResultsPage = () => {
                 <ul className="post-results-ul">
                     {results?.posts?.map((post) => (
                         <li onClick={() => {history.push(`/sh/${post?.community_name}/${post?.community_id}`)}} className="post-result-li" >
-                            <NavLink className='comm-sugg' to={`/sh/${post?.community_name}/${post?.community_id}`} >{post?.title}</NavLink>
-                            <p>{post?.body}</p>
+                            <div>
+                                <NavLink className='comm-sugg' to={`/sh/${post?.community_name}/${post?.community_id}`} >{post?.title}</NavLink>
+                                <p>{post?.body}</p>
+                            </div>
+                            {post?.image_url && <img className="post-result-image" src={post?.image_url}></img>}
                         </li>
                     ))}
                 </ul>
@@ -59,9 +62,9 @@ const SearchResultsPage = () => {
                 <div className="community-suggestions-container">
                     <div className="sugg-header">
                         <img className="shlogo" src={shlogo}></img>
-                        <h4 className="sugg-h4">Search for Shredders</h4>
+                        <h4 className="sugg-h4">Search Shreddit</h4>
                     </div>
-                    <p className="prem-p">Discover new guitarists! The shredder world is endlessly growing! Chug chug chug chug Meedly meedly meedly meedly MEEEEEEE</p>
+                    <p className="prem-p">Discover new guitarists! The shredder world is endlessly growing! Chug chug chug chug Meedly meedly meedly meedly *divebomb*</p>
                 </div>
 
                 <ul className="community-results-ul">
