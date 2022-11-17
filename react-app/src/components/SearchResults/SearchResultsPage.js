@@ -67,8 +67,10 @@ const SearchResultsPage = () => {
                 <ul className="community-results-ul">
                     {results?.communities?.map((community) => (
                         <li onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}} className="community-result-li" key={community?.id}>
-                            {community?.community_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={community?.community_pic}></img>}
-                            <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
+                            <div className="comm-res-pic-and-title">
+                                {community?.community_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={community?.community_pic}></img>}
+                                <NavLink className='comm-sugg' to={`/sh/${community?.name}/${community?.id}`} key={community?.id}>{community?.name}</NavLink>
+                            </div>
                             <p>{community?.description}</p>
                         </li>
                     ))}
@@ -76,9 +78,12 @@ const SearchResultsPage = () => {
                 <ul className="user-results-ul">
                     {results?.users?.map((user) => (
                         <li onClick={() => {history.push(`/user/${user?.username}/${user?.id}`)}} className="user-result-li" >
-                        {user?.profile_pic && <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={user?.profile_pic}></img>}
-                            <NavLink className='comm-sugg' to={`/user/${user?.username}/${user?.id}`} >{user?.username}</NavLink>
-                            <p>{user?.body}</p>
+                            <div>
+                                {user?.profile_pic ? <img onError={addDefaultImageSrc} className="comm-suggestion-pic" src={user?.profile_pic}></img>
+                                : <img className="comm-suggestion-pic" src={brokenLinkAvatar}></img>}
+                                <NavLink className='comm-sugg' to={`/user/${user?.username}/${user?.id}`} >{user?.username}</NavLink>
+                            </div>
+                            {/* <p>{user?.bio}</p> */}
                         </li>
                     ))}
                 </ul>
