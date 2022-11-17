@@ -62,7 +62,7 @@
     flex-direction: column;
     box-sizing: border-box;
     align-items: flex-start;
-    height: 69px;
+    height: auto;
     width: 310px;
     border: 1px solid #ccc;
     padding: 8px;
