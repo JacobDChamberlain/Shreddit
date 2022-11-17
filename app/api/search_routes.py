@@ -5,7 +5,7 @@ search_routes = Blueprint('search', __name__)
 
 @search_routes.route('/shred')
 def search():
-    posts = Post.query.all()
+    posts = Post.query.all() #* CLEAN UP THESE QUERIES FOR EFFICIENCY -- CHECK SQLALCHEMY DOCS SO I DONT HAVE TO QUERY.ALL()
     # print('posts--->', posts)
     args = request.args.get('search_input').lower()
 
@@ -20,7 +20,7 @@ def search():
     # print('communities--->', communities)
 
     users = User.query.all()
-    print('users--->', users)
+    # print('users--->', users)
 
     for post in posts:
         title = post.title.lower()
@@ -39,5 +39,5 @@ def search():
         if username.find(args) >= 0:
             search_results['users'].append(user.to_dict())
 
-    print('search_results--->', search_results)
+    # print('search_results--->', search_results)
     return {'results': search_results}

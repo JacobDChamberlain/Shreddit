@@ -32,7 +32,7 @@ const SearchResultsPage = () => {
     // }, [dispatch, searchInput])
 
     const results = useSelector(state => state.search.search_results)
-    console.log("results--->", results)
+    // console.log("results--->", results)
 
 
     // const posts = useSelector(state => Object.values(state.posts))
