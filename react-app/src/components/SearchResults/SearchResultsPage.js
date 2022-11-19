@@ -45,6 +45,9 @@ const SearchResultsPage = () => {
     return (
         <div className="search-results-page-container">
             <div className="search-results-page-left">
+                <div className="post-results-header">
+                    Posts
+                </div>
                 <ul className="post-results-ul">
                     {results?.posts?.map((post) => (
                         <li onClick={() => {history.push(`/sh/${post?.community_name}/${post?.community_id}`)}} className="post-result-li" >
@@ -67,6 +70,9 @@ const SearchResultsPage = () => {
                     <p className="prem-p">Discover new guitarists! The shredder world is endlessly growing! Chug chug chug chug Meedly meedly meedly meedly *divebomb*</p>
                 </div>
 
+                <div className="community-results-header">
+                    Communities
+                </div>
                 <ul className="community-results-ul">
                     {results?.communities?.map((community) => (
                         <li onClick={() => {history.push(`/sh/${community?.name}/${community?.id}`)}} className="community-result-li" key={community?.id}>
@@ -78,6 +84,10 @@ const SearchResultsPage = () => {
                         </li>
                     ))}
                 </ul>
+
+                <div className="users-results-header">
+                    People
+                </div>
                 <ul className="user-results-ul">
                     {results?.users?.map((user) => (
                         <li onClick={() => {history.push(`/user/${user?.username}/${user?.id}`)}} className="user-result-li" >
