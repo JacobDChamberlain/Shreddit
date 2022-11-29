@@ -29,11 +29,14 @@ const NavBar = () => {
           <SearchBar />
           <div className='welcome-user-div'>
             <NavLink className='welcome-username' to={`/user/${currentUser?.username}/${currentUser?.id}`}>
-            {currentUser?.profile_pic ?
-            <img className='comm-suggestion-pic' src={currentUser?.profile_pic} onError={addDefaultProfilePic} alt="profile picture"></img> :
-            <img className='comm-suggestion-pic' src={brokenLinkAvatar} alt="profile picture"></img>}
-            {currentUser?.username}
-            </NavLink>!
+              {currentUser?.profile_pic ?
+              <img className='comm-suggestion-pic' src={currentUser?.profile_pic} onError={addDefaultProfilePic} alt="profile picture"></img>
+              :
+              <img className='comm-suggestion-pic' src={brokenLinkAvatar} alt="profile picture"></img>}
+              <div className='navbar-username'>
+                {currentUser?.username}
+              </div>
+            </NavLink>
           </div>
           <LogoutButton />
       </div>

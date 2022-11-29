@@ -22,7 +22,6 @@
     row-gap: 5px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-
 }
 
 .search-result-comm-image {
@@ -46,6 +45,7 @@
 }
 
 .search-bar {
+    display: flex;
     width: 594px;
     height: 34px;
     box-sizing: border-box;
@@ -53,7 +53,9 @@
     background-color: #F6F7F8;
     border-radius: 4px;
     border: 1px solid #EDEFF1;
-    flex-grow: 1;
+    /* flex-basis: 594px; */
+    flex-grow: 3;
+    flex-shrink: 3;
     font-family: Noto Sans, Arial, sans-serif;
     font-weight: 800;
 }
@@ -82,4 +84,19 @@
 
 .search-result:hover {
     color: orangered;
+}
+
+
+.navBar__searchInput {
+    display: flex;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 800px) {
+    .navBar__searchInput {
+        width: 300px;
+        /* flex-basis: auto;
+        flex-shrink: 3 */
+    }
 }

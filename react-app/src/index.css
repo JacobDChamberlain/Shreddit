@@ -79,6 +79,8 @@ form {
 
 
 .welcome-username {
+    display: flex;
+    align-items: center;
     text-decoration: none;
 }
 
@@ -88,4 +90,14 @@ form {
 
 .welcome-username:hover {
     color: orangered;
+}
+
+
+@media screen and (max-width: 1210px) {
+    .navbar-username {
+        display: none;
+    }
+    .navBar__searchInput {
+        width: 500px;
+    }
 }
