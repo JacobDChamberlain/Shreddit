@@ -9,7 +9,7 @@ const LogoutButton = () => {
     await dispatch(logout());
   };
 
-  return <FiLogOut className='icon' onClick={onLogout}>Logout</FiLogOut>;
+  return <FiLogOut onClick={onLogout}>Logout</FiLogOut>;
 };
 
 export default LogoutButton;

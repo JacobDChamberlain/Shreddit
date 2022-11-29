@@ -34,6 +34,7 @@ form {
 .icon {
     font-size: 25px;
     cursor: pointer;
+    display: flex;
 }
 
 .demo-button {
@@ -57,7 +58,6 @@ form {
 }
 
 .home-button-nav {
-    /* font-family: ''; */
     display: flex;
     font-size: 14px;
     font-family: 'IMB Plex Sans', Arial, sans-serif;
@@ -93,23 +93,16 @@ form {
 }
 
 
-@media screen and (max-width: 1210px) {
+@media screen and (max-width: 1000px) {
     .navbar-username {
         display: none;
     }
-    .navBar__searchInput {
-        /* width: 500px; */
-        width: auto;
-    }
 }
 
-@media screen and (max-width: 800px) {
-    .navBar__searchInput {
-        width: auto;
-        /* flex-basis: auto;
-        flex-shrink: 3 */
-    }
-    .search-bar {
-        width: auto;
-    }
+@media screen and (max-width: 767px) {
+    /* resize for tablet screen */
+}
+
+@media screen and (max-width: 479px) {
+    /* resize for phone screen */
 }

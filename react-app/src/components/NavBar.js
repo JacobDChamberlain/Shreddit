@@ -38,7 +38,9 @@ const NavBar = () => {
               </div>
             </NavLink>
           </div>
-          <LogoutButton />
+          <div className='icon'>
+            <LogoutButton />
+          </div>
       </div>
     </nav>
   );

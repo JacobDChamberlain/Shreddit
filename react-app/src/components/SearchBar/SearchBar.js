@@ -28,15 +28,13 @@ const SearchBar = () => {
 
     return (
         <div className="search-bar-container">
-            <div className="navBar__searchInput">
-                <input
-                    onChange={e => setSearchInput(e.target.value)}
-                    value={searchInput}
-                    className='search-bar'
-                    placeholder='***NEW*** Search for Posts, Communities, and Users! ***NEW***'
-                ></input>
-                <AiOutlineSearch className="search-button" onClick={handleSearch} />
-            </div>
+            <input
+                onChange={e => setSearchInput(e.target.value)}
+                value={searchInput}
+                className='search-bar'
+                placeholder='Search Shreddit'
+            ></input>
+            <AiOutlineSearch className="icon" onClick={handleSearch} />
         </div>
     )
 }
