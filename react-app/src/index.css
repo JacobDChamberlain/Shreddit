@@ -34,6 +34,7 @@ form {
 .icon {
     font-size: 25px;
     cursor: pointer;
+    display: flex;
 }
 
 .demo-button {
@@ -57,7 +58,6 @@ form {
 }
 
 .home-button-nav {
-    /* font-family: ''; */
     display: flex;
     font-size: 14px;
     font-family: 'IMB Plex Sans', Arial, sans-serif;
@@ -79,6 +79,8 @@ form {
 
 
 .welcome-username {
+    display: flex;
+    align-items: center;
     text-decoration: none;
 }
 
@@ -88,4 +90,19 @@ form {
 
 .welcome-username:hover {
     color: orangered;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .navbar-username {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* resize for tablet screen */
+}
+
+@media screen and (max-width: 479px) {
+    /* resize for phone screen */
 }
