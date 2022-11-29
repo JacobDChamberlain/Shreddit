@@ -4,15 +4,17 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './SearchBar/SearchBar';
 import { HiHome } from 'react-icons/hi'
+import brokenLinkAvatar from '../images/shreddit_avatar.png';
+
+const addDefaultProfilePic = (e) => {
+  e.target.src = brokenLinkAvatar;
+}
 
 // Strange thing I've noticed:
 
-// While on a Community page, navigating to another Community page (from search result) doesn't work.
 // While on a User page, navigating to your own User page (from 'Welcome, {username}!') doesn't work.
-// Both of these will update the URL properly in the browser window,
-// but neither will load the proper page content.
-
-// Looking into this; forgive me for my bountiful rookie mistakes.
+// URL updates properly in the browser window,
+// but proper page content is not loaded.
 
 const NavBar = () => {
 
@@ -25,7 +27,14 @@ const NavBar = () => {
             <HiHome className='icon' /> Home
           </NavLink>
           <SearchBar />
-          <div className='welcome-user-div'>Welcome, <NavLink className='welcome-username' to={`/user/${currentUser?.username}/${currentUser?.id}`}>{currentUser?.username}</NavLink>!</div>
+          <div className='welcome-user-div'>
+            <NavLink className='welcome-username' to={`/user/${currentUser?.username}/${currentUser?.id}`}>
+            {currentUser?.profile_pic ?
+            <img className='comm-suggestion-pic' src={currentUser?.profile_pic} onError={addDefaultProfilePic} alt="profile picture"></img> :
+            <img className='comm-suggestion-pic' src={brokenLinkAvatar} alt="profile picture"></img>}
+            {currentUser?.username}
+            </NavLink>!
+          </div>
           <LogoutButton />
       </div>
     </nav>
