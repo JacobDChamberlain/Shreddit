@@ -98,6 +98,18 @@ form {
         display: none;
     }
     .navBar__searchInput {
-        width: 500px;
+        /* width: 500px; */
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .navBar__searchInput {
+        width: auto;
+        /* flex-basis: auto;
+        flex-shrink: 3 */
+    }
+    .search-bar {
+        width: auto;
     }
 }

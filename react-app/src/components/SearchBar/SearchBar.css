@@ -46,16 +46,17 @@
 
 .search-bar {
     display: flex;
-    width: 594px;
+    /* width: 594px; */
     height: 34px;
     box-sizing: border-box;
     padding: 0px 16px;
     background-color: #F6F7F8;
     border-radius: 4px;
     border: 1px solid #EDEFF1;
-    /* flex-basis: 594px; */
-    flex-grow: 3;
-    flex-shrink: 3;
+    max-width: 594px;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
     font-family: Noto Sans, Arial, sans-serif;
     font-weight: 800;
 }
@@ -90,13 +91,15 @@
 .navBar__searchInput {
     display: flex;
     align-items: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: auto;
+    /* width: 594px; */
+    /* width: 100%; */
 }
 
-
-@media screen and (max-width: 800px) {
-    .navBar__searchInput {
-        width: 300px;
-        /* flex-basis: auto;
-        flex-shrink: 3 */
-    }
+.search-bar-container {
+    display: flex;
+    /* width: auto; */
 }
