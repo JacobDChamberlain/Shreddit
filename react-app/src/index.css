@@ -101,21 +101,25 @@ form {
         display: none;
     }
     .home-content-left {
-        width: 100%;
         flex-grow: 1;
     }
     .create-post-form-container {
-        width: 100%;
         flex-grow: 1;
         margin-left: 16px;
     }
     .all-posts-container {
-        width: 100%;
         flex-grow: 1;
         margin-left: 16px;
     }
-    .individual-post-container {
-        width: 100%;
+    .community-page-left {
+        flex-grow: 1;
+    }
+    .community-page-right {
+        display: none;
+    }
+    .create-post-form-container-comm-page {
+        flex-grow: 1;
+        margin-left: 16px;
     }
 }
 

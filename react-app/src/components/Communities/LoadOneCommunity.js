@@ -153,24 +153,24 @@ const LoadOneCommunity = () => {
             </div>
             <div className="single-community-container">
                 <div className="community-page-left">
-                <div className="create-post-form-container-comm-page">
-                    <div>
-                        <img className="create-post-avatar" src={shravatar}></img>
-                        <input
-                            className="create-post-form-input"
-                            placeholder="Create Post"
-                            onClick={handleCreatePost}
-                        />
+                    <div className="create-post-form-container-comm-page">
+                        <div>
+                            <img className="create-post-avatar" src={shravatar}></img>
+                            <input
+                                className="create-post-form-input"
+                                placeholder="Create Post"
+                                onClick={handleCreatePost}
+                            />
+                        </div>
                     </div>
-                </div>
-                {/* <div className="sort-buttons-container">
-                    <button className="sort-button">Best</button>
-                    <button className="sort-button">Hot</button>
-                    <button className="sort-button">New</button>
-                    <button className="sort-button">Top</button>
-                    <button className="sort-button">...</button>
-                    <button className="sort-button">Card</button>
-                </div> */}
+                    {/* <div className="sort-buttons-container">
+                        <button className="sort-button">Best</button>
+                        <button className="sort-button">Hot</button>
+                        <button className="sort-button">New</button>
+                        <button className="sort-button">Top</button>
+                        <button className="sort-button">...</button>
+                        <button className="sort-button">Card</button>
+                    </div> */}
                     <div className="all-posts-container">
                         {posts?.map(post => (
                             <Post key={post.id} post={post} communityId={post.community_id} />

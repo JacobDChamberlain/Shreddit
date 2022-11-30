@@ -63,6 +63,8 @@
 .community-page-left {
     width: 640px;
     margin-right: 16px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .community-page-right {
