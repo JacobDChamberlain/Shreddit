@@ -154,14 +154,12 @@ const LoadOneCommunity = () => {
             <div className="single-community-container">
                 <div className="community-page-left">
                     <div className="create-post-form-container-comm-page">
-                        <div>
-                            <img className="create-post-avatar" src={shravatar}></img>
-                            <input
-                                className="create-post-form-input"
-                                placeholder="Create Post"
-                                onClick={handleCreatePost}
-                            />
-                        </div>
+                        <img className="create-post-avatar" src={shravatar}></img>
+                        <input
+                            className="create-post-form-input"
+                            placeholder="Create Post"
+                            onClick={handleCreatePost}
+                        />
                     </div>
                     {/* <div className="sort-buttons-container">
                         <button className="sort-button">Best</button>

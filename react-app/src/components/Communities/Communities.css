@@ -57,7 +57,7 @@
     height: 58px;
     box-sizing: border-box;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
 }
 
 .community-page-left {
