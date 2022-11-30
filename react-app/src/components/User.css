@@ -6,7 +6,6 @@
 .user-profile-page-left {
     display: flex;
     flex-direction: column;
-    /* height: 487px; */
     height: auto;
     width: 626px;
     margin-right: 16px;

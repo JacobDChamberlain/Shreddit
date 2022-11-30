@@ -70,21 +70,16 @@ function User() {
 
   return (
     <div className='user-profile-page-container'>
-
       <div className='user-profile-page-left'>
-
         <div className="all-posts-container-user-page">
             {posts.map(post => (
                 <Post key={post.id} post={post} communityId={post.community_id} />
             ))}
         </div>
-
       </div>
 
       <div className='user-profile-page-right'>
-
         <div className='user-info-container'>
-
           <ul className='user-info-ul'>
             <li>
               <strong>Username</strong> {userInfo?.username}
@@ -102,7 +97,6 @@ function User() {
           {user?.id === userInfo?.id
           &&
           <MdModeEditOutline className='icon' onClick={() => setShowUpdateUserForm(true)} />}
-
         </div>
 
         {showUpdateUserForm

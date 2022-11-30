@@ -121,10 +121,13 @@ form {
         flex-grow: 1;
         margin-left: 16px;
     }
-}
-
-@media screen and (max-width: 960px) {
-
+    .user-profile-page-left {
+        flex-grow: 1; /** AAAAAAAAAAAA **/
+        margin-left: 16px;
+    }
+    .user-profile-page-right {
+        display: none; /** WHY DOES THIS NOT WORK??? **/
+    }
 }
 
 @media screen and (max-width: 767px) {
