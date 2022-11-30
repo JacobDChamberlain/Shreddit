@@ -6,6 +6,8 @@
 }
 
 .home-content-left {
+    display: flex;
+    flex-wrap: wrap;
     width: 640px;
     margin-right: 16px;
 }
@@ -23,6 +25,7 @@
     box-sizing: border-box;
     justify-content: center;
     align-items: stretch;
+    flex-shrink: 1;
 }
 
 .create-post-avatar {
