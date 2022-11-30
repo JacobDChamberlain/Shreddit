@@ -135,6 +135,13 @@ form {
     .create-post-form-input {
         flex-grow: 1; /** FOAD CSS IM COMIN FOR YOU TOMORROW! **/
     }
+    .submit-page-left {
+        flex-grow: 1;
+        margin-left: 16px;
+    }
+    .submit-page-right {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 767px) {
