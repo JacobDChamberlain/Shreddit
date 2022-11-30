@@ -25,7 +25,6 @@
     box-sizing: border-box;
     justify-content: center;
     align-items: stretch;
-    flex-shrink: 1;
 }
 
 .create-post-avatar {

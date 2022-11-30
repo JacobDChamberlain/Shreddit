@@ -128,6 +128,12 @@ form {
     .user-profile-page-right {
         display: none; /** WHY DOES THIS NOT WORK??? **/
     }
+    .create-post-form-container {
+        flex-grow: 1; /** WHY THIS NO WORK EITHER AAAAAGH **/
+    }
+    .create-post-form-input {
+        flex-grow: 1; /** FOAD CSS IM COMIN FOR YOU TOMORROW! **/
+    }
 }
 
 @media screen and (max-width: 767px) {
