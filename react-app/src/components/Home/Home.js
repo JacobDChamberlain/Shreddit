@@ -100,12 +100,12 @@ const Home = () => {
         <div className="home-container">
             <div className="home-content-left">
                 <div className="create-post-form-container">
-                        <img className="create-post-avatar" src={shravatar}></img>
-                        <input
-                            className="create-post-form-input"
-                            placeholder="Create Post"
-                            onClick={handleCreatePost}
-                        />
+                    <img className="create-post-avatar" src={shravatar}></img>
+                    <input
+                        className="create-post-form-input"
+                        placeholder="Create Post"
+                        onClick={handleCreatePost}
+                    />
                 </div>
                 {/* <div className="sort-buttons-container">
                     <button className="sort-button">Best</button>
