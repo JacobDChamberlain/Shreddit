@@ -65,6 +65,7 @@
     margin-right: 16px;
     display: flex;
     flex-wrap: wrap;
+    height: 0px;
 }
 
 .community-page-right {
