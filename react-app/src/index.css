@@ -97,6 +97,43 @@ form {
     .navbar-username {
         display: none;
     }
+    .home-content-right {
+        display: none;
+    }
+    .home-content-left {
+        flex-grow: 1;
+    }
+    .create-post-form-container {
+        flex-grow: 1;
+        margin-left: 16px;
+    }
+    .all-posts-container {
+        flex-grow: 1;
+        margin-left: 16px;
+    }
+    .community-page-left {
+        flex-grow: 1;
+    }
+    .community-page-right {
+        display: none;
+    }
+    .create-post-form-container-comm-page {
+        flex-grow: 1;
+        margin-left: 16px;
+    }
+    .user-profile-page-left {
+        flex-grow: 1; /** AAAAAAAAAAAA **/
+        margin-left: 16px;
+    }
+    .user-profile-page-right {
+        display: none; /** WHY DOES THIS NOT WORK??? **/
+    }
+    .create-post-form-container {
+        flex-grow: 1; /** WHY THIS NO WORK EITHER AAAAAGH **/
+    }
+    .create-post-form-input {
+        flex-grow: 1; /** FOAD CSS IM COMIN FOR YOU TOMORROW! **/
+    }
 }
 
 @media screen and (max-width: 767px) {

@@ -6,6 +6,8 @@
 }
 
 .home-content-left {
+    display: flex;
+    flex-wrap: wrap;
     width: 640px;
     margin-right: 16px;
 }
