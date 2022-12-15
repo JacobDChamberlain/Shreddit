@@ -89,7 +89,7 @@ const SubmitPostPage = () => {
         }
     }
 
-    // console.log("validationerrors--->", validationErrors)
+    // testing to make sure xcode and git still work after mac software update
 
     return (
         <>
